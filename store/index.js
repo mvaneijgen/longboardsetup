@@ -15,7 +15,8 @@ const createStore = () => {
       ],
       setup: [
         {
-          id: "0000001",
+          id: 1,
+          wpID: "",
           type: "deck",
           view: "advanced",
           title: "Subsonic Century 36",
@@ -26,7 +27,8 @@ const createStore = () => {
           price: 182.95
         },
         {
-          id: "0000002",
+          id: 2,
+          wpID: "",
           type: "trucks",
           view: "advanced",
           title: "Surf Rodz 30mm x 10mm Axle Extension",
@@ -36,7 +38,8 @@ const createStore = () => {
           price: 58.000043
         },
         {
-          id: "0000003",
+          id: 3,
+          wpID: "",
           type: "wheels",
           view: "advanced",
           title: "Alva Conical 59mm Aqua Wheels",
@@ -46,7 +49,8 @@ const createStore = () => {
           price: 63.95
         },
         {
-          id: "0000004",
+          id: 4,
+          wpID: "",
           type: "custom",
           view: "simple",
           title: "Orangatang Nipple Double Barrel Bushings hard",

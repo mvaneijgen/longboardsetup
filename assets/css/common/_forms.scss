@@ -32,13 +32,18 @@ input[type="submit"],
   border-color: $brand-one-lighten;
   background-color: $brand-one-lighten;
   font-size: 1rem;
+  color: $brand-light;
+  text-decoration: none;
   padding: 10px $base-margin;
   border-radius: $base-radius;
 
   transition: background-color, border-color, opacity;
   transition-duration: 300ms;
   transition-timing-function: ease;
-
+  &:hover {
+    background-color: $brand-two;
+    border-color: $brand-two;
+  }
   &:focus {
     outline: none;
     border-color: $brand-one;
@@ -49,6 +54,9 @@ input[type="submit"],
     border-color: $brand-grey;
     opacity: $base-alpha;
   }
+}
+input[type="submit"] {
+  background-color: $brand-two;
 }
 //------------------------------------------------------//
 // END Buttons/submit

@@ -24,26 +24,28 @@
         <textarea v-model="item.title" id="selectedProductName" cols="30" rows="4"></textarea>
       </div>
 
-      <input type="submit" value="Add +" :disabled="item.type == '' || item.title == ''">
+      <nuxt-link to="/" class="btn">Back</nuxt-link>
+      <input type="submit" value="Add +/change" :disabled="item.type == '' || item.title == ''">
 
     </form>
+    <button class="btn" @click="deleteMe">delete</button>
 
+    <pre>{{item}}</pre>
   </div>
 </template>
 
 <script>
 export default {
-  // props: ['item'],
   name: 'add',
   data() {
     return {
       types: this.$store.state.types,
       item: {
-        id: "",
-        type: "",
+        id: 0,
+        type: '',
         view: 'simple',
-        location: "",
-        title: "",
+        location: '',
+        title: '',
       },
     }
   }, // End data
@@ -53,8 +55,18 @@ export default {
       this.$router.push({
         path: '/'
       });
+    },
+    deleteMe: function(){
+      // confirm(`are you sure you want to delete ${this.item.title}?`)
     }
   }, // Are functions run on user actions example @click or on lifecycle hooks
+  created() {
+    this.item.id = this.$route.query.id;
+    // console.warn(this.$route.query);
+    this.item.type = this.$route.query.type;
+    this.item.location = this.$route.query.location;
+    this.item.title = this.$route.query.title;
+  },
 }
 
 </script>
@@ -63,5 +75,8 @@ export default {
 @import "~/assets/css/common/_variables.scss";
 select {
   text-transform: capitalize;
+}
+pre {
+  color: $brand-light;
 }
 </style>

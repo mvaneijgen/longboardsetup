@@ -1,5 +1,5 @@
 <template>
-  <div class="alloy-items alloy-cards" :data-type="item.type" :data-view="item.view">
+  <div class="alloy-items alloy-cards" :data-type="item.type" :data-view="item.view" @click="itemEdit">
     <div class="inner">
       <img v-if="item.view != 'simple'" :src="'http://alloy.work/codepen/QBOyJj/' + item.image" :alt="item.title">
       <img v-else src="http://alloy.work/codepen/QBOyJj/custom.jpg" :alt="item.title">
@@ -28,26 +28,22 @@ export default {
   methods: {
     toggleInfo: function (event) {
       event.target.parentNode.classList.toggle('showInfo');
+    },
+    itemEdit: function() {
+      // 📝 how to push prop 'item' to this page?
+      this.$router.push({
+        path: '/setup/add',
+        query: {
+          id: this.item.id,
+          type: this.item.type,
+          title: this.item.title,
+          location: this.item.location,
+        }
+        // name: 'setup-add',
+        // params: { index: this.item.id },
+      });
     }
-  }
-  // More info at https://css-tricks.com/methods-computed-and-watchers-in-vue-js/
-  // computed: {}, // Data with computed logic
-  // methods: {}, // Are functions run on user actions example @click or on lifecycle hooks
-  // watch: {}, // Watchs data, needs to have the same name as the data that is being watched
-
-
-  // // Lifecycle hook. Check for more https://vuejs.org/v2/guide/instance.html or https://vuejs.org/v2/api/#Options-Lifecycle-Hooks
-  // beforeCreate() {}, 
-  // created() {}, // Each time the app is created (once?)
-  // beforeMount() {}, 
-  // mounted() {}, // Be sure all elements are drawn. Here you can use normal Javascript to interact with your page
-  // beforeUpdate() {}, 
-  // update() {}, 
-  // activated() {},
-  // deactivated() {},
-  // beforeDestroy() {},
-  // destroyed() {},
-  // errorCaptured() {},
+  },
 }
 </script>
 
