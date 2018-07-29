@@ -1,0 +1,179 @@
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  border: 2px solid;
+  border-color: $brand-one-lighten;
+  border-radius: $base-radius;
+  background-color: $brand-light;
+  display: block;
+  padding: $base-margin;
+  font-size: 1rem;
+  margin-bottom: $base-margin * 2;
+
+  &:focus {
+    outline: none;
+    border-color: $brand-two;
+  }
+}
+
+select {
+  appearance: none;
+}
+//------------------------------------------------------//
+// Buttons/submit
+//------------------------------------------------------//
+input[type="submit"],
+.btn {
+  border: 2px solid;
+  border-color: $brand-one-lighten;
+  background-color: $brand-one-lighten;
+  font-size: 1rem;
+  padding: 10px $base-margin;
+  border-radius: $base-radius;
+
+  transition: background-color, border-color, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+
+  &:focus {
+    outline: none;
+    border-color: $brand-one;
+  }
+  &:disabled,
+  &[disabled] {
+    background-color: $brand-grey;
+    border-color: $brand-grey;
+    opacity: $base-alpha;
+  }
+}
+//------------------------------------------------------//
+// END Buttons/submit
+//------------------------------------------------------//
+.alloy-form-group {
+  display: flex;
+  justify-content: space-between;
+  > * {
+    flex-grow: 1;
+
+    &:first-child {
+      margin-right: $base-margin;
+    }
+  }
+}
+//------------------------------------------------------//
+// Form labels
+//------------------------------------------------------//
+.alloy-input-field {
+  position: relative;
+  label {
+    font-size: 0.7rem;
+    line-height: 1em;
+    position: absolute;
+    top: -10px;
+    left: 7px;
+    background-color: $brand-light;
+    padding: 5px 10px;
+    border-radius: $base-radius;
+  }
+}
+
+//------------------------------------------------------//
+// END Form labels
+//------------------------------------------------------//
+//------------------------------------------------------//
+// Custom toggle slider
+//------------------------------------------------------//
+.toggle {
+  display: inline-block;
+}
+.tgl {
+  display: none;
+  // add default box-sizing for this scope
+  &,
+  &:after,
+  &:before,
+  & *,
+  & *:after,
+  & *:before,
+  & + .tgl-btn {
+    box-sizing: border-box;
+    &::selection {
+      background: none;
+    }
+  }
+
+  + .tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2.3em;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    &:after,
+    &:before {
+      position: relative;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+    }
+
+    &:after {
+      left: 0;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:checked + .tgl-btn:after {
+    left: 50%;
+  }
+}
+
+.tgl-ios {
+  + .tgl-btn {
+    background-color: $brand-one-lighten;
+    border-radius: 2em;
+    padding: 5px;
+    transition: all 0.4s ease;
+    // border: 1px solid #e8eae9;
+    &:after {
+      border-radius: 2em;
+      background: $brand-light;
+      transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        padding 0.3s ease, margin 0.3s ease;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    &:hover:after {
+      will-change: padding;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 0 2em $brand-light;
+      &:after {
+        padding-right: 0.8em;
+      }
+    }
+  }
+
+  &:checked + .tgl-btn {
+    background: $brand-two;
+    &:active {
+      box-shadow: none;
+      &:after {
+        margin-left: -0.8em;
+      }
+    }
+  }
+}
+//------------------------------------------------------//
+// END Custom toggle slider
+//------------------------------------------------------//

@@ -3,16 +3,21 @@ import Vuex from "vuex";
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      items: [],
-      currentItem: {},
-      errors: [],
       title: "Longboard Setup",
-      by: "Mitchel van Eijgen",
-      description: "",
+      types: [
+        "trucks",
+        "wheels",
+        "bearings",
+        "bushings",
+        "pivot cups",
+        "brackets",
+        "custom"
+      ],
       setup: [
         {
           id: "0000001",
           type: "deck",
+          view: "advanced",
           title: "Subsonic Century 36",
           brand: "Subsonic",
           description:
@@ -23,6 +28,7 @@ const createStore = () => {
         {
           id: "0000002",
           type: "trucks",
+          view: "advanced",
           title: "Surf Rodz 30mm x 10mm Axle Extension",
           brand: "Surf Rodz",
           description: "Surf Rodz 30mm x 10mm axle extension",
@@ -32,6 +38,7 @@ const createStore = () => {
         {
           id: "0000003",
           type: "wheels",
+          view: "advanced",
           title: "Alva Conical 59mm Aqua Wheels",
           brand: "Alva",
           description: "Slight Inset Bearings",
@@ -41,13 +48,24 @@ const createStore = () => {
         {
           id: "0000004",
           type: "custom",
+          view: "simple",
           title: "Orangatang Nipple Double Barrel Bushings hard",
           brand: "",
           description: "",
           image: "",
           price: ""
         }
-      ]
+      ],
+      _advancedOn: false,
+      // get advancedOn() {
+      //   return this._advancedOn;
+      // },
+      // set advancedOn(value) {
+      //   this._advancedOn = value;
+      // },
+      decks: [],
+      trucks: [],
+      wheels: []
     },
     mutations: {
       add(state, payload) {

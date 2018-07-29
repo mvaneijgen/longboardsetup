@@ -3,7 +3,8 @@ $main-sm-columns: 12;
 $sidebar-sm-columns: 4;
 
 // Colors
-$brand-one: #1a155b;
+$brand-one: #0f0227;
+$brand-one-lighten: lighten($brand-one, 30%);
 $brand-two: #e64;
 $brand-three: #0ba;
 $brand-four: #3fa986;
@@ -14,8 +15,9 @@ $brand-grey: #ccc;
 // Extra
 $base-margin: 15px;
 $base-alpha: 0.6;
-$base-radius: 3px;
+$base-radius: 5px;
 
+// CSS Grid
 $base-grid-row: 3;
 
 $font-base: "Roboto", sans-serif;

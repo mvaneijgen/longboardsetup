@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: $brand-one;
   font-size: 16px;
@@ -15,126 +18,12 @@ p {
   margin-bottom: $base-margin;
 }
 //------------------------------------------------------//
-// Items
+// Pages
 //------------------------------------------------------//
-.alloy-cards {
-  background-color: $brand-light;
-  border-radius: $base-radius;
-  position: relative;
-  > .inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-}
-.alloy-items {
-  .alloy-content {
-    padding: $base-margin;
-    color: $brand-light;
-    background-color: lighten($brand-one, 20%);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: inline-block;
-    opacity: 0;
-    transition: opacity;
-    transition-duration: 300ms;
-    transition-timing-function: ease;
-
-    p {
-      margin: 0;
-    }
-    a {
-      color: $brand-light;
-    }
-    .alloy-meta {
-      text-transform: capitalize;
-    }
-    .alloy-meta,
-    a {
-      font-size: 0.8rem;
-    }
-  }
-  button {
-    position: absolute;
-    bottom: $base-margin;
-    right: $base-margin;
-  }
-
-  // Toggle stuffalign-content
-  .showInfo {
-    .alloy-content {
-      opacity: 1;
-    }
-  }
-  // END Toggle stuffalign-content
-}
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-[data-type="custom"] {
-  .alloy-content {
-    margin-left: 120px;
-    width: auto;
-    opacity: 1;
-    background-color: transparent;
-    color: $brand-dark;
-    position: relative;
-    a {
-      color: $brand-dark;
-    }
-  }
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    display: inline-block;
-    // object-fit: none;
-    // height: 100%;
-  }
-}
-//------------------------------------------------------//
-// END Items
-//------------------------------------------------------//
-//------------------------------------------------------//
-// CSS Grid settings
-//------------------------------------------------------//
-.alloy-setup {
+.alloy-page {
   max-width: 700px;
-  // background-color: rgba($brand-grey, .2);
   margin: 0 auto;
-  // CSS grid
-  > .inner {
-    display: grid;
-    // grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    // grid-auto-columns: minmax(250px, auto);
-    // grid-template-rows: $base-margin*2;
-    grid-auto-rows: $base-margin * 2;
-    grid-row-gap: $base-margin;
-    grid-column-gap: $base-margin;
-  }
 }
-// Items
-.alloy-cards {
-  grid-column: span 1;
-  grid-row: span $base-grid-row * 2;
-}
-[data-type="deck"] {
-  grid-row: span $base-grid-row * 4;
-}
-[data-type="custom"] {
-  grid-column: span 1;
-  @media only screen and (min-width: 500px) {
-    grid-column: span 2;
-  }
-  grid-row: span $base-grid-row;
-}
-
 //------------------------------------------------------//
-// END CSS Grid settings
+// END Pages
 //------------------------------------------------------//
