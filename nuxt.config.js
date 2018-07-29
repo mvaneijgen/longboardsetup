@@ -2,7 +2,7 @@ const routerBase =
   process.env.DEPLOY_ENV === "GH_PAGES"
     ? {
         router: {
-          base: "/longboardsetup/"
+          base: "/vanzwartnaargroen/"
         }
       }
     : {};
@@ -12,6 +12,7 @@ module.exports = {
   ** Headers of the page
   */
   css: ["@/assets/css/main.scss"],
+  ...routerBase,
   head: {
     title: "Longboard Setup",
     meta: [
