@@ -5,7 +5,7 @@
       <label @click="advancedToggle" class="tgl-btn" for="cb2"></label>
     </div>
 
-    <span>{{ this.$store.state._advancedOn }} Looking for more items? Enable advanced mode.</span>
+    <span>Looking for more items? Enable advanced mode.</span>
   </div>
 </template>
 

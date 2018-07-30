@@ -4,7 +4,7 @@
     <div class="alloy-setup">
       <div class="inner">
 
-        <Item v-for="item in this.$store.state.setup" :key="item.id" :item="item" />
+        <Item v-for="item in this.$store.state.setup.setupCurrent" :key="item.id" :item="item" />
 
         <ItemAdd v-show="_advancedOn" />
 
@@ -21,6 +21,7 @@ import ItemAdd from '@/components/setup/ItemAdd.vue';
 
 
 export default {
+  transition: 'page-alt',
   components: {
     Item,
     ItemAdd,
@@ -29,7 +30,7 @@ export default {
   computed: {
     _advancedOn: {
       get () {
-        return this.$store.state._advancedOn;
+        return this.$store.state.setup._advancedOn;
       },
     },
   }

@@ -1,0 +1,147 @@
+//------------------------------------------------------//
+// Page transtions
+//------------------------------------------------------//
+$base-transition: 300ms;
+// hide scrollbars when transtioning
+.page-enter-active,
+.page-leave-active,
+.page-enter,
+.page-leave-to {
+  // overflow: hidden;
+}
+
+// Set the transtions on all states
+.page-enter-active,
+.page-leave-active {
+  // transition: transform, opacity;
+  // transition-duration: 300ms * 4;
+  // transition-timing-function: ease;
+}
+.page-enter,
+.page-leave-to {
+  // opacity: 0;
+}
+.page-enter-active {
+  animation-name: slideInPop;
+  animation-duration: $base-transition * 3;
+  animation-delay: 0s;
+  animation-timing-function: ease-out; // find more fancy onece over at https://matthewlein.com/tools/ceaser ease, ease-in, ease-out, ease-in-out, linear, step-start, step-end;
+  animation-direction: alternate; // normal, reverse, alternate, alternate-reverse
+  animation-iteration-count: 1; // infinite or number
+  animation-fill-mode: forwards; // none, forwards, backwards, both
+  animation-play-state: running; // running, paused
+}
+@keyframes slideInPop {
+  0% {
+    opacity: 0;
+    transform: translateX(100vh) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+    transform: translateX(0) scale(0.8);
+  }
+  100% {
+    animation-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+    transform: translateX(0) scale(1);
+  }
+}
+
+.page-leave-to {
+  animation-name: slideOut;
+  animation-duration: $base-transition * 3;
+  animation-delay: 0s;
+  animation-timing-function: ease-out; // find more fancy onece over at https://matthewlein.com/tools/ceaser ease, ease-in, ease-out, ease-in-out, linear, step-start, step-end;
+  animation-direction: alternate; // normal, reverse, alternate, alternate-reverse
+  animation-iteration-count: 1; // infinite or number
+  animation-fill-mode: forwards; // none, forwards, backwards, both
+  animation-play-state: running; // running, paused
+}
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100vh);
+  }
+}
+// Page alternative
+.page-alt-enter-active {
+  animation-name: slideInPopReverse;
+  animation-duration: $base-transition * 3;
+  animation-delay: 0s;
+  animation-timing-function: ease-out; // find more fancy onece over at https://matthewlein.com/tools/ceaser ease, ease-in, ease-out, ease-in-out, linear, step-start, step-end;
+  animation-direction: alternate; // normal, reverse, alternate, alternate-reverse
+  animation-iteration-count: 1; // infinite or number
+  animation-fill-mode: forwards; // none, forwards, backwards, both
+  animation-play-state: running; // running, paused
+}
+@keyframes slideInPopReverse {
+  0% {
+    opacity: 0;
+    transform: translateX(-100vh) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+    transform: translateX(0) scale(0.8);
+  }
+  100% {
+    animation-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+    transform: translateX(0) scale(1);
+  }
+}
+
+.page-alt-leave-to {
+  animation-name: slideOutReverse;
+  animation-duration: $base-transition * 3;
+  animation-delay: 0s;
+  animation-timing-function: ease-out; // find more fancy onece over at https://matthewlein.com/tools/ceaser ease, ease-in, ease-out, ease-in-out, linear, step-start, step-end;
+  animation-direction: alternate; // normal, reverse, alternate, alternate-reverse
+  animation-iteration-count: 1; // infinite or number
+  animation-fill-mode: forwards; // none, forwards, backwards, both
+  animation-play-state: running; // running, paused
+}
+@keyframes slideOutReverse {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100vh);
+  }
+}
+//-----------------------------------------------------//
+// END Page transtions
+//------------------------------------------------------//
+//------------------------------------------------------//
+// UI transtions /starr
+//------------------------------------------------------//
+.ui-slide-enter-active,
+.ui-slide-leave-active {
+  transition: transform, opacity;
+  transition-duration: $base-transition * 3;
+  transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+}
+.ui-slide-enter,
+.ui-slide-leave-to {
+  opacity: 0;
+  transform: translateY(300px);
+}
+.ui-slide-enter-to,
+.ui-slide-leave {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alloy-intro {
+  > .inner {
+    max-width: 650px;
+  }
+}
+//------------------------------------------------------//
+// END UI transtions /starr
+//------------------------------------------------------//

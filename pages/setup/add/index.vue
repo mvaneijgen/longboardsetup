@@ -39,7 +39,7 @@ export default {
   name: 'add',
   data() {
     return {
-      types: this.$store.state.types,
+      types: this.$store.state.items.types,
       item: {
         id: 0,
         type: '',
@@ -51,7 +51,7 @@ export default {
   }, // End data
   methods: {
     handleSubmit: function() {
-      this.$store.state.setup.push(this.item);
+      this.$store.state.setup.setupCurrent.push(this.item);
       this.$router.push({
         path: '/'
       });
