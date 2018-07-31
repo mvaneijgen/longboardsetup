@@ -27,3 +27,75 @@ p {
 //------------------------------------------------------//
 // END Pages
 //------------------------------------------------------//
+//------------------------------------------------------//
+// CSS Grid settings
+//------------------------------------------------------//
+.alloy-select-grid,
+.alloy-setup {
+  // max-width: 700px;
+  // margin: 0 auto;
+  // background-color: rgba($brand-grey, .2);
+  // CSS grid
+  > .inner {
+    display: grid;
+    // grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    // grid-auto-columns: minmax(250px, auto);
+    // grid-template-rows: $base-margin*2;
+    grid-auto-rows: $base-margin * 2;
+    grid-row-gap: $base-margin;
+    grid-column-gap: $base-margin;
+  }
+}
+// Items
+.alloy-cards {
+  position: relative;
+  grid-column: span 2;
+  overflow: hidden;
+  // grid-column: span 1;
+  // @media only screen and (min-width: 500px) {
+  //   grid-column: span 2;
+  // }
+  grid-row: span $base-grid-row;
+}
+[data-type="deck"],
+[data-type="wheels"],
+[data-type="trucks"] {
+  grid-column: span 1;
+}
+[data-type="deck"] {
+  grid-row: span $base-grid-row * 4;
+}
+
+[data-type="wheels"],
+[data-type="trucks"] {
+  grid-row: span $base-grid-row;
+  grid-column: span 1;
+  grid-row: span $base-grid-row * 2;
+}
+
+// [data-type="add"],
+// [data-type="custom"] {
+//   grid-column: span 1;
+//   @media only screen and (min-width: 500px) {
+//     grid-column: span 2;
+//   }
+//   grid-row: span $base-grid-row;
+// }
+
+//------------------------------------------------------//
+// END CSS Grid settings
+//------------------------------------------------------//
+//------------------------------------------------------//
+// Items select list
+//------------------------------------------------------//
+// .alloy-page.alloy-page--type {
+//   > * {
+//     display: inline-block;
+//     width: 32%;
+//     margin: 5px;
+//   }
+// }
+//------------------------------------------------------//
+// END Items select list
+//------------------------------------------------------//

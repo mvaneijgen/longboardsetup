@@ -6,7 +6,7 @@
 
         <Item v-for="item in this.$store.state.setup.setupCurrent" :key="item.id" :item="item" />
 
-        <ItemAdd v-show="_advancedOn" />
+        <ItemAdd v-show="advancedOn" />
 
       </div>
       <AdvancedToggle />
@@ -19,7 +19,6 @@ import Item from '@/components/setup/Item.vue';
 import AdvancedToggle from '@/components/setup/AdvancedToggle.vue';
 import ItemAdd from '@/components/setup/ItemAdd.vue';
 
-
 export default {
   transition: 'page-alt',
   components: {
@@ -28,9 +27,9 @@ export default {
     AdvancedToggle,
   },
   computed: {
-    _advancedOn: {
+    advancedOn: {
       get () {
-        return this.$store.state.setup._advancedOn;
+        return this.$store.state.setup.advancedOn;
       },
     },
   }

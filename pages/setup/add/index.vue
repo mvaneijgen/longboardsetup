@@ -1,5 +1,6 @@
 <template>
   <div class="alloy-page">
+
     <form @submit.prevent="handleSubmit">
 
       <div class="alloy-form-group">
@@ -28,6 +29,7 @@
       <input type="submit" value="Add +/change" :disabled="item.type == '' || item.title == ''">
 
     </form>
+
     <button class="btn" @click="deleteMe">delete</button>
 
     <pre>{{item}}</pre>
@@ -51,12 +53,13 @@ export default {
   }, // End data
   methods: {
     handleSubmit: function() {
-      this.$store.state.setup.setupCurrent.push(this.item);
+      this.$store.commit('setup/setupAdd', this.item);
       this.$router.push({
         path: '/'
       });
     },
     deleteMe: function(){
+      this.$store.commit('setup/setupAdd', this.item);
       // confirm(`are you sure you want to delete ${this.item.title}?`)
     }
   }, // Are functions run on user actions example @click or on lifecycle hooks
