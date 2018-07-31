@@ -1,6 +1,6 @@
 <template>
   <div class="alloy-items alloy-cards" :data-type="item.type" :data-view="item.view">
-    <div class="inner">
+    <div class="inner" @click="itemEdit">
       <img v-if="item.view != 'simple'" :src="'http://alloy.work/codepen/QBOyJj/' + item.image" :alt="item.title">
       <img v-else src="http://alloy.work/codepen/QBOyJj/custom.jpg" :alt="item.title">
       <div class="alloy-content">
@@ -13,7 +13,7 @@
         <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search for this product</a>
       </div>
     </div>
-    <button v-if="item.view != 'simple'" @click="itemEdit">info</button>
+    <button v-if="item.view != 'simple'" @click="toggleInfo">info</button>
 
   </div>
 </template>
