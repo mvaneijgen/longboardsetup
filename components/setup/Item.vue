@@ -1,7 +1,7 @@
 <template>
   <div class="alloy-items alloy-cards" :data-type="item.type" :data-view="item.view">
     <div class="inner" @click="itemEdit">
-      <img v-if="item.view != 'simple'" :src="'http://alloy.work/codepen/QBOyJj/' + item.image" :alt="item.title">
+      <img v-if="item.view != 'simple'" :src="item.images.full" :alt="item.title">
       <img v-else src="http://alloy.work/codepen/QBOyJj/custom.jpg" :alt="item.title">
       <div class="alloy-content">
         <div class="alloy-meta">

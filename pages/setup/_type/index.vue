@@ -2,28 +2,32 @@
   <div class="alloy-page alloy-page--type">
     <div class="alloy-select-grid">
       <div class="inner">
-        <ItemAPI v-for="item in this.$store.state.items.decks" :key="item.id" :item="item" />
+        <Item v-for="item in itemsType" :key="item.id" :item="item" />
       </div>
     </div>
-    <h1>raw data</h1>
-    <pre>{{ this.$store.state.items.decks }}</pre>
   </div>
 </template>
 
 <script>
-import ItemAPI from '@/components/setup/ItemAPI.vue';
+import Item from '@/components/setup/Item.vue';
 
 export default {
   name: 'type',
   components: {
-    ItemAPI,
+    Item,
   },
   middleware: "api",
   data() {
     return {
-      
     }
   }, // End data
+  computed: {
+    itemsType: {
+      get() { 
+        return this.$store.state.items[this.$route.params.type]; 
+      }
+    },
+  }
 }
 </script>
 

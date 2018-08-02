@@ -14,8 +14,14 @@ export const state = () => ({
 });
 
 export const mutations = {
-  add(state, payload) {
+  addDecks(state, payload) {
     state.decks = payload;
+  },
+  addTrucks(state, payload) {
+    state.trucks = payload;
+  },
+  addWheels(state, payload) {
+    state.wheels = payload;
   },
   error(state, payload) {},
 };

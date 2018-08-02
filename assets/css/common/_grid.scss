@@ -65,6 +65,8 @@ p {
 [data-type="trucks"] {
   grid-column: span 1;
 }
+
+[data-type="decks"],
 [data-type="deck"] {
   grid-row: span $base-grid-row * 4;
 }
