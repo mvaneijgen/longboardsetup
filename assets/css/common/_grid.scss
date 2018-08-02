@@ -6,6 +6,7 @@ body {
   font-size: 16px;
   line-height: 1.4em;
   font-family: sans-serif;
+  color: yellow; // detlete me
 }
 h1,
 h2,
@@ -59,6 +60,7 @@ p {
   grid-row: span $base-grid-row;
 }
 [data-type="deck"],
+[data-type="decks"],
 [data-type="wheels"],
 [data-type="trucks"] {
   grid-column: span 1;

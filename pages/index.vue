@@ -10,6 +10,7 @@
 
       </div>
       <AdvancedToggle />
+      <pre>{{ this.$store.state.items.decks }}</pre>
     </div>
   </div>
 </template>

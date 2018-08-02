@@ -6,18 +6,19 @@ export const state = () => ({
     "bushings",
     "pivot cups",
     "brackets",
-    "custom"
+    "custom",
   ],
   decks: [],
   trucks: [],
-  wheels: []
+  wheels: [],
 });
 
-// export const mutations = {
-//   add(state, title) {
-//     state.list.push(title);
-//   }
-// };
+export const mutations = {
+  add(state, payload) {
+    state.decks = payload;
+  },
+  error(state, payload) {},
+};
 
 // export const getters = {
 //   get(state) {
