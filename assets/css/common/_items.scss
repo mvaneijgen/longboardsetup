@@ -12,6 +12,13 @@
   }
 }
 .alloy-items {
+  transition: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+
+  &:hover {
+    transform: scale(1.03);
+  }
   .alloy-content {
     pointer-events: none;
 
@@ -89,3 +96,6 @@
 //------------------------------------------------------//
 // END Items
 //------------------------------------------------------//
+.alloy-empty-state-svg {
+  stroke: $brand-grey;
+}

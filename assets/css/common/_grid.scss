@@ -6,7 +6,7 @@ body {
   font-size: 16px;
   line-height: 1.4em;
   font-family: sans-serif;
-  color: yellow; // detlete me
+  // color: yellow; // detlete me
 }
 h1,
 h2,
@@ -24,7 +24,12 @@ p {
 .alloy-page {
   max-width: 700px;
   margin: 0 auto;
+
+  &.alloy-page--type {
+    max-width: 1050px;
+  }
 }
+
 //------------------------------------------------------//
 // END Pages
 //------------------------------------------------------//
@@ -46,6 +51,10 @@ p {
     grid-auto-rows: $base-margin * 2;
     grid-row-gap: $base-margin;
     grid-column-gap: $base-margin;
+    @media only screen and (min-width: 500px) {
+      grid-row-gap: $base-margin * 2;
+      grid-column-gap: $base-margin * 2;
+    }
   }
 }
 // Items

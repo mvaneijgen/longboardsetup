@@ -1,5 +1,6 @@
 <template>
   <div class="alloy-page alloy-page--type">
+    <CustomForm v-if="customShow" />
     <div class="alloy-select-grid">
       <div class="inner">
         <Item v-for="item in itemsType" :key="item.id" :item="item" />
@@ -9,16 +10,19 @@
 </template>
 
 <script>
+import CustomForm from '@/components/setup/CustomForm.vue';
 import Item from '@/components/setup/Item.vue';
 
 export default {
   name: 'type',
   components: {
+    CustomForm,
     Item,
   },
   middleware: "api",
   data() {
     return {
+      customShow: false,
     }
   }, // End data
   computed: {
