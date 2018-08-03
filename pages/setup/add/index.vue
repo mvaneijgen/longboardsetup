@@ -55,7 +55,7 @@ export default {
     handleSubmit: function() {
       this.$store.commit('setup/setupAdd', this.item);
       this.$router.push({
-        path: '/'
+        path: '/setup'
       });
     },
     deleteMe: function(){

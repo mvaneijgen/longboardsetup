@@ -15,6 +15,7 @@
   transition: transform;
   transition-duration: 300ms;
   transition-timing-function: ease;
+  box-shadow: 2px 2px 30px 0 rgba($brand-dark, $base-alpha/2);
 
   &:hover {
     transform: scale(1.03);

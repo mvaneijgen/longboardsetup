@@ -35,26 +35,41 @@
 </template>
 
 <script>
-export default {
-  // props: ['item'],
-  name: 'EmptyDecksIcon',
-  data() {
-    return {
-      title: 'EmptyDecksIcon'
-    }
-  }, // End data
-  mounted() {
-    //we set visibility:hidden in the CSS to avoid an initial flash - make them visible now, but the from() tweens are going to essentially hide them anyway because their stroke position/length will be 0.
-    // TweenMax.set(".design, .screw, .curves, .board", {visibility:"visible"});
-    // const timeline = new TimelineMax();
-    // timeline
-    //   .from(".board .back", 3, {drawSVG:0})
-    //   .from(".board .depth", 3, {drawSVG:0}, "-=2")
-    //   .staggerFrom(".curves *", 1, {drawSVG:0}, 0.2, "-=0.5")
-    //   .staggerFrom(".screw *", 0.3, {scale:0}, 0.2, "-=0.5")
-    //   .staggerFrom(".design *", 1, {drawSVG:0}, 1, "-=0.5")
-    //   .from(".screw *", 1, {scale:0}, "-=2")
-    // ;
-  }
+  import {TweenMax, TimelineMax} from "gsap";
+  // import drawSVG from "@/assets/js/DrawSVGPlugin.js"; // This gives a lot of errors now loaded directly from the /static folder and the nuxt.config.js
+
+  export default {
+    // props: ['item'],
+    name: 'EmptyDecksIcon',
+    data() {
+      return {
+        title: 'EmptyDecksIcon'
+      }
+    }, // End data
+    mounted() {
+if (process.browser) {
+
+      // we set visibility:hidden in the CSS to avoid an initial flash - make them visible now, but the from() tweens are going to essentially hide them anyway because their stroke position/length will be 0.
+      TweenMax.set(".design, .screw, .curves, .board", {visibility:"visible"});
+      const timeline = new TimelineMax();
+      timeline
+        .from(".board .back", 3, {drawSVG:0})
+        .from(".board .depth", 3, {drawSVG:0}, "-=2")
+        .staggerFrom(".curves *", 1, {drawSVG:0}, 0.2, "-=0.5")
+        .staggerFrom(".screw *", 0.3, {scale:0}, 0.2, "-=0.5")
+        .staggerFrom(".design *", 1, {drawSVG:0}, 1, "-=0.5")
+        .from(".screw *", 1, {scale:0}, "-=2")
+      ;
 }
+
+    }
+  }
 </script>
+<style scoped>
+.design,
+.screw,
+.curves,
+.board {
+  visibility: hidden;
+}
+</style>

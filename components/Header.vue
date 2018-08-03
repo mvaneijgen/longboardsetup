@@ -1,14 +1,19 @@
 <template>
   <header>
     <h1 class="centered">{{ this.$store.state.setup.title }}</h1>
-    <h2 class="centered" contenteditable="true">{{ this.$store.state.name.nameCurrent }}</h2>
+    <SetupName/>
   </header>
 </template>
 
 <script>
+import SetupName from '@/components/setup/SetupName.vue';
+
 export default {
   // props: ['item'],
   name: 'Header',
+  components: {
+    SetupName,
+  },
   data() {
     return {
       title: 'Header'

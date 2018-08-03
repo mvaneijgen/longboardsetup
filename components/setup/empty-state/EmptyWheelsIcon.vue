@@ -27,14 +27,39 @@
 </template>
 
 <script>
-export default {
-  // props: ['item'],
-  name: 'EmptyWheelsIcon',
-  data() {
-    return {
-      title: 'EmptyWheelsIcon'
-    }
-  }, // End data
-  
+  import {TweenLite, TweenMax, TimelineMax} from "gsap";
+
+  export default {
+    // props: ['item'],
+    name: 'EmptyWheelsIcon',
+    data() {
+      return {
+        title: 'EmptyWheelsIcon'
+      }
+    }, // End data
+    mounted() {
+if (process.browser) {
+//we set visibility:hidden in the CSS to avoid an initial flash - make them visible now, but the from() tweens are going to essentially hide them anyway because their stroke position/length will be 0.
+TweenMax.set(".base, .rubber, .details", {visibility:"visible"});
+
+var timeline = new TimelineMax();
+
+timeline
+// .delay(7)
+.staggerFrom(".rubber .outer", 3, {drawSVG:0}, 1)
+.staggerFrom(".rubber .inner", 2, {drawSVG:0}, 0.4, "-=1")
+.staggerFrom(".base *", 0.5, {drawSVG:0}, 0.1, "-=1")
+.staggerFrom(".details *", 0.5, {drawSVG:0}, 0.1, "-=1")
+;
 }
+
+    }
+  }
 </script>
+<style scoped>
+.base,
+.rubber,
+.details {
+  visibility: hidden;
+}
+</style>

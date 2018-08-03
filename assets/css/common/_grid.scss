@@ -1,8 +1,10 @@
+$alloy-md-mq: 550px;
+$alloy-xs-mq: 300px;
 * {
   box-sizing: border-box;
 }
 body {
-  background-color: $brand-one;
+  background-color: $brand-two-lighten;
   font-size: 16px;
   line-height: 1.4em;
   font-family: sans-serif;
@@ -44,17 +46,25 @@ p {
   // CSS grid
   > .inner {
     display: grid;
-    // grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+
+    // grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     // grid-auto-columns: minmax(250px, auto);
     // grid-template-rows: $base-margin*2;
     grid-auto-rows: $base-margin * 2;
+
     grid-row-gap: $base-margin;
     grid-column-gap: $base-margin;
-    @media only screen and (min-width: 500px) {
+    @media only screen and (min-width: $alloy-md-mq) {
       grid-row-gap: $base-margin * 2;
       grid-column-gap: $base-margin * 2;
     }
+  }
+}
+
+.alloy-select-grid {
+  > .inner {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 // Items
@@ -77,14 +87,26 @@ p {
 
 [data-type="decks"],
 [data-type="deck"] {
-  grid-row: span $base-grid-row * 4;
+  grid-row: span $base-grid-row * 2;
+  @media only screen and (min-width: $alloy-xs-mq) {
+    grid-row: span 10;
+  }
+  @media only screen and (min-width: $alloy-md-mq) {
+    grid-row: span $base-grid-row * 4;
+  }
 }
 
 [data-type="wheels"],
 [data-type="trucks"] {
   grid-row: span $base-grid-row;
   grid-column: span 1;
-  grid-row: span $base-grid-row * 2;
+  grid-row: span $base-grid-row;
+  @media only screen and (min-width: $alloy-xs-mq) {
+    grid-row: span 5;
+  }
+  @media only screen and (min-width: $alloy-md-mq) {
+    grid-row: span $base-grid-row * 2;
+  }
 }
 
 // [data-type="add"],

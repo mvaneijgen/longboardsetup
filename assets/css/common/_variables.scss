@@ -3,8 +3,9 @@ $main-sm-columns: 12;
 $sidebar-sm-columns: 4;
 
 // Colors
-$brand-one: #0f0227;
-$brand-one-lighten: lighten($brand-one, 30%);
+$brand-one: #1c0137;
+$brand-one-lighten: lighten($brand-one, 20%);
+$brand-two-lighten: lighten($brand-one, 3%);
 $brand-two: #e64;
 $brand-three: #0ba;
 $brand-four: #3fa986;
@@ -74,7 +75,7 @@ $grid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px
+  xl: 1200px,
 ) !default;
 // Breakpoint viewport sizes and media queries.
 //

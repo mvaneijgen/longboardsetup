@@ -80,7 +80,7 @@ export default {
 
         // 📩 Add item and navigate to 📲 to the setup route
         this.$router.push({
-          path: `/setup`,
+          path: '/setup',
         });
 
       } else {
