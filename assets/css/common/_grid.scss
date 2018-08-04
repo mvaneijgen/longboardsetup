@@ -1,10 +1,9 @@
-$alloy-md-mq: 550px;
-$alloy-xs-mq: 300px;
 * {
   box-sizing: border-box;
 }
 body {
-  background-color: $brand-two-lighten;
+  margin: 0;
+  background-color: $brand-one;
   font-size: 16px;
   line-height: 1.4em;
   font-family: sans-serif;
@@ -23,10 +22,13 @@ p {
 //------------------------------------------------------//
 // Pages
 //------------------------------------------------------//
+.component-Navigation nav,
 .alloy-page {
   max-width: 700px;
-  margin: 0 auto;
-
+  margin: 0 10px;
+  @media only screen and (min-width: $alloy-md-mq) {
+    margin: 0 auto;
+  }
   &.alloy-page--type {
     max-width: 1050px;
   }

@@ -26,6 +26,7 @@ select {
 //------------------------------------------------------//
 // Buttons/submit
 //------------------------------------------------------//
+button,
 input[type="submit"],
 .btn {
   border: 2px solid;
@@ -46,7 +47,7 @@ input[type="submit"],
   }
   &:focus {
     outline: none;
-    border-color: $brand-one;
+    border-color: $brand-one-lighten;
   }
   &:disabled,
   &[disabled] {
@@ -55,8 +56,17 @@ input[type="submit"],
     opacity: $base-alpha;
   }
 }
+.btn--alt,
 input[type="submit"] {
   background-color: $brand-two;
+  border-color: $brand-two;
+}
+.alloy-btn-group {
+  .btn,
+  button,
+  input[type="submit"] {
+    margin-right: $base-margin;
+  }
 }
 //------------------------------------------------------//
 // END Buttons/submit

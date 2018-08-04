@@ -11,16 +11,17 @@
       <template v-else>
         <img v-if="item.view != 'simple'" :src="item.images.full" :alt="item.title">
         <img v-else src="http://alloy.work/codepen/QBOyJj/custom.jpg" :alt="item.title">
-        <div class="alloy-content">
-          <div class="alloy-meta">
-            <p>
-              <strong>{{ item.type }}</strong>
-            </p>
-          </div>
-          <h3>{{ item.title }}</h3>
-          <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search for this product</a>
-        </div>
       </template>
+
+      <div class="alloy-content">
+        <div class="alloy-meta">
+          <p>
+            <strong>{{ item.type }}</strong>
+          </p>
+        </div>
+        <h3>{{ item.title }}</h3>
+        <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search for this product</a>
+      </div>
 
     </div>
     <button v-if="item.view != 'simple'" @click="toggleInfo">info</button>
@@ -74,7 +75,6 @@ export default {
         if (changeItemCheck <= -1) {
           this.$store.commit('setup/setupAdd', result);
         } else {
-          console.warn('setupAdd');
           this.$store.commit('setup/setupChange', result);
         }
 

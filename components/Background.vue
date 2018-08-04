@@ -22,35 +22,35 @@ export default {
       title: 'Background'
     }
   }, // End data
-  mounted() {
-    if (process.browser) {
-      MorphSVGPlugin.convertToPath("circle, rect, polygon");
-      // Timeline stuf
-      const tlMain = new TimelineMax({
-        // delay: 0.5,
-        repeat: 10,
-        repeatDelay: 0
-      });
+  // mounted() {
+  //   if (process.browser) {
+  //     MorphSVGPlugin.convertToPath("circle, rect, polygon");
+  //     // Timeline stuf
+  //     const tlMain = new TimelineMax({
+  //       // delay: 0.5,
+  //       repeat: 10,
+  //       repeatDelay: 0
+  //     });
 
-      // Base ease full timeline
-      TweenLite.defaultEase = Power1.easeOut;
-      const baseAnimate = 0.3;
+  //     // Base ease full timeline
+  //     TweenLite.defaultEase = Power1.easeOut;
+  //     const baseAnimate = 0.3;
 
-      const morphStates = ['#skew', '#ripple'];
+  //     const morphStates = ['#skew', '#ripple'];
 
-      function alloyMorphLogo() {
-        tlMain
-          .to("#svg-main-bg", 1.5, {morphSVG:{ shape:"#fluid" }})
-          .to("#svg-main-bg", 1.5, {morphSVG:{ shape:"#fluid1" }})
-          .to("#svg-main-bg", 1.5, {morphSVG:{ shape:"#fluid2" }})
-        ;
-      }
-      const background = document.querySelector('.alloy-background-svg');
-      background.addEventListener('click', function(){
-        alloyMorphLogo();
-      });
-    }
-  }
+  //     function alloyMorphLogo() {
+  //       tlMain
+  //         .to("#svg-main-bg", 1.5, {morphSVG:{ shape:"#fluid" }})
+  //         .to("#svg-main-bg", 1.5, {morphSVG:{ shape:"#fluid1" }})
+  //         .to("#svg-main-bg", 1.5, {morphSVG:{ shape:"#fluid2" }})
+  //       ;
+  //     }
+  //     const background = document.querySelector('.alloy-background-svg');
+  //     background.addEventListener('click', function(){
+  //       alloyMorphLogo();
+  //     });
+  //   }
+  // }
 }
 </script>
 

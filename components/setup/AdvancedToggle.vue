@@ -32,6 +32,9 @@ export default {
 
 .component-AdvancedToggle {
   padding: $base-margin;
+  @media only screen and (min-width: $alloy-md-mq) {
+    padding: $base-margin * 2;
+  }
   > * {
     vertical-align: middle;
     margin-right: $base-margin;

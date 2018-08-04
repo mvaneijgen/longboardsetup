@@ -57,6 +57,7 @@
   }
 
   // Toggle stuffalign-content
+
   &.showInfo {
     .alloy-content {
       pointer-events: auto;
@@ -71,7 +72,12 @@
     pointer-events: none;
   }
 }
-
+.showAllInfo {
+  .alloy-content {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
 [data-view="simple"] {
   .alloy-content {
     margin-left: 120px;

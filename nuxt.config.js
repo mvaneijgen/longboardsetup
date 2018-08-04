@@ -34,7 +34,7 @@ module.exports = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     script: [{ src: "/DrawSVGPlugin.min.js" }],
-    script: [{ src: "/MorphSVGPlugin.min.js" }],
+    // script: [{ src: "/MorphSVGPlugin.min.js" }],
   },
   /*
   ** Customize the progress bar color
