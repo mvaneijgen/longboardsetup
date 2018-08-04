@@ -106,3 +106,38 @@
 .alloy-empty-state-svg {
   stroke: $brand-grey;
 }
+
+//------------------------------------------------------//
+// Call to actions
+//------------------------------------------------------//
+.alloy-cards {
+  &.cta {
+    background-color: $brand-one-lighten;
+    margin-bottom: $base-margin;
+    color: $brand-light;
+    > .inner {
+      padding: $base-margin;
+      // p {
+      //   margin-bottom: 0;
+      // }
+    }
+    strong {
+      display: block;
+    }
+    .btn {
+      display: inline-block;
+      background-color: darken($brand-one-lighten, 10%);
+      border-color: darken($brand-one-lighten, 10%);
+    }
+  }
+  &[data-cta-type="cta--alt"] {
+    background-color: $brand-two;
+    .btn {
+      background-color: darken($brand-two, 10%);
+      border-color: darken($brand-two, 10%);
+    }
+  }
+}
+//------------------------------------------------------//
+// END Call to actions
+//------------------------------------------------------//

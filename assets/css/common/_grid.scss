@@ -22,16 +22,18 @@ p {
 //------------------------------------------------------//
 // Pages
 //------------------------------------------------------//
-.component-Navigation nav,
 .alloy-page {
   max-width: 700px;
   margin: 0 10px;
   @media only screen and (min-width: $alloy-md-mq) {
     margin: 0 auto;
   }
-  &.alloy-page--type {
-    max-width: 1050px;
-  }
+}
+footer > .inner,
+.component-Navigation nav,
+.alloy-page--type {
+  max-width: 1050px;
+  margin: 0 auto;
 }
 
 //------------------------------------------------------//
@@ -40,6 +42,7 @@ p {
 //------------------------------------------------------//
 // CSS Grid settings
 //------------------------------------------------------//
+footer,
 .alloy-select-grid,
 .alloy-setup {
   // max-width: 700px;
@@ -63,10 +66,26 @@ p {
     }
   }
 }
-
+footer,
 .alloy-select-grid {
   > .inner {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    @media only screen and (min-width: $alloy-md-mq) {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+}
+footer {
+  // max-width: 1050px;
+  // margin: 0 auto;
+
+  > .inner {
+    // display: grid;
+    grid-auto-rows: auto;
+    // grid-template-columns: repeat(2, 1fr);
+    // @media only screen and (min-width: $alloy-md-mq) {
+    //   grid-template-columns: repeat(4, minmax(250px, 1fr));
+    // }
   }
 }
 // Items

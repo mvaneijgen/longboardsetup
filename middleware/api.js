@@ -1,6 +1,12 @@
 import axios from "axios";
 axios.defaults.baseURL = "https://api.longboardsetup.com/wp-json";
-
+const queries = [
+  "orderby=title",
+  "order=asc",
+  "page=1",
+  "per_page=18",
+  "_embed",
+];
 function postTypeFunction(items) {
   let itemsResult = [];
 
@@ -37,7 +43,7 @@ function postTypeFunction(items) {
 
 export default function({ params, store }) {
   return axios
-    .get(`/wp/v2/decks?orderby=title&order=asc&_embed`)
+    .get(`/wp/v2/decks?${queries.join("&")}`)
     .then(response => {
       const itemsAll = response.data;
 
@@ -46,7 +52,7 @@ export default function({ params, store }) {
       store.commit("items/addDecks", itemsResult);
 
       // Done ➡️ next post type
-      return axios.get(`/wp/v2/trucks?orderby=title&order=asc&_embed`);
+      return axios.get(`/wp/v2/trucks?${queries.join("&")}`);
     })
     .then(response => {
       const itemsAll = response.data;
@@ -56,7 +62,7 @@ export default function({ params, store }) {
       store.commit("items/addTrucks", itemsResult);
 
       // Done ➡️ next post type
-      return axios.get(`/wp/v2/wheels?orderby=title&order=asc&_embed`);
+      return axios.get(`/wp/v2/wheels?${queries.join("&")}`);
     })
     .then(response => {
       const itemsAll = response.data;

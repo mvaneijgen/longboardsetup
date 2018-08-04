@@ -1,0 +1,25 @@
+// footer {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+// }
+
+footer {
+  background-color: $brand-light;
+  margin-top: $base-margin * 4;
+  padding-top: $base-margin * 4;
+  padding-bottom: $base-margin * 4;
+  padding-left: 10px;
+  padding-right: 10px;
+  .alloy-col {
+    border-top: 2px solid;
+    border-color: $brand-one-lighten;
+    padding-top: $base-margin * 2;
+    margin-bottom: $base-margin * 2;
+
+    // &.alloy-text-light {
+    //   * {
+    //     color: $brand-light;
+    //   }
+    // }
+  }
+}

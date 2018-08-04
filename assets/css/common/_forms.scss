@@ -3,14 +3,25 @@ input[type="password"],
 input[type="number"],
 input[type="date"],
 textarea,
+select,
+button,
+input[type="submit"],
+.btn {
+  padding: 10px $base-margin;
+  border: 2px solid;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+textarea,
 select {
   width: 100%;
-  border: 2px solid;
   border-color: $brand-one-lighten;
   border-radius: $base-radius;
   background-color: $brand-light;
   display: block;
-  padding: $base-margin;
   font-size: 1rem;
   margin-bottom: $base-margin * 2;
 
@@ -29,13 +40,13 @@ select {
 button,
 input[type="submit"],
 .btn {
-  border: 2px solid;
+  // border: 2px solid;
   border-color: $brand-one-lighten;
   background-color: $brand-one-lighten;
   font-size: 1rem;
   color: $brand-light;
   text-decoration: none;
-  padding: 10px $base-margin;
+  // padding: 10px $base-margin;
   border-radius: $base-radius;
 
   transition: background-color, border-color, opacity;
@@ -60,6 +71,11 @@ input[type="submit"],
 input[type="submit"] {
   background-color: $brand-two;
   border-color: $brand-two;
+}
+.btn--small {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  padding: 5px 10px;
 }
 .alloy-btn-group {
   .btn,
@@ -88,7 +104,7 @@ input[type="submit"] {
 .alloy-input-field {
   position: relative;
   label {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     line-height: 1em;
     position: absolute;
     top: -10px;

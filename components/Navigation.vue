@@ -7,6 +7,10 @@
         </template>
         <button @click="setupClear">Clear</button>
         <button @click="toggleAllInfo">Toggle info</button>
+        <div v-if="'setup' != this.$route.name" class="alloy-input-field">
+          <label for="search">Seach</label>
+          <input type="text" id="search" :placeholder="`Search ${this.$route.params.type}...`">
+        </div>
         <template v-if="'setup' == this.$route.name">
           <button class="alloy-share btn--alt">Share</button>
         </template>
@@ -46,6 +50,7 @@ export default {
 
 .component-Navigation {
   position: fixed;
+  z-index: 1000;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -55,5 +60,8 @@ export default {
 .alloy-share {
   float: right;
   margin-right: 0;
+}
+.alloy-input-field {
+  display: inline-block;
 }
 </style>
