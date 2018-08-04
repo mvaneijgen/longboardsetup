@@ -5,7 +5,7 @@
         <template v-if="'setup' != this.$route.name">
           <nuxt-link to="/setup" class="btn">Back</nuxt-link>
         </template>
-        <button @click="setupClear">Clear</button>
+        <button v-if="'setup' == this.$route.name" @click="setupClear">Clear</button>
         <button @click="toggleAllInfo">Toggle info</button>
         <div v-if="'setup' != this.$route.name" class="alloy-input-field">
           <label for="search">Seach</label>
@@ -63,5 +63,8 @@ export default {
 }
 .alloy-input-field {
   display: inline-block;
+  input {
+    margin-bottom: 0;
+  }
 }
 </style>

@@ -5,7 +5,6 @@
       <Item v-for="item in setupCurrent" :key="item.id" :item="item" />
 
       <ItemAdd v-show="advancedOn" />
-
     </div>
     <AdvancedToggle />
   </div>
