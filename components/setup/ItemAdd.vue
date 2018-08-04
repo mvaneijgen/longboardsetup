@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link to="setup/add" class="alloy-cards alloy-items" data-type="add">
+  <nuxt-link to="setup/custom" class="alloy-cards alloy-items" data-type="add">
     <div class="inner">
       <span>+</span>
     </div>
@@ -24,6 +24,8 @@ export default {
 .alloy-cards {
   background-color: $brand-one-lighten;
   grid-row: span 2;
+  text-decoration: none;
+
   .inner {
     display: flex;
     justify-content: center;

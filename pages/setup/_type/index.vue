@@ -1,6 +1,6 @@
 <template>
   <div class="alloy-page alloy-page--type">
-    <CustomForm v-if="customShow" />
+    <CustomForm v-if="'/setup/custom' == this.$route.path" />
     <div class="alloy-select-grid">
       <div class="inner">
         <Item v-for="item in itemsType" :key="item.id" :item="item" />
