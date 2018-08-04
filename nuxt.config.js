@@ -49,7 +49,10 @@ module.exports = {
   generate: {
     dir: "docs",
   },
-  loading: { color: "#E64" },
+  loading: {
+    color: "#E64",
+    height: "8px",
+  },
   /*
   ** Build configuration
   */
