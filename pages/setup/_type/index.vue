@@ -25,12 +25,13 @@ export default {
       customShow: false,
     }
   }, // End data
-  computed: {
-    itemsType: {
-      get() { 
-        return this.$store.state.items[this.$route.params.type]; 
-      }
-    },
+  async asyncData({ fetch, store, params }) {
+    await fetch(params.type)
+    let itemsType = store.state.items[params.type];
+
+    return {
+      itemsType: itemsType
+    }
   }
 }
 </script>

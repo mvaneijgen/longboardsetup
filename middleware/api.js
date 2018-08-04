@@ -40,27 +40,23 @@ function fromInputData(item) {
   };
 }
 
-export default function({ params, store }) {
-  return axios
-    .get(`/wp/v2/decks?${queries.join("&")}`)
-    .then(response => {
-      store.commit("items/addDecks", response.data.map(fromInputData));
+/**
+ * Capitalizes the first letter of a string
+ * @param {string} input
+ * @returns {string}
+ */
+function ucfirst(input) {
+    return input.charAt(0).toUpperCase() + input.slice(1);
+}
 
-      // Done ➡️ next post type
-      return axios.get(`/wp/v2/trucks?${queries.join("&")}`);
-    })
-    .then(response => {
-      store.commit("items/addTrucks", response.data.map(fromInputData));
-
-      // Done ➡️ next post type
-      return axios.get(`/wp/v2/wheels?${queries.join("&")}`);
-    })
-    .then(response => {
-      store.commit("items/addWheels", response.data.map(fromInputData));
-    })
-    .catch(function(error) {
-      store.commit("error", error);
-    });
+export default function(context) {
+  context.fetch = type => {
+    return axios
+      .get(`/wp/v2/${type}?${queries.join("&")}`)
+      .then(response => {
+        context.store.commit(`items/add${ucfirst(type)}`, response.data.map(fromInputData));
+      });
+  }
 }
 
 // export default function ({ params, store }) {
