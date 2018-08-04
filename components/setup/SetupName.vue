@@ -10,26 +10,50 @@ export default {
   name: 'SetupName',
   data() {
     return {
-      title: 'SetupName'
+      nameCurrentRandom: {
+        prefix: "Your",
+        location: "Amazing",
+        suffix: "Setup",
+      },
     }
   }, // End data
-  // More info at https://css-tricks.com/methods-computed-and-watchers-in-vue-js/
-  // computed: {}, // Data with computed logic
-  // methods: {}, // Are functions run on user actions example @click or on lifecycle hooks
-  // watch: {}, // Watchs data, needs to have the same name as the data that is being watched
+  methods: {
+    nameRandomGenerator: function() {
+      // Check if the vistitor has choosen a custom name
+      if (this.$store.state.name.nameUserCustom) {
+        return;
+      } // if so quit this function
 
+      // Generate random number between 0 and amount
+      function randomNum(amount) {
+        return Math.floor(Math.random() * amount);
+      }
+      
+      // Get the next part of the name that should be updated
+      const updateCurrent = Object.keys(this.$store.state.name.nameRandom)[this.$store.state.name.nameRandomIndex];
 
-  // // Lifecycle hook. Check for more https://vuejs.org/v2/guide/instance.html or https://vuejs.org/v2/api/#Options-Lifecycle-Hooks
-  // beforeCreate() {}, 
-  // created() {}, // Each time the app is created (once?)
-  // beforeMount() {}, 
-  // mounted() {}, // Be sure all elements are drawn. Here you can use normal Javascript to interact with your page
-  // beforeUpdate() {}, 
-  // update() {}, 
-  // activated() {},
-  // deactivated() {},
-  // beforeDestroy() {},
-  // destroyed() {},
-  // errorCaptured() {},
+      this.nameCurrentRandom[updateCurrent] =
+        this.$store.state.name.nameRandom[updateCurrent][
+          randomNum(this.$store.state.name.nameRandom[updateCurrent].length)
+        ];
+        
+      const nameCombined = `
+        ${this.nameCurrentRandom.prefix} 
+        ${this.nameCurrentRandom.location} 
+        ${this.nameCurrentRandom.suffix}
+      `;
+
+      this.$store.commit('name/nameSet', nameCombined);
+
+    },  
+  },
+  watch: {
+    '$route': function(from, to) {
+      this.nameRandomGenerator();
+    }
+  },
+  created() {
+    this.nameRandomGenerator();
+  },
 }
 </script>
