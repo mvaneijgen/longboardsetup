@@ -24,14 +24,10 @@
         <textarea v-model="item.title" id="selectedProductName" cols="30" rows="4" required></textarea>
       </div>
 
-      <nuxt-link to="/" class="btn">Back</nuxt-link>
       <input type="submit" value="Add +/change" :disabled="item.type == '' || item.title == ''">
 
     </form>
 
-    <button class="btn" @click="deleteMe">delete</button>
-
-    <pre>{{item}}</pre>
   </div>
 </template>
 
