@@ -1,7 +1,7 @@
 <template>
   <div class="component-AdvancedToggle">
     <div class="toggle">
-      <input class="tgl tgl-ios" id="cb2" type="checkbox" />
+      <input class="tgl tgl-ios" id="cb2" type="checkbox" :checked="this.$store.state.setup.advancedOn" />
       <label @click="advancedToggle" class="tgl-btn" for="cb2"></label>
     </div>
 
