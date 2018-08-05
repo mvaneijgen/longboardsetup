@@ -15,16 +15,16 @@
 
       <div class="alloy-content">
         <div class="alloy-meta">
-          <p>
+          <!-- <p>
             <strong>{{ item.type }}</strong>
-          </p>
+          </p> -->
         </div>
-        <h3>{{ item.title }}</h3>
-        <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search for this product</a>
+        <h3 v-html="item.title"></h3>
+        <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a>
       </div>
 
     </div>
-    <button v-if="item.view != 'simple'" @click="toggleInfo">info</button>
+    <button v-if="item.view != 'simple'" @click="toggleInfo" class="btn btn--small btn--subtle">info</button>
 
   </div>
 </template>

@@ -5,14 +5,14 @@
         <template v-if="'setup' != this.$route.name">
           <nuxt-link to="/setup" class="btn">Back</nuxt-link>
         </template>
-        <button v-if="'setup' == this.$route.name" @click="setupClear">Clear</button>
-        <button @click="toggleAllInfo">Toggle info</button>
+        <button v-if="'setup' == this.$route.name" @click="setupClear" class="btn">Clear</button>
+        <button @click="toggleAllInfo" class="btn">Info</button>
         <div v-if="'setup' != this.$route.name" class="alloy-input-field">
           <label for="search">Seach</label>
           <input type="text" id="search" :placeholder="`Search ${this.$route.params.type}...`">
         </div>
         <template v-if="'setup' == this.$route.name">
-          <button class="alloy-share btn--alt">Share</button>
+          <button class="alloy-share btn btn--alt">Share</button>
         </template>
 
       </div>
@@ -65,6 +65,19 @@ export default {
   display: inline-block;
   input {
     margin-bottom: 0;
+  }
+}
+@media only screen and (max-width: $alloy-sm-mq) {
+  input,
+  .btn {
+    font-size: 0.8rem;
+    line-height: 1em;
+    padding: 5px 10px;
+  }
+  label {
+    font-size: 0.4rem;
+    padding: 3px 5px;
+    top: -5px;
   }
 }
 </style>

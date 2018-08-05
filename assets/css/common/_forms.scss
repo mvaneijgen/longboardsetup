@@ -9,6 +9,8 @@ input[type="submit"],
 .btn {
   padding: 10px $base-margin;
   border: 2px solid;
+  appearance: none;
+  display: inline-block;
 }
 
 input[type="text"],
@@ -76,6 +78,10 @@ input[type="submit"] {
   font-size: 0.8rem;
   line-height: 1rem;
   padding: 5px 10px;
+}
+.btn--subtle {
+  background-color: $brand-grey;
+  border-color: $brand-grey;
 }
 .alloy-btn-group {
   .btn,

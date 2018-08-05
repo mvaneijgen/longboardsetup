@@ -24,7 +24,7 @@ p {
 //------------------------------------------------------//
 .alloy-page {
   max-width: 700px;
-  margin: 0 10px;
+  padding: 0 10px;
   @media only screen and (min-width: $alloy-md-mq) {
     margin: 0 auto;
   }
@@ -45,17 +45,10 @@ footer > .inner,
 footer,
 .alloy-select-grid,
 .alloy-setup {
-  // max-width: 700px;
-  // margin: 0 auto;
-  // background-color: rgba($brand-grey, .2);
-  // CSS grid
   > .inner {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    // grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    // grid-auto-columns: minmax(250px, auto);
-    // grid-template-rows: $base-margin*2;
     grid-auto-rows: $base-margin * 2;
 
     grid-row-gap: $base-margin;
@@ -66,7 +59,6 @@ footer,
     }
   }
 }
-footer,
 .alloy-select-grid {
   > .inner {
     grid-template-columns: repeat(2, 1fr);
@@ -76,16 +68,12 @@ footer,
   }
 }
 footer {
-  // max-width: 1050px;
-  // margin: 0 auto;
-
   > .inner {
-    // display: grid;
     grid-auto-rows: auto;
-    // grid-template-columns: repeat(2, 1fr);
-    // @media only screen and (min-width: $alloy-md-mq) {
-    //   grid-template-columns: repeat(4, minmax(250px, 1fr));
-    // }
+    grid-template-columns: repeat(1, 1fr);
+    @media only screen and (min-width: $alloy-md-mq) {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
   }
 }
 // Items
