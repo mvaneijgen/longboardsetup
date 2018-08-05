@@ -24,7 +24,11 @@
       </div>
 
     </div>
-    <button v-if="item.view != 'simple'" @click="toggleInfo" class="btn btn--small btn--subtle">info</button>
+    <button v-if="item.view != 'simple'" @click="toggleInfo" class="btn btn--small btn--subtle">
+      <icon-base width="20" height="20" icon-name="info">
+        <icon-info />
+      </icon-base>
+    </button>
 
   </div>
 </template>
@@ -34,6 +38,10 @@ import EmptyDecksIcon from '@/components/setup/empty-state/EmptyDecksIcon.vue';
 import EmptyTrucksIcon from '@/components/setup/empty-state/EmptyTrucksIcon.vue';
 import EmptyWheelsIcon from '@/components/setup/empty-state/EmptyWheelsIcon.vue';
 
+// Icon logic
+import IconBase from '@/components//IconBase.vue'
+import IconInfo from '@/components/icons/IconInfo.vue'
+
 export default {
   props: ['item'],
   name: 'Item',
@@ -41,6 +49,9 @@ export default {
     EmptyDecksIcon,
     EmptyTrucksIcon,
     EmptyWheelsIcon,
+    // Icon logic
+    IconBase,
+    IconInfo,
   },
   data() {
     return {
@@ -111,5 +122,8 @@ export default {
 </script>
 
 <style lang="scss"  scoped>
-// @import '~/assets/css/common/_variables.scss';
+@import "~/assets/css/common/_variables.scss";
+.btn {
+  color: $brand-dark-grey;
+}
 </style>

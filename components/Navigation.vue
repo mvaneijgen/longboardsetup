@@ -2,17 +2,42 @@
   <div class="component-Navigation">
     <nav>
       <div class="alloy-btn-group">
+
         <template v-if="'setup' != this.$route.name">
-          <nuxt-link to="/setup" class="btn">Back</nuxt-link>
+          <nuxt-link to="/setup" class="btn btn--icon btn--icon-left">
+            <icon-base width="20" height="20" icon-name="arrow-left">
+              <icon-arrow-left />
+            </icon-base>
+            <span>Back</span>
+          </nuxt-link>
         </template>
-        <button v-if="'setup' == this.$route.name" @click="setupClear" class="btn">Clear</button>
-        <button @click="toggleAllInfo" class="btn">Info</button>
+
+        <button v-if="'setup' == this.$route.name" @click="setupClear" class="btn">
+          <span>Clear</span>
+          <icon-base width="20" height="20" icon-name="trash">
+            <icon-trash />
+          </icon-base>
+        </button>
+
+        <button @click="toggleAllInfo" class="btn">
+          <span>Info</span>
+          <icon-base width="20" height="20" icon-name="info">
+            <icon-info />
+          </icon-base>
+        </button>
+
         <div v-if="'setup' != this.$route.name" class="alloy-input-field">
           <label for="search">Seach</label>
           <input type="text" id="search" :placeholder="`Search ${this.$route.params.type}...`">
         </div>
+
         <template v-if="'setup' == this.$route.name">
-          <button class="alloy-share btn btn--alt">Share</button>
+          <button class="alloy-share btn btn--alt">
+            <span>Share</span>
+            <icon-base width="20" height="20" icon-name="share">
+              <icon-share />
+            </icon-base>
+          </button>
         </template>
 
       </div>
@@ -21,9 +46,24 @@
 </template>
 
 <script>
+// Icon logic
+import IconBase from '@/components//IconBase.vue'
+import IconInfo from '@/components/icons/IconInfo.vue'
+import IconTrash from '@/components/icons/IconTrash.vue'
+import IconShare from '@/components/icons/IconShare.vue'
+import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
+
 export default {
   // props: ['item'],
   name: 'Navigation',
+  components: {
+    // Icon logic
+    IconBase,
+    IconInfo,
+    IconTrash,
+    IconShare,
+    IconArrowLeft,
+  },
   data() {
     return {
       title: 'Navigation'
