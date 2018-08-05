@@ -8,7 +8,8 @@
           <label for="selectType">Select part</label>
           <select id="selectType" v-model="item.type" required>
             <option disabled value="">Please select one</option>
-            <option v-for="(item, index) in this.types" :key="index">{{ item }}</option>
+            <option v-for="(item, index) in this.types" :key="index" :value="item.toLowerCase()">{{ item }}</option>
+            <option value="custom">Everything else</option>
           </select>
         </div>
 

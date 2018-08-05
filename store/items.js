@@ -1,13 +1,5 @@
 export const state = () => ({
-  types: [
-    "trucks",
-    "wheels",
-    "bearings",
-    "bushings",
-    "pivot cups",
-    "brackets",
-    "custom",
-  ],
+  types: ["Bearings", "Bushings", "Pivot cups", "Brackets", "Trucks", "Wheels"],
   decks: [],
   trucks: [],
   wheels: [],
