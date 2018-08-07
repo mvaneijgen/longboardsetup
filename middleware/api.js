@@ -7,73 +7,56 @@ const queries = [
   "per_page=18",
   "_embed",
 ];
-function postTypeFunction(items) {
-  let itemsResult = [];
 
-  items.forEach(item => {
-    let itemObj = {
-      id: item.id,
-      title: item.title.rendered,
-      slug: item.slug,
-      type: item.type,
-      view: "advanced",
-      image:
+/**
+ * Converts the input data from the api into an internal data structure
+ * @param {Object} item
+ * @returns {Object}
+ */
+function fromInputData(item) {
+  return {
+    id: item.id,
+    title: item.title.rendered,
+    slug: item.slug,
+    type: item.type,
+    view: "advanced",
+    image:
+      item._embedded["wp:featuredmedia"][0].media_details.sizes.full
+        .source_url,
+    images: {
+      thumbnail:
+        item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail
+          .source_url,
+      medium:
+        item._embedded["wp:featuredmedia"][0].media_details.sizes.medium
+          .source_url,
+      // large:
+      //   item._embedded["wp:featuredmedia"][0].media_details.sizes.large
+      //     .source_url,
+      full:
         item._embedded["wp:featuredmedia"][0].media_details.sizes.full
           .source_url,
-      images: {
-        thumbnail:
-          item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail
-            .source_url,
-        medium:
-          item._embedded["wp:featuredmedia"][0].media_details.sizes.medium
-            .source_url,
-        // large:
-        //   item._embedded["wp:featuredmedia"][0].media_details.sizes.large
-        //     .source_url,
-        full:
-          item._embedded["wp:featuredmedia"][0].media_details.sizes.full
-            .source_url,
-      },
-    };
-
-    itemsResult.push(itemObj);
-  });
-  return itemsResult;
+    },
+  };
 }
 
-export default function({ params, store }) {
-  return axios
-    .get(`/wp/v2/decks?${queries.join("&")}`)
-    .then(response => {
-      const itemsAll = response.data;
+/**
+ * Capitalizes the first letter of a string
+ * @param {string} input
+ * @returns {string}
+ */
+function ucfirst(input) {
+    return input.charAt(0).toUpperCase() + input.slice(1);
+}
 
-      let itemsResult = postTypeFunction(itemsAll);
-
-      store.commit("items/addDecks", itemsResult);
-
-      // Done ➡️ next post type
-      return axios.get(`/wp/v2/trucks?${queries.join("&")}`);
-    })
-    .then(response => {
-      const itemsAll = response.data;
-
-      let itemsResult = postTypeFunction(itemsAll);
-
-      store.commit("items/addTrucks", itemsResult);
-
-      // Done ➡️ next post type
-      return axios.get(`/wp/v2/wheels?${queries.join("&")}`);
-    })
-    .then(response => {
-      const itemsAll = response.data;
-
-      let itemsResult = postTypeFunction(itemsAll);
-
-      store.commit("items/addWheels", itemsResult);
-    })
-    .catch(function(error) {
-      store.commit("error", error);
-    });
+export default function(context) {
+  context.fetch = type => {
+    return axios
+      .get(`/wp/v2/${type}?${queries.join("&")}`)
+      .then(response => {
+        context.store.commit(`items/add${ucfirst(type)}`, response.data.map(fromInputData));
+      });
+  }
 }
 
 // export default function ({ params, store }) {
