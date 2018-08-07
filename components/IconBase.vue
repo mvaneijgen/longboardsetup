@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 svg {
   display: inline-block;
   vertical-align: baseline;

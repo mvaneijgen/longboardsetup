@@ -61,7 +61,7 @@
 
   // Toggle stuffalign-content
 
-  &.showInfo {
+  &[data-info="true"] {
     .alloy-content {
       pointer-events: auto;
       opacity: 1;
