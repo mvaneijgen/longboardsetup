@@ -27,7 +27,7 @@ export default {
   }, // End data
   async asyncData({ fetch, store, params }) {
     await fetch(params.type)
-    let itemsType = store.state.items[params.type];
+    let itemsType = store.state.items[params.type].items;
 
     return {
       itemsType: itemsType

@@ -1,5 +1,5 @@
 <template>
-  <div class="alloy-items alloy-cards" :data-type="item.type" :data-view="item.view">
+  <div class="alloy-items alloy-cards" :data-type="item.type" :data-view="item.view" :data-info="showInfo">
     <div class="inner" @click="itemEdit" :data-item-id="item.id">
 
       <template v-if="item.view == 'empty'">
@@ -55,11 +55,13 @@ export default {
   },
   data() {
     return {
+      showInfo: false,
     }
   }, // End data
   methods: {
     toggleInfo: function (event) {
-      event.target.parentNode.classList.toggle('showInfo');
+      // event.target.parentNode.classList.toggle('showInfo');
+      this.showInfo = !this.showInfo;
     },
 
     //------------------------------------------------------//
@@ -70,7 +72,7 @@ export default {
         
         // find the item in the store/items.js
         const itemId = event.target.dataset.itemId;
-        const storeTypeDataset = this.$store.state.items[this.$route.params.type];
+        const storeTypeDataset = this.$store.state.items[this.$route.params.type].items;
         const result = storeTypeDataset.find(function(item) {
           return item.id == itemId;
         });
