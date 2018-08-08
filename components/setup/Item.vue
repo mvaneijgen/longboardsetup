@@ -9,7 +9,7 @@
       </template>
 
       <template v-else>
-        <img v-if="item.view != 'simple'" :src="item.images.full" :alt="item.title">
+        <img v-if="item.view != 'simple'" :src="item.image" :alt="item.title">
         <img v-else src="http://alloy.work/codepen/QBOyJj/custom.jpg" :alt="item.title">
       </template>
 

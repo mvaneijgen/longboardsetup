@@ -45,7 +45,10 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-
+  modules: ["@nuxtjs/axios"],
+  axios: {
+    baseURL: "https://api.longboardsetup.com/wp-json",
+  },
   generate: {
     dir: "docs",
   },

@@ -21,23 +21,30 @@ export const state = () => ({
 });
 
 export const mutations = {
-  addDecks(state, payload) {
-    // state.decks = payload;
-    state.decks.items = state.decks.items.concat(payload);
+  // store.commit({
+  //   type: 'add',
+  //   dataType: 10,
+  //   items: []
+  // })
+  addItems(state, payload) {
+    state[payload.itemType].items = state[payload.itemType].items.concat(
+      payload.items
+    );
   },
-  addTrucks(state, payload) {
-    // state.trucks = payload;
-    state.trucks.items = state.trucks.items.concat(payload);
-  },
-  addWheels(state, payload) {
-    // state.wheels = payload;
-    state.wheels.items = state.wheels.items.concat(payload);
+  incrementPage(state, payload) {
+    state[payload.itemType].page++;
   },
   error(state, payload) {},
 };
 
-// export const getters = {
-//   get(state) {
-//     return state.list;
-//   }
-// };
+export const getters = {
+  // get(state) {
+  //   return state.list;
+  // }
+  getTypeItems: state => itemType => {
+    return state[itemType].items;
+  },
+  getTypePage: state => itemType => {
+    return state[itemType].page;
+  },
+};

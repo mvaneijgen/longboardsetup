@@ -21,8 +21,7 @@ function fromInputData(item) {
     type: item.type,
     view: "advanced",
     image:
-      item._embedded["wp:featuredmedia"][0].media_details.sizes.full
-        .source_url,
+      item._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url,
     images: {
       thumbnail:
         item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail
@@ -46,15 +45,16 @@ function fromInputData(item) {
  * @returns {string}
  */
 function ucfirst(input) {
-    return input.charAt(0).toUpperCase() + input.slice(1);
+  return input.charAt(0).toUpperCase() + input.slice(1);
 }
 
 export default function(context) {
   context.fetch = type => {
-    return axios
-      .get(`/wp/v2/${type}?${queries.join("&")}`)
-      .then(response => {
-        context.store.commit(`items/add${ucfirst(type)}`, response.data.map(fromInputData));
-      });
-  }
+    return axios.get(`/wp/v2/${type}?${queries.join("&")}`).then(response => {
+      context.store.commit(
+        `items/add${ucfirst(type)}`,
+        response.data.map(fromInputData)
+      );
+    });
+  };
 }
