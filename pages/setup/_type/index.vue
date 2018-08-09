@@ -1,19 +1,23 @@
 <template>
   <div class="alloy-page alloy-page--type">
-    <h1 style="color: #fff;">{{this.$store.state.items.decks.page}}</h1>
     <CustomForm v-if="'/setup/custom' == this.$route.path" />
-    <div class="alloy-select-grid">
+    <div class="alloy-select-flexbox">
       <div class="inner">
+        <!-- <transition-group appear name="slide-up" tag="div" class="inner"> -->
         <Item v-for="item in allItems" :key="item.id" :item="item" />
+        <!-- </transition-group> -->
       </div>
     </div>
-    <button @click="loadMore">Load more</button>
+    <!-- <button @click="itemsLoad">Load more</button> -->
   </div>
 </template>
 
 <script>
 import CustomForm from '@/components/setup/CustomForm.vue';
 import Item from '@/components/setup/Item.vue';
+
+// 🛠 Utils
+import { fromInputData } from '@/assets/utils/fromInputData.js';
 
 const queries = [
   "orderby=title",
@@ -22,34 +26,9 @@ const queries = [
   "_embed",
 ];
 
-/**
- * Converts the input data from the api into an internal data structure
- * @param {Object} item
- * @returns {Object}
- */
-function fromInputData(item) {
-  //
-  let imageFull = 'image-not-found.png';
-  let imageObj = {};
-
-  if(item._embedded !== undefined) {
-    imageFull = item._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
-    imageObj = item._embedded["wp:featuredmedia"][0].media_details.sizes;
-  } 
-  // Return object 
-  return {
-    id: item.id,
-    title: item.title.rendered,
-    slug: item.slug,
-    type: item.type,
-    view: "advanced",
-    image: imageFull,
-    images: imageObj,
-  };
-}
-
 export default {
   name: 'type',
+  // layout: 'simple',
   components: {
     CustomForm,
     Item,
@@ -71,16 +50,26 @@ export default {
       return this.$store.getters['items/getTypePage'](this.$route.params.type);
     }
   },
-  // async asyncData({ fetch, store, params }) {
-  //   await fetch(params.type)
-  //   let itemsType = store.state.items[params.type].items;
+  async asyncData({ app, store, params }) {
+    if (!store.state.items[params.type].items.length) {
+      app.$axios.get(`wp/v2/${params.type}?${queries.join("&")}&page=${store.getters['items/getTypePage'](params.type)}&_embed`).then(response => {
+        // Push the data to the store
+        store.commit({
+          type: 'items/addItems',
+          itemType: params.type,
+          items: response.data.map(fromInputData),
+        });
 
-  //   return {
-  //     itemsType: itemsType
-  //   }
-  // },
+        // Increase the page number each time the function is run 
+        store.commit({
+          type: 'items/incrementPage',
+          itemType: params.type,
+        });
+      });
+    }
+  },
   methods: {
-    loadMore() {
+    itemsLoad() {
       this.$axios.get(`wp/v2/${this.type}?${queries.join("&")}&page=${this.$store.getters['items/getTypePage'](this.$route.params.type)}&_embed`).then(response => {
 
         // Push the data to the store
@@ -96,6 +85,24 @@ export default {
           itemType: this.type,
         });
       });
+    },
+    itemsinfIniteScroll() {
+    window.onscroll = () => {
+      let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+
+      if (bottomOfWindow) {
+        this.itemsLoad();
+      }
+    };
+  },
+  },
+  // Life cycle hooks
+  mounted() {
+    this.itemsinfIniteScroll();
+  },
+  created() {
+    if (!this.$store.state.items[this.$route.params.type].items.length) {
+      this.itemsLoad();
     }
   }
 }

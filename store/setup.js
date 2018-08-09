@@ -8,9 +8,6 @@ export const state = () => ({
       slug: "",
       view: "empty",
       title: "Pick a deck",
-      images: {
-        full: "subsonic-century-36-deck-only.jpg",
-      },
     },
     {
       id: "empty-trucks",
@@ -19,9 +16,6 @@ export const state = () => ({
       slug: "",
       view: "empty",
       title: "Pick a truck",
-      images: {
-        full: "subsonic-century-36-deck-only.jpg",
-      },
     },
     {
       id: "empty-wheels",
@@ -30,9 +24,6 @@ export const state = () => ({
       slug: "",
       view: "empty",
       title: "Pick your wheels",
-      images: {
-        full: "subsonic-century-36-deck-only.jpg",
-      },
     },
   ],
   initSetupCurrent: [
@@ -43,9 +34,6 @@ export const state = () => ({
       slug: "",
       view: "empty",
       title: "Pick a deck",
-      images: {
-        full: "subsonic-century-36-deck-only.jpg",
-      },
     },
     {
       id: "empty-trucks",
@@ -54,9 +42,6 @@ export const state = () => ({
       slug: "",
       view: "empty",
       title: "Pick a truck",
-      images: {
-        full: "subsonic-century-36-deck-only.jpg",
-      },
     },
     {
       id: "empty-wheels",
@@ -65,9 +50,6 @@ export const state = () => ({
       slug: "",
       view: "empty",
       title: "Pick your wheels",
-      images: {
-        full: "subsonic-century-36-deck-only.jpg",
-      },
     },
   ],
   advancedOn: false,
