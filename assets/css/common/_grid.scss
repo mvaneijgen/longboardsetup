@@ -4,10 +4,6 @@
 body {
   margin: 0;
   background-color: $brand-one;
-  font-size: 16px;
-  line-height: 1.4em;
-  font-family: sans-serif;
-  // color: yellow; // detlete me
 }
 h1,
 h2,
@@ -29,6 +25,7 @@ p {
     margin: 0 auto;
   }
 }
+.alloy-page--content,
 footer > .inner,
 .component-Navigation nav,
 .alloy-page--type {
@@ -77,47 +74,48 @@ footer {
   }
 }
 // Items
-.alloy-cards {
-  position: relative;
-  grid-column: span 2;
-  overflow: hidden;
-  // grid-column: span 1;
-  // @media only screen and (min-width: 500px) {
-  //   grid-column: span 2;
-  // }
-  grid-row: span $base-grid-row;
-}
-[data-type="deck"],
-[data-type="decks"],
-[data-type="wheels"],
-[data-type="trucks"] {
-  grid-column: span 1;
-}
+.alloy-select-grid,
+.alloy-setup {
+  .alloy-cards {
+    position: relative;
+    grid-column: span 2;
+    // grid-column: span 1;
+    // @media only screen and (min-width: 500px) {
+    //   grid-column: span 2;
+    // }
+    grid-row: span $base-grid-row;
+  }
+  [data-type="deck"],
+  [data-type="decks"],
+  [data-type="wheels"],
+  [data-type="trucks"] {
+    grid-column: span 1;
+  }
 
-[data-type="decks"],
-[data-type="deck"] {
-  grid-row: span $base-grid-row * 2;
-  @media only screen and (min-width: $alloy-xs-mq) {
-    grid-row: span 10;
-  }
-  @media only screen and (min-width: $alloy-md-mq) {
-    grid-row: span $base-grid-row * 4;
-  }
-}
-
-[data-type="wheels"],
-[data-type="trucks"] {
-  grid-row: span $base-grid-row;
-  grid-column: span 1;
-  grid-row: span $base-grid-row;
-  @media only screen and (min-width: $alloy-xs-mq) {
-    grid-row: span 5;
-  }
-  @media only screen and (min-width: $alloy-md-mq) {
+  [data-type="decks"],
+  [data-type="deck"] {
     grid-row: span $base-grid-row * 2;
+    @media only screen and (min-width: $alloy-xs-mq) {
+      grid-row: span 10;
+    }
+    @media only screen and (min-width: $alloy-md-mq) {
+      grid-row: span $base-grid-row * 4;
+    }
+  }
+
+  [data-type="wheels"],
+  [data-type="trucks"] {
+    grid-row: span $base-grid-row;
+    grid-column: span 1;
+    grid-row: span $base-grid-row;
+    @media only screen and (min-width: $alloy-xs-mq) {
+      grid-row: span 5;
+    }
+    @media only screen and (min-width: $alloy-md-mq) {
+      grid-row: span $base-grid-row * 2;
+    }
   }
 }
-
 // [data-type="add"],
 // [data-type="custom"] {
 //   grid-column: span 1;
@@ -126,7 +124,30 @@ footer {
 //   }
 //   grid-row: span $base-grid-row;
 // }
+.alloy-select-flexbox {
+  > .inner {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  .alloy-cards {
+    // flex-grow: 1;
+    margin-bottom: 2%;
+    width: 49%;
 
+    @media only screen and (min-width: $alloy-md-mq) {
+      width: 32%;
+    }
+
+    &[data-type="decks"],
+    &[data-type="deck"] {
+      height: 400px;
+      @media only screen and (min-width: $alloy-md-mq) {
+        height: 500px;
+      }
+    }
+  }
+}
 //------------------------------------------------------//
 // END CSS Grid settings
 //------------------------------------------------------//

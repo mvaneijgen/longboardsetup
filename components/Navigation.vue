@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      title: 'Navigation'
+      title: 'Navigation',
     }
   }, // End data
     methods: {
@@ -75,11 +75,9 @@ export default {
       // event.target.parentNode.classList.toggle('showAllInfo');
     },
     setupClear: function() {
-      var result = confirm('Are you sure? This will remove all your hard work.');
-      if (result) {
+      if (confirm('Are you sure? This will remove all your hard work.')) {
         this.$store.commit('setup/setupClear');
       }
-      
     }
   },
 }

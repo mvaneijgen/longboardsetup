@@ -2,10 +2,11 @@ body {
   font-family: $font-base;
   font-size: 16px;
   line-height: 1.5em;
+  font-smoothing: antialiased;
 }
-@include media-breakpoint-up(md) {
+@include media-breakpoint-up(lg) {
   body {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 h1,
@@ -57,12 +58,16 @@ header {
 }
 
 h1 {
+  font-size: 2rem;
 }
 h2 {
+  font-size: 1.8rem;
 }
 h3 {
+  font-size: 1.6rem;
 }
 h4 {
+  font-size: 1.4rem;
 }
 h5 {
   font-size: 1em;
@@ -70,4 +75,7 @@ h5 {
 h6 {
 }
 p {
+}
+.alloy-text-light {
+  color: $brand-light;
 }

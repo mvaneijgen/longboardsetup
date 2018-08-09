@@ -5,6 +5,8 @@
   background-color: $brand-light;
   border-radius: $base-radius;
   position: relative;
+  overflow: hidden;
+
   > .inner {
     position: relative;
     width: 100%;
@@ -60,7 +62,7 @@
   }
 
   // Toggle stuffalign-content
-
+  &:hover,
   &[data-info="true"] {
     .alloy-content {
       pointer-events: auto;

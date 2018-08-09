@@ -1,6 +1,6 @@
 <template>
   <div class="component-SetupName">
-    <h1 class="centered" contenteditable="true">{{ this.$store.state.name.nameCurrent }}</h1>
+    <h1 class="centered">{{ this.$store.state.name.nameCurrent }}</h1>
   </div>
 </template>
 
