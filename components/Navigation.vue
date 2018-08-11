@@ -12,27 +12,27 @@
           </nuxt-link>
         </template>
 
-        <button v-if="'setup' == this.$route.name" @click="setupClear" class="btn">
+        <button v-if="'setup' == this.$route.name" @click="setupClear" class="btn btn--icon">
           <span>Clear</span>
           <icon-base width="20" height="20" icon-name="trash">
             <icon-trash />
           </icon-base>
         </button>
 
-        <button @click="toggleAllInfo" class="btn">
+        <button @click="toggleAllInfo" class="btn btn--icon">
           <span>Info</span>
           <icon-base width="20" height="20" icon-name="info">
             <icon-info />
           </icon-base>
         </button>
 
-        <div v-if="'setup' != this.$route.name" class="alloy-input-field">
+        <!-- <div v-if="'setup' != this.$route.name" class="alloy-input-field">
           <label for="search">Seach</label>
           <input type="text" id="search" :placeholder="`Search ${this.$route.params.type}...`">
-        </div>
+        </div> -->
 
         <template v-if="'setup' == this.$route.name">
-          <button class="alloy-share btn btn--alt">
+          <button class="alloy-share btn btn--alt btn--icon">
             <span>Share</span>
             <icon-base width="20" height="20" icon-name="share">
               <icon-share />
@@ -93,10 +93,14 @@ export default {
   left: 0;
   width: 100%;
   background-color: $brand-two-lighten;
-  padding: $base-margin;
+  padding: 10px;
+  @include media-breakpoint-up(lg) {
+    padding: $base-margin;
+  }
 }
 .alloy-share {
-  float: right;
+  // float: right;
+  align-self: flex-end;
   margin-right: 0;
 }
 .alloy-input-field {
@@ -105,17 +109,17 @@ export default {
     margin-bottom: 0;
   }
 }
-@media only screen and (max-width: $alloy-sm-mq) {
-  input,
-  .btn {
-    font-size: 0.8rem;
-    line-height: 1em;
-    padding: 5px 10px;
-  }
-  label {
-    font-size: 0.4rem;
-    padding: 3px 5px;
-    top: -5px;
-  }
-}
+// @include media-breakpoint-down(md) {
+//   input,
+//   .btn {
+//     font-size: 0.8rem;
+//     line-height: 1em;
+//     padding: 5px 10px;
+//   }
+//   label {
+//     font-size: 0.4rem;
+//     padding: 3px 5px;
+//     top: -5px;
+//   }
+// }
 </style>

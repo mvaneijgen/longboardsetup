@@ -14,6 +14,9 @@ export default {
   components: {
     SetupUI,
   },
+  // created() {
+  //     // this.$router.query
+  // }
 }
 </script>
 

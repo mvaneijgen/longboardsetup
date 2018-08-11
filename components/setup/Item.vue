@@ -1,6 +1,6 @@
 <template>
-  <div class="alloy-items alloy-cards" :data-type="item.type" :data-view="item.view" :data-info="showInfo">
-    <div class="inner" @click="itemEdit" :data-item-id="item.id">
+  <div class="alloy-items alloy-cards" :data-type="item.type" :data-view="item.view" :data-item-id="item.id" :data-info="showInfo">
+    <div class="inner" @click="itemEdit">
 
       <template v-if="item.view == 'empty'">
         <EmptyDecksIcon v-if="item.type == 'decks'" />
@@ -15,9 +15,9 @@
 
       <div class="alloy-content">
         <div class="alloy-meta">
-          <!-- <p>
-            <strong>{{ item.type }}</strong>
-          </p> -->
+          <p>
+            <strong>{{ item.custom }}</strong>
+          </p>
         </div>
         <h3 v-html="item.title"></h3>
         <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a>
@@ -69,27 +69,13 @@ export default {
     //------------------------------------------------------//
     itemEdit: function(event) {
       if('setup-type' === this.$route.name) {
-        
         // find the item in the store/items.js
-        const itemId = event.target.dataset.itemId;
+        const itemId = event.target.closest('.alloy-items').dataset.itemId;
         const storeTypeDataset = this.$store.state.items[this.$route.params.type].items;
         const result = storeTypeDataset.find(function(item) {
           return item.id == itemId;
         });
-        // Add custom 🔑 key to the API object
-        const paramKeyCurrent = this.$route.query.paramKey;
-        result['paramKey'] = paramKeyCurrent;
-
-        // Get the current setup
-        const items = this.$store.state.setup.setupCurrent;
-
-        const changeItemCheck = items.findIndex(item => item.paramKey == paramKeyCurrent);
-
-        if (changeItemCheck <= -1) {
-          this.$store.commit('setup/setupAdd', result);
-        } else {
-          this.$store.commit('setup/setupChange', result);
-        }
+        this.$store.commit('setup/setupChange', result);
 
         // 📩 Add item and navigate to 📲 to the setup route
         this.$router.push({
@@ -97,24 +83,17 @@ export default {
         });
 
       } else {
-        // navigate to 📲 to the setup route
+        // Navigate to 📲 to the setup route
         this.$router.push({
           path: `/setup/${this.item.type}`,
           query: {
-            paramKey: this.item.paramKey,
             id: this.item.id,
-            type: this.item.type,
-            slug: this.item.slug,
+            custom: this.item.custom,
+            title: this.item.title,
             location: this.item.location,
           }
         });
       }
-      // If in SetupUI component
-      // // Go to this.$router.push({ 
-      // this.$store.commit('name/nameRandomGenerator');
-
-      // // 📝 how to push prop 'item' to this page?
-      
     }
     //------------------------------------------------------//
     // END Variable function move, add or change and route

@@ -27,20 +27,31 @@ export default {
 }
 </script>
 
-<style lang="scss"  scoped>
+<style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
 
 .component-AdvancedToggle {
   padding: $base-margin;
-  @media only screen and (min-width: $alloy-md-mq) {
+  display: flex;
+  align-items: center;
+  @include media-breakpoint-up(lg) {
+    // @media only screen and (min-width: $alloy-md-mq)
     padding: $base-margin * 2;
   }
+
   > * {
+    // display: inline;
     vertical-align: middle;
     margin-right: $base-margin;
   }
   span {
     color: $brand-light;
+    font-size: 0.8rem;
+    @include media-breakpoint-up(lg) {
+      font-size: 1rem;
+    }
+    line-height: 1.2em;
+    display: inline-block;
   }
 }
 </style>

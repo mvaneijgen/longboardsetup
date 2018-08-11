@@ -8,7 +8,7 @@
         <span></span>
       </div>
     </div>
-    <div class="alloy-slide-nav">
+    <div class="alloy-slide-nav" @click="closeToggle">
 
       <div class="inner">
         <nav>
@@ -42,6 +42,9 @@ export default {
   }, // End data
   methods: {
     navToggle() {
+      this.show = !this.show;
+    },
+    closeToggle() {
       this.show = !this.show;
     }
   }

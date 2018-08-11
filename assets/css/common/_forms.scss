@@ -11,6 +11,10 @@ input[type="submit"],
   border: 2px solid;
   appearance: none;
   display: inline-block;
+  font-family: $font-base;
+  font-size: 1rem;
+  line-height: 1em;
+  border-radius: $base-radius;
 }
 
 input[type="text"],
@@ -21,10 +25,8 @@ textarea,
 select {
   width: 100%;
   border-color: $brand-one-lighten;
-  border-radius: $base-radius;
   background-color: $brand-light;
   display: block;
-  font-size: 1rem;
   margin-bottom: $base-margin * 2;
 
   &:focus {
@@ -42,14 +44,10 @@ select {
 button,
 input[type="submit"],
 .btn {
-  // border: 2px solid;
   border-color: $brand-one-lighten;
   background-color: $brand-one-lighten;
-  font-size: 1rem;
   color: $brand-light;
   text-decoration: none;
-  // padding: 10px $base-margin;
-  border-radius: $base-radius;
 
   transition: background-color, border-color, opacity;
   transition-duration: 300ms;
@@ -69,17 +67,17 @@ input[type="submit"],
     opacity: $base-alpha;
   }
 
-  span {
-    margin-right: 7px;
-    display: inline-block;
-    transform: translateY(-2px);
-  }
+  // span {
+  //   margin-right: 7px;
+  //   display: inline-block;
+  //   transform: translateY(-2px);
+  // }
 }
 .btn--icon-left {
-  span {
-    margin-left: 7px;
-    margin-right: 0;
-  }
+  // span {
+  //   margin-left: 7px;
+  //   margin-right: 0;
+  // }
 }
 .btn--alt,
 input[type="submit"] {
@@ -97,10 +95,16 @@ input[type="submit"] {
   padding: 2px 5px;
 }
 .alloy-btn-group {
+  display: flex;
   .btn,
   button,
   input[type="submit"] {
-    margin-right: $base-margin;
+    margin-right: 10px;
+    @include media-breakpoint-up(lg) {
+      margin-right: $base-margin;
+    }
+  }
+  > * {
   }
 }
 //------------------------------------------------------//
@@ -230,3 +234,22 @@ input[type="submit"] {
 //------------------------------------------------------//
 // END Custom toggle slider
 //------------------------------------------------------//
+.btn--icon {
+  position: relative;
+  padding-right: $base-margin * 2 + 10px;
+  svg {
+    position: absolute;
+    right: $base-margin - 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.btn--icon-left {
+  padding-left: $base-margin * 2 + 10px;
+  padding-right: $base-margin;
+  svg {
+    position: absolute;
+    left: $base-margin - 5px;
+    right: auto;
+  }
+}

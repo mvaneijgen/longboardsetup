@@ -21,7 +21,9 @@ p {
 .alloy-page {
   max-width: 700px;
   padding: 0 10px;
-  @media only screen and (min-width: $alloy-md-mq) {
+  margin-bottom: $base-margin * 8 !important;
+  @include media-breakpoint-up(lg) {
+    // @media only screen and (min-width: $alloy-md-mq) {
     margin: 0 auto;
   }
 }
@@ -50,7 +52,8 @@ footer,
 
     grid-row-gap: $base-margin;
     grid-column-gap: $base-margin;
-    @media only screen and (min-width: $alloy-md-mq) {
+    @include media-breakpoint-up(lg) {
+      // @media only screen and (min-width: $alloy-md-mq) {
       grid-row-gap: $base-margin * 2;
       grid-column-gap: $base-margin * 2;
     }
@@ -59,7 +62,8 @@ footer,
 .alloy-select-grid {
   > .inner {
     grid-template-columns: repeat(2, 1fr);
-    @media only screen and (min-width: $alloy-md-mq) {
+    @include media-breakpoint-up(lg) {
+      // @media only screen and (min-width: $alloy-md-mq) {
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
   }
@@ -68,7 +72,8 @@ footer {
   > .inner {
     grid-auto-rows: auto;
     grid-template-columns: repeat(1, 1fr);
-    @media only screen and (min-width: $alloy-md-mq) {
+    @include media-breakpoint-up(lg) {
+      // @media only screen and (min-width: $alloy-md-mq) {
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
   }
@@ -95,10 +100,12 @@ footer {
   [data-type="decks"],
   [data-type="deck"] {
     grid-row: span $base-grid-row * 2;
-    @media only screen and (min-width: $alloy-xs-mq) {
+    @include media-breakpoint-up(md) {
+      // @media only screen and (min-width: $alloy-xs-mq) {
       grid-row: span 10;
     }
-    @media only screen and (min-width: $alloy-md-mq) {
+    @include media-breakpoint-up(lg) {
+      // @media only screen and (min-width: $alloy-md-mq) {
       grid-row: span $base-grid-row * 4;
     }
   }
@@ -108,10 +115,13 @@ footer {
     grid-row: span $base-grid-row;
     grid-column: span 1;
     grid-row: span $base-grid-row;
-    @media only screen and (min-width: $alloy-xs-mq) {
+
+    @include media-breakpoint-up(md) {
+      // @media only screen and (min-width: $alloy-xs-mq) {
       grid-row: span 5;
     }
-    @media only screen and (min-width: $alloy-md-mq) {
+    @include media-breakpoint-up(lg) {
+      // @media only screen and (min-width: $alloy-md-mq) {
       grid-row: span $base-grid-row * 2;
     }
   }
@@ -134,15 +144,16 @@ footer {
     // flex-grow: 1;
     margin-bottom: 2%;
     width: 49%;
-
-    @media only screen and (min-width: $alloy-md-mq) {
+    @include media-breakpoint-up(lg) {
+      // @media only screen and (min-width: $alloy-md-mq) {
       width: 32%;
     }
 
     &[data-type="decks"],
     &[data-type="deck"] {
       height: 400px;
-      @media only screen and (min-width: $alloy-md-mq) {
+      @include media-breakpoint-up(lg) {
+        // @media only screen and (min-width: $alloy-md-mq) {
         height: 500px;
       }
     }

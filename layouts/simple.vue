@@ -2,7 +2,9 @@
   <div>
     <!-- <Background/> -->
     <Header/>
-    <nuxt/>
+    <transition name="layout" mode="out-in">
+      <nuxt/>
+    </transition>
     <Navigation v-if="'index' != this.$route.name" />
 
   </div>

@@ -4,7 +4,6 @@ export const state = () => ({
     {
       id: "empty-deck",
       type: "decks",
-      paramKey: "decks",
       slug: "",
       view: "empty",
       title: "Pick a deck",
@@ -12,7 +11,6 @@ export const state = () => ({
     {
       id: "empty-trucks",
       type: "trucks",
-      paramKey: "trucks",
       slug: "",
       view: "empty",
       title: "Pick a truck",
@@ -20,7 +18,6 @@ export const state = () => ({
     {
       id: "empty-wheels",
       type: "wheels",
-      paramKey: "wheels",
       slug: "",
       view: "empty",
       title: "Pick your wheels",
@@ -30,7 +27,6 @@ export const state = () => ({
     {
       id: "empty-deck",
       type: "decks",
-      paramKey: "decks",
       slug: "",
       view: "empty",
       title: "Pick a deck",
@@ -38,7 +34,6 @@ export const state = () => ({
     {
       id: "empty-trucks",
       type: "trucks",
-      paramKey: "trucks",
       slug: "",
       view: "empty",
       title: "Pick a truck",
@@ -46,7 +41,6 @@ export const state = () => ({
     {
       id: "empty-wheels",
       type: "wheels",
-      paramKey: "wheels",
       slug: "",
       view: "empty",
       title: "Pick your wheels",
@@ -63,14 +57,28 @@ export const mutations = {
     state.setupCurrent.push(payload);
   },
   setupChange(state, payload) {
-    const paramKeyCurrent = payload.paramKey;
-
     const changeItemCheck = state.setupCurrent.findIndex(
-      item => item.paramKey == paramKeyCurrent
+      item => item.type == payload.type
     );
     state.setupCurrent[changeItemCheck] = payload;
   },
-  setupDelete(state, payload) {},
+  setupAddOrChange(state, payload) {
+    const changeItemCheck = state.setupCurrent.findIndex(
+      item => item.id == payload.id
+    );
+    if (changeItemCheck >= 0) {
+      state.setupCurrent[changeItemCheck] = payload;
+    } else {
+      state.setupCurrent.push(payload);
+    }
+  },
+  setupDelete(state, payload) {
+    const changeItemCheck = state.setupCurrent.findIndex(
+      item => item.id == payload.id
+    );
+    state.setupCurrent.splice(changeItemCheck, 1);
+    // console.warn(payload);
+  },
   setupClear(state, payload) {
     state.setupCurrent = state.initSetupCurrent;
   },

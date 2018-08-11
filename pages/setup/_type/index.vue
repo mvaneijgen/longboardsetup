@@ -8,7 +8,8 @@
         <!-- </transition-group> -->
       </div>
     </div>
-    <!-- <button @click="itemsLoad">Load more</button> -->
+    <h1 style="color: #fff" v-if="loading">Loading...</h1>
+    <button @click="itemsLoad" class="centered" :disabled="loading">Load more</button>
   </div>
 </template>
 
@@ -39,6 +40,7 @@ export default {
       customShow: false,
       type: this.$route.params.type,
       page: this.$store.state.items[this.$route.params.type].page,
+      loading: false,
     }
   }, // End data
   computed: {
@@ -50,26 +52,28 @@ export default {
       return this.$store.getters['items/getTypePage'](this.$route.params.type);
     }
   },
-  async asyncData({ app, store, params }) {
-    if (!store.state.items[params.type].items.length) {
-      app.$axios.get(`wp/v2/${params.type}?${queries.join("&")}&page=${store.getters['items/getTypePage'](params.type)}&_embed`).then(response => {
-        // Push the data to the store
-        store.commit({
-          type: 'items/addItems',
-          itemType: params.type,
-          items: response.data.map(fromInputData),
-        });
+  // async asyncData({ app, store, params }) {
+  //   if (!store.state.items[params.type].items.length) {
+  //     app.$axios.get(`wp/v2/${params.type}?${queries.join("&")}&page=${store.getters['items/getTypePage'](params.type)}&_embed`).then(response => {
+  //       // Push the data to the store
+  //       store.commit({
+  //         type: 'items/addItems',
+  //         itemType: params.type,
+  //         items: response.data.map(fromInputData),
+  //       });
 
-        // Increase the page number each time the function is run 
-        store.commit({
-          type: 'items/incrementPage',
-          itemType: params.type,
-        });
-      });
-    }
-  },
+  //       // Increase the page number each time the function is run 
+  //       store.commit({
+  //         type: 'items/incrementPage',
+  //         itemType: params.type,
+  //       });
+  //     });
+  //   }
+  // },
   methods: {
     itemsLoad() {
+      this.loading = true;
+
       this.$axios.get(`wp/v2/${this.type}?${queries.join("&")}&page=${this.$store.getters['items/getTypePage'](this.$route.params.type)}&_embed`).then(response => {
 
         // Push the data to the store
@@ -84,17 +88,20 @@ export default {
           type: 'items/incrementPage',
           itemType: this.type,
         });
+        this.loading = false;
       });
     },
     itemsinfIniteScroll() {
-    window.onscroll = () => {
-      let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+      window.addEventListener('scroll', () => {
+        const scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop)
 
-      if (bottomOfWindow) {
-        this.itemsLoad();
-      }
-    };
-  },
+        let bottomOfWindow = scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+      
+        if (!this.loading && bottomOfWindow) {
+          this.itemsLoad();
+        }
+      });
+    },
   },
   // Life cycle hooks
   mounted() {
@@ -104,6 +111,9 @@ export default {
     if (!this.$store.state.items[this.$route.params.type].items.length) {
       this.itemsLoad();
     }
+  },
+  destroyed () {
+    // window.removeEventListener('scroll');
   }
 }
 </script>
