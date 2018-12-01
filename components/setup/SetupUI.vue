@@ -4,9 +4,8 @@
 
       <Item v-for="item in setupCurrent" :key="item.id" :item="item" />
 
-      <ItemAdd v-show="advancedOn" />
+      <ItemAdd/>
     </div>
-    <AdvancedToggle />
   </div>
 
 </template>
@@ -32,15 +31,15 @@ export default {
   computed: {
     setupCurrent: {
       get () {
-          return this.$store.state.setup.setupCurrent;
-        }
+        return this.$store.state.setup.setupCurrent;
+      }
     },
     advancedOn: {
       get () {
         return this.$store.state.setup.advancedOn;
       },
     },
-  }
+  },
 }
 </script>
 

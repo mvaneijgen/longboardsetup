@@ -26,10 +26,10 @@
           </icon-base>
         </button>
 
-        <!-- <div v-if="'setup' != this.$route.name" class="alloy-input-field">
+        <div v-if="'setup' != this.$route.name" class="alloy-input-field">
           <label for="search">Seach</label>
-          <input type="text" id="search" :placeholder="`Search ${this.$route.params.type}...`">
-        </div> -->
+          <input type="text" id="search" v-model="search" :placeholder="`Search ${this.$route.params.type}...`">
+        </div>
 
         <template v-if="'setup' == this.$route.name">
           <button class="alloy-share btn btn--alt btn--icon">
@@ -67,6 +67,8 @@ export default {
   data() {
     return {
       title: 'Navigation',
+      type: this.$route.params.type,
+
     }
   }, // End data
     methods: {
@@ -80,6 +82,28 @@ export default {
       }
     }
   },
+  computed: {
+    search: {
+        get(){ 
+          return this.$store.getters['items/getSearch'](this.type);
+        },
+        set( value ){
+          this.$store.commit({
+            type: 'items/setSearch',
+            itemType: this.type,
+            search: value,
+          });
+        }
+      // set(search) {
+      //   this.$store.commit('items/search', search)
+      //   this.$store.commit({
+      //     type: 'items/addItems',
+      //     itemType: this.type,
+      //     search: search,
+      //   });
+      // }
+    }
+  }
 }
 </script>
 

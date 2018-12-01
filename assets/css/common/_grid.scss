@@ -135,6 +135,7 @@ footer {
 //   grid-row: span $base-grid-row;
 // }
 .alloy-select-flexbox {
+  .transition-card,
   > .inner {
     display: flex;
     flex-flow: row wrap;

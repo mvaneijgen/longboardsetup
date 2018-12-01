@@ -145,3 +145,33 @@ $base-transition: 300ms;
 //------------------------------------------------------//
 // END UI transtions /starr
 //------------------------------------------------------//
+//------------------------------------------------------//
+// Slide in  
+//------------------------------------------------------//
+.slide-in-enter-active,
+.slide-in-leave-active {
+  transition: transform, opacity;
+  transition-duration: $base-transition * 2;
+  transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+
+  // @for $i from 1 through 18 {    
+  //   &:nth-child(#{$i}n+18),
+  //   &:nth-child(#{$i}) {
+  //     transition-delay: 100ms * $i;
+  //   }
+  // }
+}
+.slide-in-enter,
+.slide-in-leave-to {
+  opacity: 0;
+  transform: translateX(150px);
+}
+.slide-in-enter-to,
+.slide-in-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+//------------------------------------------------------//
+// END Slide in 
+//------------------------------------------------------//

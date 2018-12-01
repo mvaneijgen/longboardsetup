@@ -3,9 +3,9 @@
     <CustomForm v-if="'/setup/custom' == this.$route.path" />
     <div class="alloy-select-flexbox">
       <div class="inner">
-        <!-- <transition-group appear name="slide-up" tag="div" class="inner"> -->
-        <Item v-for="item in allItems" :key="item.id" :item="item" />
-        <!-- </transition-group> -->
+        <transition-group appear name="slide-in" tag="div" class="transition-card">
+          <Item v-for="item in allItems" :key="item.id" :item="item" />
+        </transition-group>
       </div>
     </div>
     <h1 style="color: #fff" v-if="loading">Loading...</h1>
@@ -93,7 +93,7 @@ export default {
     },
     itemsinfIniteScroll() {
       window.addEventListener('scroll', () => {
-        const scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop)
+        const scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
 
         let bottomOfWindow = scrollTop + window.innerHeight === document.documentElement.offsetHeight;
       

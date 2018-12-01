@@ -3,14 +3,17 @@ export const state = () => ({
   decks: {
     items: [],
     page: 1,
+    search: ''
   },
   trucks: {
     items: [],
     page: 1,
+    search: ''
   },
   wheels: {
     items: [],
     page: 1,
+    search: ''
   },
 });
 
@@ -23,14 +26,25 @@ export const mutations = {
   incrementPage(state, payload) {
     state[payload.itemType].page++;
   },
+  setSearch(state, payload) {
+    state[payload.itemType].search = payload.search;
+  },
   error(state, payload) {},
 };
 
 export const getters = {
+  // getTypeItems: state => itemType => {
+  //   return state[itemType].items;
+  // },
   getTypeItems: state => itemType => {
-    return state[itemType].items;
+    return state[itemType].items.filter((item) => {
+      return item.title.toLowerCase().match(state[itemType].search.toLowerCase());
+    });
   },
   getTypePage: state => itemType => {
     return state[itemType].page;
   },
+  getSearch: state => (itemType) => {
+    return state[itemType].search;
+  }
 };
