@@ -26,9 +26,9 @@
           </icon-base>
         </button>
 
-        <div v-if="'setup' != this.$route.name" class="alloy-input-field">
-          <label for="search">Seach</label>
-          <input type="text" id="search" v-model="search" :placeholder="`Search ${this.$route.params.type}...`">
+        <div v-if="'setup-type' == this.$route.name" class="alloy-input-field">
+          <label for="searchTerm">Search</label>
+          <input type="text" id="searchTerm" v-model="searchField" :placeholder="`Search ${this.$route.params.type}...`">
         </div>
 
         <template v-if="'setup' == this.$route.name">
@@ -40,6 +40,10 @@
           </button>
         </template>
 
+         <div class="alloy-input-field">
+          <label for="share">URL</label>
+          <input type="text" id="share" :value="shareSetupURL">
+        </div>
       </div>
     </nav>
   </div>
@@ -71,7 +75,7 @@ export default {
 
     }
   }, // End data
-    methods: {
+  methods: {
     toggleAllInfo: function (event) {
       document.body.classList.toggle('showAllInfo');
       // event.target.parentNode.classList.toggle('showAllInfo');
@@ -83,25 +87,23 @@ export default {
     }
   },
   computed: {
-    search: {
-        get(){ 
-          return this.$store.getters['items/getSearch'](this.type);
-        },
-        set( value ){
-          this.$store.commit({
-            type: 'items/setSearch',
-            itemType: this.type,
-            search: value,
-          });
-        }
-      // set(search) {
-      //   this.$store.commit('items/search', search)
-      //   this.$store.commit({
-      //     type: 'items/addItems',
-      //     itemType: this.type,
-      //     search: search,
-      //   });
-      // }
+    searchField: {
+      get(){ 
+        console.warn(this.$route); 
+        return this.$store.getters['items/getSearch'](this.type);
+      },
+      set( value ){ 
+        this.$store.commit({
+          type: 'items/setSearch',
+          itemType: this.type,
+          searchTerm: value,
+        });
+      }
+    },
+    shareSetupURL: {
+      get(){ 
+        return this.$store.getters['setup/getShare'];
+      }
     }
   }
 }

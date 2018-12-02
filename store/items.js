@@ -27,15 +27,12 @@ export const mutations = {
     state[payload.itemType].page++;
   },
   setSearch(state, payload) {
-    state[payload.itemType].search = payload.search;
+    state[payload.itemType].search = payload.searchTerm;
   },
   error(state, payload) {},
 };
 
 export const getters = {
-  // getTypeItems: state => itemType => {
-  //   return state[itemType].items;
-  // },
   getTypeItems: state => itemType => {
     return state[itemType].items.filter((item) => {
       return item.title.toLowerCase().match(state[itemType].search.toLowerCase());
@@ -44,7 +41,7 @@ export const getters = {
   getTypePage: state => itemType => {
     return state[itemType].page;
   },
-  getSearch: state => (itemType) => {
+  getSearch: state => itemType => {
     return state[itemType].search;
   }
 };

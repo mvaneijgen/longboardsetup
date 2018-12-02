@@ -219,3 +219,19 @@ $grid-breakpoints: (
 //------------------------------------------------------//
 // END The real Bootstrap way to load in media queries.
 //------------------------------------------------------//
+@function makelongshadow($color, $color2) {
+  $val: 0px 0px $color;
+  @for $i from 1 through 1 {
+    $val: #{$val}, #{$i}px -#{$i}px #{$color};
+  }
+  @for $i from 1 through 1 {
+    $val: #{$val}, #{$i}px #{$i}px #{$color};
+  }
+  @for $i from 1 through 6 {
+    $val: #{$val}, -#{$i}px #{$i}px #{$color};
+  }
+  @for $i from 7 through 12 {
+    $val: #{$val}, -#{$i}px #{$i}px #{$color2};
+  }
+  @return $val;
+}

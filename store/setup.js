@@ -4,21 +4,21 @@ export const state = () => ({
     {
       id: "empty-deck",
       type: "decks",
-      slug: "",
+      slug: "none",
       view: "empty",
       title: "Pick a deck",
     },
     {
       id: "empty-trucks",
       type: "trucks",
-      slug: "",
+      slug: "none",
       view: "empty",
       title: "Pick a truck",
     },
     {
       id: "empty-wheels",
       type: "wheels",
-      slug: "",
+      slug: "none",
       view: "empty",
       title: "Pick your wheels",
     },
@@ -83,9 +83,23 @@ export const mutations = {
     state.setupCurrent = state.initSetupCurrent;
   },
 };
+//------------------------------------------------------//
+// Getters 
+//------------------------------------------------------//
+export const getters = {
+  getShare: state => {
+    let parameters = '';
 
-// export const getters = {
-//   get(state) {
-//     return state.list;
-//   }
-// };
+    state['setupCurrent'].forEach(item => {
+      const type = item.type;
+      const slug = item.slug;
+      parameters += `${type}=${slug}&`
+    });
+    
+    return `/setup?${parameters}`
+
+  },
+};
+//------------------------------------------------------//
+// END Getters
+//------------------------------------------------------//
