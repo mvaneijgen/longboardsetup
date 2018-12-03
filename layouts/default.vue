@@ -22,7 +22,6 @@ export default {
     // Background,
     Navigation,
   }
-  
 }
 </script>
 

@@ -87,10 +87,10 @@ export const mutations = {
 // Getters 
 //------------------------------------------------------//
 export const getters = {
-  getShare: state => {
+  getShareURL: state => {
     let parameters = '';
 
-    state['setupCurrent'].forEach(item => {
+    state.setupCurrent.forEach(item => {
       const type = item.type;
       const slug = item.slug;
       parameters += `${type}=${slug}&`
@@ -98,7 +98,7 @@ export const getters = {
     
     return `/setup?${parameters}`
 
-  },
+  }
 };
 //------------------------------------------------------//
 // END Getters
