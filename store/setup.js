@@ -1,30 +1,27 @@
 export const state = () => ({
   title: "Longboard Setup",
-  setupCurrent: [
-    {
-      id: "empty-deck",
-      type: "decks",
-      slug: "none",
-      view: "empty",
-      title: "Pick a deck",
-    },
-    {
-      id: "empty-trucks",
-      type: "trucks",
-      slug: "none",
-      view: "empty",
-      title: "Pick a truck",
-    },
-    {
-      id: "empty-wheels",
-      type: "wheels",
-      slug: "none",
-      view: "empty",
-      title: "Pick your wheels",
-    },
-  ],
-  initSetupCurrent: [
-    {
+  setupCurrent: [{
+    id: "empty-deck",
+    type: "decks",
+    slug: "",
+    view: "empty",
+    title: "Pick a deck",
+  },
+  {
+    id: "empty-trucks",
+    type: "trucks",
+    slug: "",
+    view: "empty",
+    title: "Pick a truck",
+  },
+  {
+    id: "empty-wheels",
+    type: "wheels",
+    slug: "",
+    view: "empty",
+    title: "Pick your wheels",
+  }],
+  initSetupCurrent: [{
       id: "empty-deck",
       type: "decks",
       slug: "",
@@ -44,27 +41,18 @@ export const state = () => ({
       slug: "",
       view: "empty",
       title: "Pick your wheels",
-    },
+    }
   ],
-  advancedOn: false,
+  // advancedOn: false,
 });
 
 export const mutations = {
-  advancedToggle(state, payload) {
-    state.advancedOn = !state.advancedOn;
-  },
-  setupAdd(state, payload) {
-    state.setupCurrent.push(payload);
-  },
-  setupChange(state, payload) {
-    const changeItemCheck = state.setupCurrent.findIndex(
-      item => item.type == payload.type
-    );
-    state.setupCurrent[changeItemCheck] = payload;
-  },
+  //------------------------------------------------------//
+  // Add a item 🔨 to the setup 🧰 or change one
+  //------------------------------------------------------//
   setupAddOrChange(state, payload) {
     const changeItemCheck = state.setupCurrent.findIndex(
-      item => item.id == payload.id
+      item => item.type == payload.type
     );
     if (changeItemCheck >= 0) {
       state.setupCurrent[changeItemCheck] = payload;
@@ -72,21 +60,47 @@ export const mutations = {
       state.setupCurrent.push(payload);
     }
   },
-  setupDelete(state, payload) {
+  // END Add a item 🔨 to the setup 🧰 or change one
+
+  //------------------------------------------------------//
+  // Remove an item 🔨 from the setup 🧰
+  //------------------------------------------------------//
+  setupRemove(state, payload) {
     const changeItemCheck = state.setupCurrent.findIndex(
       item => item.id == payload.id
     );
+
     state.setupCurrent.splice(changeItemCheck, 1);
-    // console.warn(payload);
   },
+  // END Remove an item 🔨 from the setup 🧰
+
+  //------------------------------------------------------//
+  // ❌ Clear the whole setup 🧰 and restore it 
+  //------------------------------------------------------//
   setupClear(state, payload) {
-    state.setupCurrent = state.initSetupCurrent;
+    state.setupCurrent = [];
+    state.initSetupCurrent.forEach(item => {
+      state.setupCurrent.push(item);
+    });
   },
+  // END ❌ Clear the whole setup 🧰 and restore it 
+
 };
 //------------------------------------------------------//
 // Getters 
 //------------------------------------------------------//
 export const getters = {
+  //------------------------------------------------------//
+  // 🧰 Get current setup 
+  //------------------------------------------------------//
+  getSetupCurrent: state => {
+    return state.setupCurrent;
+  },
+  // END 🧰 Get current setup
+
+  //------------------------------------------------------//
+  // 🐦 Create share URL 
+  //------------------------------------------------------//
   getShareURL: state => {
     let parameters = '';
 
@@ -97,8 +111,9 @@ export const getters = {
     });
     
     return `/setup?${parameters}`
-
   }
+  // END 🐦 Create share URL
+  
 };
 //------------------------------------------------------//
 // END Getters

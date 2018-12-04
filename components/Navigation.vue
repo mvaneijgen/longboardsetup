@@ -73,8 +73,6 @@ export default {
   data() {
     return {
       title: 'Navigation',
-      type: this.$route.params.type,
-
     }
   }, // End data
   methods: {
@@ -94,12 +92,12 @@ export default {
     }),
     searchField: {
       get(){ 
-        return this.$store.getters['items/getSearch'](this.type);
+        return this.$store.getters['items/getSearch'](this.$route.params.type);
       },
       set( value ){ 
         this.$store.commit({
           type: 'items/setSearch',
-          itemType: this.type,
+          itemType: this.$route.params.type,
           searchTerm: value,
         });
       }

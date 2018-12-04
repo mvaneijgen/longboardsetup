@@ -2,7 +2,7 @@
   <div class="alloy-setup">
     <div class="inner">
 
-      <Item v-for="item in setupCurrent" :key="item.id" :item="item" />
+      <ItemSetup v-for="item in getSetupCurrent" :key="item.id" :item="item" />
 
       <ItemAdd/>
     </div>
@@ -11,8 +11,10 @@
 </template>
 
 <script>
-import Item from '@/components/setup/Item.vue';
-import AdvancedToggle from '@/components/setup/AdvancedToggle.vue';
+import { mapGetters } from 'vuex'
+
+import ItemSetup from '@/components/setup/ItemSetup.vue';
+// import AdvancedToggle from '@/components/setup/AdvancedToggle.vue';
 import ItemAdd from '@/components/setup/ItemAdd.vue';
 
 export default {
@@ -24,22 +26,19 @@ export default {
     }
   }, 
   components: {
-    Item,
+    ItemSetup,
     ItemAdd,
-    AdvancedToggle,
+    // AdvancedToggle,
   },
   computed: {
-    setupCurrent: {
-      get () {
-        return this.$store.state.setup.setupCurrent;
-      }
-    },
-    advancedOn: {
-      get () {
-        return this.$store.state.setup.advancedOn;
-      },
-    },
+    ...mapGetters({
+      getSetupCurrent: 'setup/getSetupCurrent',
+    }),
   },
+  // created() {
+  //   // ❌ Create a empty setup on first load
+  //   this.$store.commit('setup/setupClear');
+  // }
 }
 </script>
 

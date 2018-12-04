@@ -87,7 +87,7 @@ export default {
       });
     },
     deleteMe: function(){
-      this.$store.commit('setup/setupDelete', this.item);
+      this.$store.commit('setup/setupRemove', this.item);
       // confirm(`are you sure you want to delete ${this.item.title}?`)
       // Navigate to 📲 to the setup route
       this.$router.push({
