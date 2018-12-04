@@ -1,48 +1,51 @@
-export const state = () => ({
-  title: "Longboard Setup",
-  setupCurrent: [{
+const initSetupCurrent = [
+  {
     id: "empty-deck",
     type: "decks",
-    slug: "",
+    slug: "none",
     view: "empty",
     title: "Pick a deck",
   },
   {
     id: "empty-trucks",
     type: "trucks",
-    slug: "",
+    slug: "none",
     view: "empty",
     title: "Pick a truck",
   },
   {
     id: "empty-wheels",
     type: "wheels",
-    slug: "",
+    slug: "none",
     view: "empty",
     title: "Pick your wheels",
-  }],
-  initSetupCurrent: [{
-      id: "empty-deck",
-      type: "decks",
-      slug: "",
-      view: "empty",
-      title: "Pick a deck",
-    },
-    {
-      id: "empty-trucks",
-      type: "trucks",
-      slug: "",
-      view: "empty",
-      title: "Pick a truck",
-    },
-    {
-      id: "empty-wheels",
-      type: "wheels",
-      slug: "",
-      view: "empty",
-      title: "Pick your wheels",
-    }
-  ],
+  }
+];
+export const state = () => ({
+  title: "Longboard Setup",
+  setupCurrent: [...initSetupCurrent],
+  // initSetupCurrent: [{
+  //     id: "empty-deck",
+  //     type: "decks",
+  //     slug: "",
+  //     view: "empty",
+  //     title: "Pick a deck",
+  //   },
+  //   {
+  //     id: "empty-trucks",
+  //     type: "trucks",
+  //     slug: "",
+  //     view: "empty",
+  //     title: "Pick a truck",
+  //   },
+  //   {
+  //     id: "empty-wheels",
+  //     type: "wheels",
+  //     slug: "",
+  //     view: "empty",
+  //     title: "Pick your wheels",
+  //   }
+  // ],
   // advancedOn: false,
 });
 
@@ -50,12 +53,12 @@ export const mutations = {
   //------------------------------------------------------//
   // Add a item 🔨 to the setup 🧰 or change one
   //------------------------------------------------------//
-  setupAddOrChange(state, payload) {
+  setupAdd(state, payload) {
     const changeItemCheck = state.setupCurrent.findIndex(
       item => item.type == payload.type
     );
     if (changeItemCheck >= 0) {
-      state.setupCurrent[changeItemCheck] = payload;
+      state.setupCurrent.splice(changeItemCheck, 1, payload);
     } else {
       state.setupCurrent.push(payload);
     }
@@ -87,7 +90,7 @@ export const mutations = {
 
 };
 //------------------------------------------------------//
-// Getters 
+// Getters
 //------------------------------------------------------//
 export const getters = {
   //------------------------------------------------------//
@@ -110,10 +113,19 @@ export const getters = {
       parameters += `${type}=${slug}&`
     });
     
-    return `/setup?${parameters}`
-  }
+    return `https://longboardsetup.com/setup?${parameters}`
+  },
   // END 🐦 Create share URL
-  
+  getShareArray: state => {
+    let parameters = [];
+    state.setupCurrent.forEach(item => {
+      let obj = new Object();
+      obj[item.type] = item.slug;
+      parameters.push(obj)
+    });
+    
+    return parameters;
+  },
 };
 //------------------------------------------------------//
 // END Getters

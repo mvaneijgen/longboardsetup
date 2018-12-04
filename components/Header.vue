@@ -19,6 +19,7 @@
 
 <script>
 import {TweenMax, TimelineMax} from "gsap";
+
 import SetupName from '@/components/setup/SetupName.vue';
 import SlideNav from '@/components/SlideNav.vue';
 
@@ -34,11 +35,5 @@ export default {
       title: 'Header'
     }
   }, // End data
-  // mounted() {
-  //   if (process.browser) {
-  //     const timelineMain = new TimelineMax();
-  //     timelineMain.to("#wave-one", 3, { morphSVG: "#main", ease: Elastic.easeOut.config(1, 0.3)});
-  //   }
-  // },
 }
 </script>

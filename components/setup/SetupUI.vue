@@ -14,7 +14,6 @@
 import { mapGetters } from 'vuex'
 
 import ItemSetup from '@/components/setup/ItemSetup.vue';
-// import AdvancedToggle from '@/components/setup/AdvancedToggle.vue';
 import ItemAdd from '@/components/setup/ItemAdd.vue';
 
 export default {
@@ -35,13 +34,5 @@ export default {
       getSetupCurrent: 'setup/getSetupCurrent',
     }),
   },
-  // created() {
-  //   // ❌ Create a empty setup on first load
-  //   this.$store.commit('setup/setupClear');
-  // }
 }
 </script>
-
-<style lang="scss"  scoped>
-// @import '~/assets/css/common/_variables.scss';
-</style>

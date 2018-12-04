@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import IconBase from '@/components//IconBase.vue'
 import IconTrash from '@/components/icons/IconTrash.vue'
 
@@ -72,6 +74,12 @@ export default {
       },
     }
   }, // End data
+  computed: {
+    ...mapGetters({
+      // map `this.doneCount` to `this.$store.getters.doneTodosCount`
+      getShareArray: "setup/getShareArray"
+    })
+  },
   methods: {
     handleSubmit: function() {
       // Give custom item a unique ID
@@ -80,18 +88,24 @@ export default {
         this.item.id = this.item.custom + this.$store.state.setup.setupCurrent.length;
       }
       
-      this.$store.commit('setup/setupAddOrChange', this.item);
+      this.$store.commit('setup/setupAdd', this.item);
       // Navigate to 📲 to the setup route
+      const queries = this.getShareArray.reduce((key, value) => { return { ...key, ...value } }, {});
+
       this.$router.push({
-        path: '/setup'
+        path: '/setup',
+        query: queries,
       });
     },
     deleteMe: function(){
       this.$store.commit('setup/setupRemove', this.item);
       // confirm(`are you sure you want to delete ${this.item.title}?`)
       // Navigate to 📲 to the setup route
+      const queries = this.getShareArray.reduce((key, value) => { return { ...key, ...value } }, {});
+
       this.$router.push({
-        path: '/setup'
+        path: '/setup',
+        query: queries,
       });
     }
   }, // Are functions run on user actions example @click or on lifecycle hooks

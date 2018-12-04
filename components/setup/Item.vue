@@ -1,8 +1,25 @@
 <template>
-  <div class="alloy-items alloy-cards" :data-type="item.type" :data-view="item.view" :data-item-id="item.id" :data-info="showInfo">
-    <div class="inner" @click="itemEdit">
-      <img v-if="item.view != 'simple'" :src="item.image" :alt="item.title">
-      <img v-else src="http://alloy.work/codepen/QBOyJj/custom.jpg" :alt="item.title">
+  <div
+    class="alloy-items alloy-cards"
+    :data-type="item.type"
+    :data-view="item.view"
+    :data-item-id="item.id"
+    :data-info="showInfo"
+  >
+    <div
+      class="inner"
+      @click="itemEdit"
+    >
+      <img
+        v-if="item.view != 'simple'"
+        :src="item.image"
+        :alt="item.title"
+      >
+      <img
+        v-else
+        src="http://alloy.work/codepen/QBOyJj/custom.jpg"
+        :alt="item.title"
+      >
       <div class="alloy-content">
         <div class="alloy-meta">
           <p>
@@ -14,8 +31,16 @@
       </div>
 
     </div>
-    <button v-if="item.view != 'simple'" @click="toggleInfo" class="btn btn--small btn--subtle">
-      <icon-base width="20" height="20" icon-name="info">
+    <button
+      v-if="item.view != 'simple'"
+      @click="toggleInfo"
+      class="btn btn--small btn--subtle"
+    >
+      <icon-base
+        width="20"
+        height="20"
+        icon-name="info"
+      >
         <icon-info />
       </icon-base>
     </button>
@@ -24,41 +49,46 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 // Icon logic
-import IconBase from '@/components//IconBase.vue'
-import IconInfo from '@/components/icons/IconInfo.vue'
+import IconBase from "@/components//IconBase.vue";
+import IconInfo from "@/components/icons/IconInfo.vue";
 
 export default {
-  props: ['item'],
-  name: 'Item',
+  props: ["item"],
+  name: "Item",
   components: {
     // Icon logic
     IconBase,
-    IconInfo,
+    IconInfo
   },
   data() {
     return {
-      showInfo: false,
-    }
+      showInfo: false
+    };
   }, // End data
+  computed: {
+    ...mapGetters({
+      // map `this.doneCount` to `this.$store.getters.doneTodosCount`
+      getShareArray: "setup/getShareArray"
+    })
+  },
   methods: {
-    toggleInfo: function (event) {
+    toggleInfo: function(event) {
       // event.target.parentNode.classList.toggle('showInfo');
       this.showInfo = !this.showInfo;
     },
     itemEdit: function(event) {
-        this.$store.commit('setup/setupAddOrChange', this.item);
-        this.$router.push({
-          path: `/setup`,
-        });
+      this.$store.commit("setup/setupAdd", this.item);
+      
+      const queries = this.getShareArray.reduce((key, value) => { return { ...key, ...value } }, {});
+
+    this.$router.push({ 
+        path: "/setup", 
+        query: queries 
+      });
     }
-  },
-}
+  }
+};
 </script>
 
-<style lang="scss"  scoped>
-@import "~/assets/css/common/_variables.scss";
-.btn {
-  color: $brand-dark-grey;
-}
-</style>
