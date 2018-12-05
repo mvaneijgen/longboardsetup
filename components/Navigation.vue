@@ -40,17 +40,18 @@
           </button>
         </template>
 
-         <div class="alloy-input-field">
+         <!-- <div class="alloy-input-field">
           <label for="share">URL</label>
           <input type="text" id="share" :value="getShareURL">
-        </div>
+        </div> -->
+
       </div>
     </nav>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 
 // Icon logic
 import IconBase from '@/components//IconBase.vue'
@@ -87,9 +88,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      getShareURL: 'setup/getShareURL',
-    }),
+    // ...mapGetters({
+    //   getShareURL: 'setup/getShareURL',
+    // }),
     searchField: {
       get(){ 
         return this.$store.getters['items/getSearch'](this.$route.params.type);

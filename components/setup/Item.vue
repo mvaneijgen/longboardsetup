@@ -70,7 +70,7 @@ export default {
   computed: {
     ...mapGetters({
       // map `this.doneCount` to `this.$store.getters.doneTodosCount`
-      getShareArray: "setup/getShareArray"
+      getShareURL: "setup/getShareURL"
     })
   },
   methods: {
@@ -81,14 +81,12 @@ export default {
     itemEdit: function(event) {
       this.$store.commit("setup/setupAdd", this.item);
       
-      const queries = this.getShareArray.reduce((key, value) => { return { ...key, ...value } }, {});
-
-    this.$router.push({ 
-        path: "/setup", 
-        query: queries 
-      });
+      this.$router.push({ 
+          path: "/setup", 
+          query: this.getShareURL 
+        });
+      }
     }
-  }
 };
 </script>
 

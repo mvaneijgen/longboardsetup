@@ -24,29 +24,6 @@ const initSetupCurrent = [
 export const state = () => ({
   title: "Longboard Setup",
   setupCurrent: [...initSetupCurrent],
-  // initSetupCurrent: [{
-  //     id: "empty-deck",
-  //     type: "decks",
-  //     slug: "",
-  //     view: "empty",
-  //     title: "Pick a deck",
-  //   },
-  //   {
-  //     id: "empty-trucks",
-  //     type: "trucks",
-  //     slug: "",
-  //     view: "empty",
-  //     title: "Pick a truck",
-  //   },
-  //   {
-  //     id: "empty-wheels",
-  //     type: "wheels",
-  //     slug: "",
-  //     view: "empty",
-  //     title: "Pick your wheels",
-  //   }
-  // ],
-  // advancedOn: false,
 });
 
 export const mutations = {
@@ -105,27 +82,19 @@ export const getters = {
   // 🐦 Create share URL 
   //------------------------------------------------------//
   getShareURL: state => {
-    let parameters = '';
-
-    state.setupCurrent.forEach(item => {
-      const type = item.type;
-      const slug = item.slug;
-      parameters += `${type}=${slug}&`
-    });
-    
-    return `https://longboardsetup.com/setup?${parameters}`
-  },
-  // END 🐦 Create share URL
-  getShareArray: state => {
-    let parameters = [];
-    state.setupCurrent.forEach(item => {
-      let obj = new Object();
+    // let parameters = [];
+    // state.setupCurrent.forEach(item => {
+    //   let obj = new Object();
+    //   obj[item.type] = item.slug;
+    //   parameters.push(obj)
+    // });
+    const queries = state.setupCurrent.reduce((obj, item) => {
       obj[item.type] = item.slug;
-      parameters.push(obj)
-    });
-    
-    return parameters;
+      return obj;
+    }, {});
+    return queries;
   },
+    // END 🐦 Create share URL
 };
 //------------------------------------------------------//
 // END Getters

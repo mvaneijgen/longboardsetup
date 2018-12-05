@@ -81,10 +81,11 @@ export default {
     },
     loadItemType: function(event) {
       this.$router.push({
-        path: `/setup/${this.item.type}`,
+        path: `/setup/${this.item.type.replace(/\d+/g,'')}`,
         query: {
           id: this.item.id,
           custom: this.item.custom,
+          type: this.item.type,
           title: this.item.title,
           location: this.item.location
         }
@@ -93,10 +94,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss"  scoped>
-@import "~/assets/css/common/_variables.scss";
-.btn {
-  color: $brand-dark-grey;
-}
-</style>

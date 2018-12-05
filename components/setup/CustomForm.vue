@@ -30,7 +30,7 @@
       <div class="alloy-btn-group">
 
         <button v-if="hasQueries" @click.prevent="deleteMe" class="btn btn--icon">
-          <span>Delete {{ this.item.custom }}</span>
+          <span>Delete this item</span>
           <icon-base width="20" height="20" icon-name="trash">
             <icon-trash />
           </icon-base>
@@ -65,7 +65,7 @@ export default {
       locationOn: false,
       item: {
         view: 'simple',
-        type: 'custom',
+        type: '',
         id: '',
         custom: '',
         title: '',
@@ -77,52 +77,62 @@ export default {
   computed: {
     ...mapGetters({
       // map `this.doneCount` to `this.$store.getters.doneTodosCount`
-      getShareArray: "setup/getShareArray"
+      getShareURL: "setup/getShareURL",
+      getSetupCurrent: "setup/getSetupCurrent",
     })
   },
   methods: {
-    handleSubmit: function() {
-      // Give custom item a unique ID
-      // Which is equal to this.custom + this.$store.state.setup.setupCurrent.length
-      if(this.item.id == '') {
-        this.item.id = this.item.custom + this.$store.state.setup.setupCurrent.length;
-      }
-      
-      this.$store.commit('setup/setupAdd', this.item);
-      // Navigate to 📲 to the setup route
-      const queries = this.getShareArray.reduce((key, value) => { return { ...key, ...value } }, {});
+    routeToSetup: function() {
+      // const queries = this.getShareURL.reduce((key, value) => { return { ...key, ...value } }, {});
 
       this.$router.push({
         path: '/setup',
-        query: queries,
+        query: this.getShareURL,
       });
+    },
+    handleSubmit: function() {
+      // Give custom item a unique ID
+      const currentSetupNumber = this.getSetupCurrent.length;
+      let slugCustom = `${this.item.custom}~`;
+
+      if (this.item.location != '') {
+        slugCustom = `${this.item.custom}~${this.item.location}~`;
+      }
+
+      if (this.item.type == '') {
+        this.item.type = `custom${currentSetupNumber}`;
+      }
+
+      if(this.item.id == '') {
+        this.item.id = `${this.item.custom}${currentSetupNumber}`;
+      }
+      this.item.slug = `${slugCustom}~${this.item.title}`;
+
+      this.$store.commit('setup/setupAdd', this.item);
+      this.routeToSetup();
     },
     deleteMe: function(){
       this.$store.commit('setup/setupRemove', this.item);
-      // confirm(`are you sure you want to delete ${this.item.title}?`)
-      // Navigate to 📲 to the setup route
-      const queries = this.getShareArray.reduce((key, value) => { return { ...key, ...value } }, {});
 
-      this.$router.push({
-        path: '/setup',
-        query: queries,
-      });
+      this.routeToSetup();
     }
   }, // Are functions run on user actions example @click or on lifecycle hooks
   created() {
-    const queryLength = Object.keys(this.$route.query).length;
+    // const queryLength = Object.keys(this.$route.query).length;
 
     if (Object.keys(this.$route.query).length) {
       this.hasQueries = true;
       // console.warn(this.$route.query.length);
       this.item.id = this.$route.query.id;
-      this.item.custom = this.$route.query.id.replace(/\d+/g,'');
+      // this.item.custom = this.$route.query.id.replace(/\d+/g,'');
+      this.item.custom = this.$route.query.custom;
       if(this.$route.query.location != '') {
         this.locationOn = true;
       }
       this.item.location = this.$route.query.location;
       this.item.title = this.$route.query.title;
       this.item.slug = this.$route.query.slug;
+      this.item.type = this.$route.query.type;
     }
   },
 }

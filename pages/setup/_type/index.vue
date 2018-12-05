@@ -52,24 +52,6 @@ export default {
       return this.$store.getters['items/getTypePage'](this.$route.params.type);
     }
   },
-  // async asyncData({ app, store, params }) {
-  //   if (!store.state.items[params.type].items.length) {
-  //     app.$axios.get(`wp/v2/${params.type}?${queries.join("&")}&page=${store.getters['items/getTypePage'](params.type)}&_embed`).then(response => {
-  //       // Push the data to the store
-  //       store.commit({
-  //         type: 'items/addItems',
-  //         itemType: params.type,
-  //         items: response.data.map(fromInputData),
-  //       });
-
-  //       // Increase the page number each time the function is run 
-  //       store.commit({
-  //         type: 'items/incrementPage',
-  //         itemType: params.type,
-  //       });
-  //     });
-  //   }
-  // },
   methods: {
     itemsLoad() {
       this.loading = true;
