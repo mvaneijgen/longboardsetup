@@ -24,6 +24,7 @@ const initSetupCurrent = [
 export const state = () => ({
   title: "Longboard Setup",
   setupCurrent: [...initSetupCurrent],
+  setupEdited: false, 
 });
 
 export const mutations = {
@@ -39,6 +40,7 @@ export const mutations = {
     } else {
       state.setupCurrent.push(payload);
     }
+    state.setupEdited = true;
   },
   // END Add a item 🔨 to the setup 🧰 or change one
 

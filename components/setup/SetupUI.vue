@@ -34,5 +34,10 @@ export default {
       getSetupCurrent: 'setup/getSetupCurrent',
     }),
   },
+  methods: {
+    fetchItems: function(){
+      
+    }
+  },
 }
 </script>
