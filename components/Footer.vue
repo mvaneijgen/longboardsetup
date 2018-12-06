@@ -38,6 +38,7 @@
       </div>
 
     </div>
+    <button @click="foundBanana">banana</button>
   </footer>
 </template>
 
@@ -57,5 +58,17 @@ export default {
       specialThanks: this.$store.state.default.specialThanks,
     }
   }, // End data
+  methods: {
+    foundBanana: function() {
+      const notification = {
+        title: "Banana",
+        content: "You've found a banana!",
+        image: '',
+        type: '',
+        timer: 3000,
+      }
+      this.$store.commit('notifications/addNotification', notification);
+    },
+  }
 }
 </script>

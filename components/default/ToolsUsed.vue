@@ -32,17 +32,20 @@ export default {
 @import "~/assets/css/common/_variables.scss";
 .component-ToolsUsed {
   > .inner {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr) );
+    grid-column-gap: $base-margin;
+    grid-row-gap: $base-margin;
     > * {
       // flex-grow: 1;
-      width: 32%;
+      // width: 32%;
       // margin: $base-margin/2;
-      margin-bottom: 2%;
+      // margin-bottom: 2%;
       padding: $base-margin;
       font-size: 16px;
       line-height: 1.4em;
+      background-color: $brand-one-lighten;
+      color: $brand-light;
     }
   }
 }

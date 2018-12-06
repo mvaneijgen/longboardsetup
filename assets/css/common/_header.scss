@@ -8,11 +8,18 @@ header {
   // clip-path: polygon(0 0, 100% 0, 100% 80%, 85% 100%, 64% 96%, 39% 88%, 17% 93%, 0 85%);
   #header-animation {
     position: absolute;
-    bottom: -100%;
+    bottom: -30px;
     left: 0;
     width: 100%;
     height: auto;
+    @include media-breakpoint-up(md) {
+    bottom: -50%;
 
+    }
+  @include media-breakpoint-up(lg) {
+    bottom: -100%;
+
+  }
   }
   h1 {
     position: relative;

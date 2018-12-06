@@ -13,8 +13,8 @@ export const state = () => ({
   // Site content
   //------------------------------------------------------//
   about_text: `
-  <p>As a long distance push boarder myself I’ve found it difficult to find the right setup for me, this resulted in doing some miss buys. Next to that is hard to get effective feedback via online platforms, but I believe the community has the knowledge, it just needs to be easier to share setups.</p>
-  <p>This tool makes is easy to share your current, dream or complicated setup. It can also be used to request feedback on a specific part, just leave that part empty and share the URL to <a href="https://www.reddit.com/r/longboarding/">/r/longboarding</a>, Discord or any other platform or your choosing.</p>
+  <p>As a long distance push boarder myself I’ve found it difficult to find the right setup for me, this resulted in doing some miss buys. Next to that it's hard to get effective feedback via online platforms, but I believe the community has the knowledge, it just needs to be easier to share setups.</p>
+  <p>That is why I've build this tool to make it easy to share your current, dream or complicated setup. It can also be used to request feedback on a specific part, just leave that part empty and share the URL to <a href="https://www.reddit.com/r/longboarding/">/r/longboarding</a>, Discord or any other platform or your choosing and have the community discus on that part and share suggestions.</p>
   `,
   //------------------------------------------------------//
   // About me

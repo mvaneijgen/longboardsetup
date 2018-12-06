@@ -22,19 +22,31 @@ p {
   max-width: 700px;
   padding: 0 10px;
   margin-bottom: $base-margin * 8 !important;
+  margin: 0 auto;
+
   @include media-breakpoint-up(lg) {
     // @media only screen and (min-width: $alloy-md-mq) {
-    margin: 0 auto;
   }
 }
 .alloy-page--content,
 footer > .inner,
 .component-Navigation nav,
 .alloy-page--type {
-  max-width: 1050px;
+  max-width: 900px;
   margin: 0 auto;
 }
-
+.alloy-page--content {
+  position: relative;
+  z-index: 1000;
+  background-color: $brand-one;
+  padding-top: $base-margin;
+  @include media-breakpoint-up(md) {
+  padding: $base-margin * 2;
+  }
+  a {
+    color: $brand-light;
+  }
+}
 //------------------------------------------------------//
 // END Pages
 //------------------------------------------------------//
@@ -52,7 +64,7 @@ footer,
 
     grid-row-gap: $base-margin;
     grid-column-gap: $base-margin;
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
       // @media only screen and (min-width: $alloy-md-mq) {
       grid-row-gap: $base-margin * 2;
       grid-column-gap: $base-margin * 2;
@@ -99,41 +111,29 @@ footer {
 
   [data-type="decks"],
   [data-type="deck"] {
-    grid-row: span $base-grid-row * 2;
-    @include media-breakpoint-up(md) {
-      // @media only screen and (min-width: $alloy-xs-mq) {
-      grid-row: span 10;
+    grid-row: span 8;
+    @include media-breakpoint-up(sm) {
+      grid-row: span 12;
     }
-    @include media-breakpoint-up(lg) {
-      // @media only screen and (min-width: $alloy-md-mq) {
-      grid-row: span $base-grid-row * 4;
-    }
+    // @include media-breakpoint-up(lg) {
+    //   grid-row: span $base-grid-row * 4;
+    // }
   }
 
   [data-type="wheels"],
   [data-type="trucks"] {
-    grid-row: span $base-grid-row;
     grid-column: span 1;
-    grid-row: span $base-grid-row;
+    grid-row: span 4;
 
-    @include media-breakpoint-up(md) {
-      // @media only screen and (min-width: $alloy-xs-mq) {
-      grid-row: span 5;
+    @include media-breakpoint-up(sm) {
+        grid-row: span 6;
     }
-    @include media-breakpoint-up(lg) {
-      // @media only screen and (min-width: $alloy-md-mq) {
-      grid-row: span $base-grid-row * 2;
-    }
+    // @include media-breakpoint-up(lg) {
+    //   grid-row: span $base-grid-row * 2;
+    // }
   }
 }
-// [data-type="add"],
-// [data-type="custom"] {
-//   grid-column: span 1;
-//   @media only screen and (min-width: 500px) {
-//     grid-column: span 2;
-//   }
-//   grid-row: span $base-grid-row;
-// }
+
 .alloy-select-flexbox {
   .transition-card,
   > .inner {

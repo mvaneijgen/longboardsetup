@@ -154,17 +154,17 @@ $base-transition: 300ms;
   transition-duration: $base-transition * 2;
   transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
 
-  // @for $i from 1 through 18 {    
-  //   &:nth-child(#{$i}n+18),
-  //   &:nth-child(#{$i}) {
-  //     transition-delay: 100ms * $i;
-  //   }
-  // }
+  @for $i from 1 through 18 {
+    // &:nth-child(#{$i}n+18),
+    &:nth-child(#{$i}) {
+      transition-delay: 100ms * $i;
+    }
+  }
 }
 .slide-in-enter,
 .slide-in-leave-to {
   opacity: 0;
-  transform: translateX(150px);
+  transform: translateX(350px);
 }
 .slide-in-enter-to,
 .slide-in-leave {
