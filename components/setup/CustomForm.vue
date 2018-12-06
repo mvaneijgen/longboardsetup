@@ -47,6 +47,8 @@
 
 <script>
 import { mapGetters } from "vuex";
+// 🛠 Utils
+import { slugify } from '@/assets/utils/filters.js';
 
 import IconBase from '@/components//IconBase.vue'
 import IconTrash from '@/components/icons/IconTrash.vue'
@@ -91,14 +93,6 @@ export default {
       });
     },
     handleSubmit: function() {
-      function slugify(text) {
-        return text.toString().toLowerCase()
-          .replace(/\s+/g, '-')           // Replace spaces with -
-          .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-          .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-          .replace(/^-+/, '')             // Trim - from start of text
-          .replace(/-+$/, '');            // Trim - from end of text
-      }
       const currentSetupNumber = this.getSetupCurrent.length;
       if(this.item.id == '') {
         this.item.id = `${this.item.custom}${currentSetupNumber}`;
@@ -122,6 +116,15 @@ export default {
       this.$store.commit('setup/setupRemove', this.item);
 
       this.routeToSetup();
+
+      const notification = {
+        title: `${this.item.title} removed from your setup`,
+        content: "We will miss him",
+        image: '',
+        type: 'warning',
+        timer: 3500,
+      }
+      this.$store.commit('notifications/addNotification', notification);
     }
   }, // Are functions run on user actions example @click or on lifecycle hooks
   created() {

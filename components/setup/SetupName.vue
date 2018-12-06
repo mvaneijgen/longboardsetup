@@ -1,13 +1,31 @@
 <template>
   <div class="component-SetupName">
     <div class="inner">
-    <h1>{{ this.setupName }}<button class="editName" v-if="!showNameInput" @click="showNameInput = true">Edit</button></h1>
-    
-    <div v-if="showNameInput" class="alloy-input-field">
-      <input type="text" v-model="setupName">
-      <button @click="showNameInput = fale">Save</button>
+      <h1>{{ this.setupName }}<button
+          class="editName"
+          v-if="!showNameInput"
+          @click="nameInputToggle"
+        >Edit</button></h1>
+
+      <form
+        v-show="showNameInput"
+        @submit.prevent="saveNameInput"
+      >
+        <div class="alloy-input-field">
+
+          <input
+            type="text"
+            ref="nameInput"
+            v-model="setupName"
+          >
+          <input
+            type="submit"
+            value="Save"
+          >
+        </div>
+
+      </form>
     </div>
-  </div>
   </div>
 </template>
 
@@ -15,35 +33,60 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: 'SetupName',
+  name: "SetupName",
   data() {
     return {
       showNameInput: false,
-    }
+      nameNotification: true,
+    };
   },
   computed: {
     ...mapGetters({
-      getName: 'name/getName',
-      getUserBool: 'name/getUserBool',
+      getName: "name/getName",
+      getUserBool: "name/getUserBool"
     }),
     setupName: {
-      get(){ 
+      get() {
         return this.getName;
       },
-      set( value ){ 
-        this.$store.commit('name/setName', value);
-        this.$store.commit('name/setNameUser');
+      set(value) {
+        this.$store.commit("name/setName", value);
+        this.$store.commit("name/setNameUser");
+      }
+    }
+  },
+  methods: {
+    nameInputToggle: function() {
+      this.showNameInput = true;
+      this.$nextTick(() => {
+        this.$refs.nameInput.focus();
+      })
+    },
+    saveNameInput: function() {
+      this.showNameInput = false;
+
+      if(this.nameNotification) {
+        console.warn(this.getUserBool);
+        this.nameNotification = false;
+        const notification = {
+          title: "You've given your baby a name",
+          content: "Hope it will grow up agile & strong!",
+          image: '',
+          type: '',
+          timer: 3500,
+        }
+        this.$store.commit('notifications/addNotification', notification);
       }
     }
   },
   watch: {
     $route() {
-      if(!this.getUserBool) {
-        this.$store.commit('name/nameGenerator');
+      if (!this.getUserBool) {
+        this.$store.commit("name/nameGenerator");
       }
     }
-  },
-}
+  }
+};
 </script>
 <style lang="scss" scoped>
 .inner {
@@ -57,13 +100,17 @@ export default {
 }
 .alloy-input-field {
   position: absolute;
-  top: 50%;
+  top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 300px;
+  width: 400px;
+  max-width: 100%;
   display: flex;
   position: absolute;
   z-index: 2000;
+  [type="text"] {
+    width: 100%;
+  }
   > * {
     margin: 0;
   }

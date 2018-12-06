@@ -37,6 +37,7 @@ export default {
   right: $base-margin;
   top: $base-margin;
   width: 100%;
+  z-index: 9000;
   max-width: 300px;
 }
 </style>

@@ -15,7 +15,7 @@ $brand-grey: #ccc;
 $brand-dark-grey: #666;
 
 $notification-notice: $brand-one-lighten;
-$notification-warning: $brand-two;
+$notification-warning: darken($brand-two, 10%);
 $notification-alert: #e44;
 
 

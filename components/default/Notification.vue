@@ -38,8 +38,10 @@ export default {
   font-size: .8rem;
   line-height: 1.4em;
   color: $brand-light;
-  z-index: 9000;
   margin-bottom: $base-margin;
+  h5 {
+    font-size: 1rem;
+  }
 &:hover {
     transform: scale(1);
   }

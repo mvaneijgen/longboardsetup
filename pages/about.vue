@@ -22,6 +22,32 @@ export default {
   components: {
     ToolsUsed,
     Footer
+  },
+  data() {
+    return {
+      notificationShow: true,
+    }
+  },
+  methods: {
+    notificationAbout: function() {
+      this.notificationShow = false;
+
+      const notification = {
+        title: "You should be building a deck!",
+        content: "But if you really want here is boring text",
+        image: '',
+        type: '',
+        timer: 3500,
+      }
+      this.$store.commit('notifications/addNotification', notification);
+    }
+  },
+  created() {
+    if (process.browser) {
+    if(this.notificationShow) {
+      this.notificationAbout();
+    }
+    }
   }
 };
 </script>

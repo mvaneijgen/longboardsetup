@@ -83,17 +83,12 @@ export const getters = {
   //------------------------------------------------------//
   // 🐦 Create share URL 
   //------------------------------------------------------//
-  getShareURL: state => {
-    // let parameters = [];
-    // state.setupCurrent.forEach(item => {
-    //   let obj = new Object();
-    //   obj[item.type] = item.slug;
-    //   parameters.push(obj)
-    // });
+  getShareURL: (state, getters, rootState, rootGetters) => {
     const queries = state.setupCurrent.reduce((obj, item) => {
       obj[item.type] = item.slug;
       return obj;
     }, {});
+    queries.name = rootGetters['name/getName'];
     return queries;
   },
     // END 🐦 Create share URL

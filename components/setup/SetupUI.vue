@@ -17,7 +17,6 @@ import ItemSetup from '@/components/setup/ItemSetup.vue';
 import ItemAdd from '@/components/setup/ItemAdd.vue';
 
 export default {
-  // props: ['item'],
   name: 'SetupUI',
   data() {
     return {
@@ -27,7 +26,6 @@ export default {
   components: {
     ItemSetup,
     ItemAdd,
-    // AdvancedToggle,
   },
   computed: {
     ...mapGetters({
@@ -36,8 +34,14 @@ export default {
   },
   methods: {
     fetchItems: function(){
-      
+      console.warn(this.$route.query);
+      // this.$route.query.forEach(element => {
+      //   console.warn(element);
+      // });
     }
+  },
+  mounted() {
+    this.fetchItems();
   },
 }
 </script>
