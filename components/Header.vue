@@ -73,7 +73,7 @@ export default {
     timelineMain.to("#wave-one", 1, { morphSVG: "#main", ease: Elastic.easeOut.config(1, 0.3)});
   },
   watch:{
-    $route (){
+    $route() {
       this.doStuff()
     }
   } 

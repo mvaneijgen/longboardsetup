@@ -91,22 +91,29 @@ export default {
       });
     },
     handleSubmit: function() {
-      // Give custom item a unique ID
+      function slugify(text) {
+        return text.toString().toLowerCase()
+          .replace(/\s+/g, '-')           // Replace spaces with -
+          .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+          .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+          .replace(/^-+/, '')             // Trim - from start of text
+          .replace(/-+$/, '');            // Trim - from end of text
+      }
       const currentSetupNumber = this.getSetupCurrent.length;
-      let slugCustom = `${this.item.custom}~`;
+      if(this.item.id == '') {
+        this.item.id = `${this.item.custom}${currentSetupNumber}`;
+      }
 
+      let slugCustom = `${this.item.custom}~`;
       if (this.item.location != '') {
-        slugCustom = `${this.item.custom}~${this.item.location}~`;
+        slugCustom = `${this.item.custom}~${slugify(this.item.location)}~`;
       }
 
       if (this.item.type == '') {
         this.item.type = `custom${currentSetupNumber}`;
       }
 
-      if(this.item.id == '') {
-        this.item.id = `${this.item.custom}${currentSetupNumber}`;
-      }
-      this.item.slug = `${slugCustom}~${this.item.title}`;
+      this.item.slug = `${slugCustom}${slugify(this.item.title)}`;
 
       this.$store.commit('setup/setupAdd', this.item);
       this.routeToSetup();

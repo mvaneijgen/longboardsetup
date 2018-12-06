@@ -23,7 +23,7 @@ header {
   }
   h1 {
     position: relative;
-    z-index: 10;
+    display: inline-block;
     color: $brand-light;
     @include responsive-font(4vw, 35px, 150px, 50px);
     text-shadow: makelongshadow($brand-one-lighten, $brand-two-lighten);

@@ -1,5 +1,5 @@
 export const state = () => ({
-  types: ["Bearings", "Bushings", "Pivot cups", "Brackets", "Trucks", "Wheels"],
+  types: ["Bearings", "Bushings", "Brackets", "Trucks", "Wheels"],
   decks: {
     items: [],
     page: 1,
@@ -33,7 +33,7 @@ export const mutations = {
 };
 
 export const getters = {
-  getTypeItems: state => itemType => {
+  getSearchItems: state => itemType => {
     return state[itemType].items.filter((item) => {
       return item.title.toLowerCase().match(state[itemType].search.toLowerCase());
     });
@@ -43,5 +43,8 @@ export const getters = {
   },
   getSearch: state => itemType => {
     return state[itemType].search;
-  }
+  },
+  getTypes: state => {
+    return state.types;
+  },
 };

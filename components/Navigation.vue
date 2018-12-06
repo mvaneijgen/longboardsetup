@@ -28,7 +28,7 @@
 
         <div v-if="'setup-type' == this.$route.name" class="alloy-input-field">
           <label for="searchTerm">Search</label>
-          <input type="text" id="searchTerm" v-model="searchField" :placeholder="`Search ${this.$route.params.type}...`">
+          <input type="text" id="searchTerm" v-model.lazy="searchField" :placeholder="`Search ${this.$route.params.type}...`">
         </div>
 
         <template v-if="'setup' == this.$route.name">

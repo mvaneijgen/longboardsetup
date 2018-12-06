@@ -1,59 +1,78 @@
 <template>
   <div class="component-SetupName">
-    <h1 class="centered">{{ this.$store.state.name.nameCurrent }}</h1>
+    <div class="inner">
+    <h1>{{ this.setupName }}<button class="editName" v-if="!showNameInput" @click="showNameInput = true">Edit</button></h1>
+    
+    <div v-if="showNameInput" class="alloy-input-field">
+      <input type="text" v-model="setupName">
+      <button @click="showNameInput = fale">Save</button>
+    </div>
+  </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  // props: ['item'],
   name: 'SetupName',
   data() {
     return {
-      nameCurrentRandom: {
-        prefix: "Your",
-        location: "Amazing",
-        suffix: "Setup",
-      },
+      showNameInput: false,
     }
-  }, // End data
-  methods: {
-    nameRandomGenerator: function() {
-      // Check if the vistitor has choosen a custom name
-      if (this.$store.state.name.nameUserCustom) {
-        return;
-      } // if so quit this function
-
-      // Generate random number between 0 and amount
-      function randomNum(amount) {
-        return Math.floor(Math.random() * amount);
+  },
+  computed: {
+    ...mapGetters({
+      getName: 'name/getName',
+      getUserBool: 'name/getUserBool',
+    }),
+    setupName: {
+      get(){ 
+        return this.getName;
+      },
+      set( value ){ 
+        this.$store.commit('name/setName', value);
+        this.$store.commit('name/setNameUser');
       }
-      
-      // Get the next part of the name that should be updated
-      const updateCurrent = Object.keys(this.$store.state.name.nameRandom)[this.$store.state.name.nameRandomIndex];
-
-      this.nameCurrentRandom[updateCurrent] =
-        this.$store.state.name.nameRandom[updateCurrent][
-          randomNum(this.$store.state.name.nameRandom[updateCurrent].length)
-        ];
-        
-      const nameCombined = `
-        ${this.nameCurrentRandom.prefix} 
-        ${this.nameCurrentRandom.location} 
-        ${this.nameCurrentRandom.suffix}
-      `;
-
-      this.$store.commit('name/nameSet', nameCombined);
-
-    },  
+    }
   },
   watch: {
-    '$route': function(from, to) {
-      this.nameRandomGenerator();
+    $route() {
+      if(!this.getUserBool) {
+        this.$store.commit('name/nameGenerator');
+      }
     }
-  },
-  created() {
-    this.nameRandomGenerator();
   },
 }
 </script>
+<style lang="scss" scoped>
+.inner {
+  // display: flex;
+  // justify-content: center;
+  position: relative;
+  z-index: 10;
+  // max-width: 800px;
+  // margin: 0 auto;
+  text-align: center;
+}
+.alloy-input-field {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 300px;
+  display: flex;
+  position: absolute;
+  z-index: 2000;
+  > * {
+    margin: 0;
+  }
+}
+.editName {
+  position: absolute;
+  height: 100%;
+  top: 50%;
+  transform: translateY(-25%);
+  right: -60px;
+}
+</style>

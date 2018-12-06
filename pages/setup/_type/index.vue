@@ -1,15 +1,17 @@
 <template>
+<div>
   <div class="alloy-page alloy-page--type">
     <CustomForm v-if="'/setup/custom' == this.$route.path" />
     <div class="alloy-select-flexbox">
       <div class="inner">
-        <transition-group appear name="slide-in" tag="div" class="transition-card">
+        <transition-group name="slide-in" tag="div" class="transition-card">
           <Item v-for="item in allItems" :key="item.id" :item="item" />
         </transition-group>
       </div>
     </div>
     <h1 style="color: #fff" v-if="loading">Loading...</h1>
     <button @click="itemsLoad" class="centered" :disabled="loading">Load more</button>
+  </div>
   </div>
 </template>
 
@@ -46,7 +48,7 @@ export default {
   computed: {
     allItems() {
       // return .allItemsType(this.$route.params.type);
-      return this.$store.getters['items/getTypeItems'](this.$route.params.type);
+      return this.$store.getters['items/getSearchItems'](this.$route.params.type);
     },
     pageNumber() {
       return this.$store.getters['items/getTypePage'](this.$route.params.type);
