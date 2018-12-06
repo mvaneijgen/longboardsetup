@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       showNameInput: false,
-      nameNotification: true,
+      nameNotification: true
     };
   },
   computed: {
@@ -60,22 +60,22 @@ export default {
       this.showNameInput = true;
       this.$nextTick(() => {
         this.$refs.nameInput.focus();
-      })
+      });
     },
     saveNameInput: function() {
       this.showNameInput = false;
 
-      if(this.nameNotification) {
+      if (this.nameNotification) {
         console.warn(this.getUserBool);
         this.nameNotification = false;
         const notification = {
           title: "You've given your baby a name",
           content: "Hope it will grow up agile & strong!",
-          image: '',
-          type: '',
-          timer: 3500,
-        }
-        this.$store.commit('notifications/addNotification', notification);
+          image: "",
+          type: "",
+          timer: 3500
+        };
+        this.$store.commit("notifications/addNotification", notification);
       }
     }
   },

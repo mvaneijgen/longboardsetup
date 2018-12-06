@@ -19,12 +19,12 @@ const initSetupCurrent = [
     slug: "none",
     view: "empty",
     title: "Pick your wheels",
-  }
+  },
 ];
 export const state = () => ({
   title: "Longboard Setup",
   setupCurrent: [...initSetupCurrent],
-  setupEdited: false, 
+  setupNotEdited: true,
 });
 
 export const mutations = {
@@ -57,7 +57,7 @@ export const mutations = {
   // END Remove an item 🔨 from the setup 🧰
 
   //------------------------------------------------------//
-  // ❌ Clear the whole setup 🧰 and restore it 
+  // ❌ Clear the whole setup 🧰 and restore it
   //------------------------------------------------------//
   setupClear(state, payload) {
     state.setupCurrent = [];
@@ -65,15 +65,14 @@ export const mutations = {
       state.setupCurrent.push(item);
     });
   },
-  // END ❌ Clear the whole setup 🧰 and restore it 
-
+  // END ❌ Clear the whole setup 🧰 and restore it
 };
 //------------------------------------------------------//
 // Getters
 //------------------------------------------------------//
 export const getters = {
   //------------------------------------------------------//
-  // 🧰 Get current setup 
+  // 🧰 Get current setup
   //------------------------------------------------------//
   getSetupCurrent: state => {
     return state.setupCurrent;
@@ -81,17 +80,20 @@ export const getters = {
   // END 🧰 Get current setup
 
   //------------------------------------------------------//
-  // 🐦 Create share URL 
+  // 🐦 Create share URL
   //------------------------------------------------------//
   getShareURL: (state, getters, rootState, rootGetters) => {
     const queries = state.setupCurrent.reduce((obj, item) => {
       obj[item.type] = item.slug;
       return obj;
     }, {});
-    queries.name = rootGetters['name/getName'];
+    queries.name = rootGetters["name/getName"];
     return queries;
   },
-    // END 🐦 Create share URL
+  getSetupNotEdited: state => {
+    return state.setupNotEdited;
+  },
+  // END 🐦 Create share URL
 };
 //------------------------------------------------------//
 // END Getters

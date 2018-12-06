@@ -2,46 +2,84 @@
   <div class="alloy-setup">
     <div class="inner">
 
-      <ItemSetup v-for="item in getSetupCurrent" :key="item.id" :item="item" />
+      <ItemSetup
+        v-for="item in getSetupCurrent"
+        :key="item.id"
+        :item="item"
+      />
 
-      <ItemAdd/>
+      <ItemAdd />
     </div>
   </div>
 
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
+// 🛠 Utils
+import { fromInputData } from "@/assets/utils/fromInputData.js";
 
-import ItemSetup from '@/components/setup/ItemSetup.vue';
-import ItemAdd from '@/components/setup/ItemAdd.vue';
+import ItemSetup from "@/components/setup/ItemSetup.vue";
+import ItemAdd from "@/components/setup/ItemAdd.vue";
+
+// const queries = ["orderby=title", "order=asc", "per_page=1", "_embed"];
 
 export default {
-  name: 'SetupUI',
+  name: "SetupUI",
   data() {
     return {
-      title: 'SetupUI'
-    }
-  }, 
+      queries: this.$route.query
+    };
+  },
   components: {
     ItemSetup,
-    ItemAdd,
+    ItemAdd
   },
   computed: {
     ...mapGetters({
-      getSetupCurrent: 'setup/getSetupCurrent',
-    }),
+      getSetupCurrent: "setup/getSetupCurrent",
+      getSetupNotEdited: "setup/getSetupNotEdited"
+    })
   },
   methods: {
-    fetchItems: function(){
-      console.warn(this.$route.query);
-      // this.$route.query.forEach(element => {
-      //   console.warn(element);
-      // });
+    apiCallItems: function(item) {
+      this.$axios
+        .get(
+          `wp/v2/${item}?per_page=1&slug=${this.queries[item]}&page=1&_embed`
+        )
+        .then(response => {
+          // Push the data to the store
+          this.$store.commit(
+            "setup/setupAdd",
+            response.data.map(fromInputData)[0]
+          );
+        });
+    },
+    setName: function(name) {
+      this.$store.commit("name/setName", this.queries[name]);
+    },
+    fetchItems: function() {
+      // Check if the user 👩‍💻 is not editing the setup 🧰
+      // console.warn(!this.getSetupEdited);
+      if (this.getSetupNotEdited) {
+        const apiCall = ["decks", "wheels", "trucks"];
+        // Get all the queries from the URL
+        Object.keys(this.queries).forEach(item => {
+          // Check if the value of the key is not 'none'
+          if (this.queries[item] !== "none") {
+            if (apiCall.includes(item)) {
+              this.apiCallItems(item);
+            }
+            if (item === "name") {
+              this.setName(item);
+            }
+          }
+        });
+      }
     }
   },
   mounted() {
     this.fetchItems();
-  },
-}
+  }
+};
 </script>
