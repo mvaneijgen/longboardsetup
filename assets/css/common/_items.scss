@@ -86,7 +86,10 @@
 }
 [data-view="simple"] {
   .alloy-content {
-    margin-left: 120px;
+    margin-left: 110px;
+    @include media-breakpoint-up(lg) {
+      margin-left: 150px;
+    }
     width: auto;
     opacity: 1;
     background-color: transparent;
@@ -101,6 +104,9 @@
     top: 0;
     left: 0;
     width: 100px;
+    @include media-breakpoint-up(lg) {
+      width: 150px;
+    }
     display: inline-block;
     // object-fit: none;
     // height: 100%;

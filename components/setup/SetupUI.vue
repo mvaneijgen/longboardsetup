@@ -1,17 +1,11 @@
 <template>
   <div class="alloy-setup">
     <div class="inner">
+      <ItemSetup v-for="item in getSetupCurrent" :key="item.id" :item="item"/>
 
-      <ItemSetup
-        v-for="item in getSetupCurrent"
-        :key="item.id"
-        :item="item"
-      />
-
-      <ItemAdd />
+      <ItemAdd/>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -55,6 +49,19 @@ export default {
           );
         });
     },
+    setCustom: function(item) {
+      const itemData = this.queries[item].split("~");
+      const itemObj = {
+        view: "simple",
+        type: item,
+        id: item,
+        custom: itemData[0],
+        title: itemData[1],
+        slug: `${itemData[0]}~${itemData[1]}~${itemData[2]}`,
+        location: itemData[2]
+      };
+      this.$store.commit("setup/setupAdd", itemObj);
+    },
     setName: function(name) {
       this.$store.commit("name/setName", this.queries[name]);
     },
@@ -72,6 +79,9 @@ export default {
             }
             if (item === "name") {
               this.setName(item);
+            }
+            if (item.replace(/\d+/g, "") === "custom") {
+              this.setCustom(item);
             }
           }
         });

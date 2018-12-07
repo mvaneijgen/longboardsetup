@@ -3,17 +3,20 @@ export const state = () => ({
   decks: {
     items: [],
     page: 1,
-    search: ''
+    search: "",
+    searchResults: [],
   },
   trucks: {
     items: [],
     page: 1,
-    search: ''
+    search: "",
+    searchResults: [],
   },
   wheels: {
     items: [],
     page: 1,
-    search: ''
+    search: "",
+    searchResults: [],
   },
 });
 
@@ -22,6 +25,12 @@ export const mutations = {
     state[payload.itemType].items = state[payload.itemType].items.concat(
       payload.items
     );
+  },
+  addSearchItems(state, payload) {
+    state[payload.itemType].searchResults = payload.items;
+    // state[payload.itemType].searchResults = state[
+    //   payload.itemType
+    // ].searchResults.concat();
   },
   incrementPage(state, payload) {
     state[payload.itemType].page++;
@@ -33,10 +42,18 @@ export const mutations = {
 };
 
 export const getters = {
-  getSearchItems: state => itemType => {
-    return state[itemType].items.filter((item) => {
-      return item.title.toLowerCase().match(state[itemType].search.toLowerCase());
-    });
+  // getItems: state => itemType => {
+  //   return state[itemType].items.filter(item => {
+  //     return item.title
+  //       .toLowerCase()
+  //       .match(state[itemType].search.toLowerCase());
+  //   });
+  // },
+  getItems: state => itemType => {
+    return state[itemType].items;
+  },
+  getSearchResults: state => itemType => {
+    return state[itemType].searchResults;
   },
   getTypePage: state => itemType => {
     return state[itemType].page;

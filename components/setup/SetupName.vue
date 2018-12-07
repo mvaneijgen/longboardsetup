@@ -5,7 +5,16 @@
           class="editName"
           v-if="!showNameInput"
           @click="nameInputToggle"
-        >Edit</button></h1>
+        >
+          <IconBase
+            width="20"
+            height="20"
+            icon-name="edit"
+          >
+            <icon-edit />
+          </IconBase>
+        </button>
+      </h1>
 
       <form
         v-show="showNameInput"
@@ -31,9 +40,16 @@
 
 <script>
 import { mapGetters } from "vuex";
+// Icon logic
+import IconBase from "@/components/IconBase.vue";
+import IconEdit from "@/components/icons/IconEdit.vue";
 
 export default {
   name: "SetupName",
+  components: {
+    IconBase,
+    IconEdit
+  },
   data() {
     return {
       showNameInput: false,
@@ -119,7 +135,10 @@ export default {
   position: absolute;
   height: 100%;
   top: 50%;
-  transform: translateY(-25%);
-  right: -60px;
+  right: -35px;
+  height: auto;
+  padding: 5px;
+  padding-left: 15px;
+  z-index: -1;
 }
 </style>

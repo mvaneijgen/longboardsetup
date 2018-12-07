@@ -2,9 +2,13 @@ header {
   position: relative;
   padding-top: $base-margin * 2;
   padding-bottom: $base-margin * 2;
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: $base-margin * 4;
+  }
   background-color: $brand-light;
   text-align: center;
-  
+
   #header-animation {
     position: absolute;
     bottom: -30px;
@@ -12,17 +16,15 @@ header {
     width: 100%;
     height: auto;
     @include media-breakpoint-up(md) {
-    bottom: -50%;
-
+      bottom: -50%;
     }
-  @include media-breakpoint-up(lg) {
-    bottom: -100%;
-
-  }
+    @include media-breakpoint-up(lg) {
+      bottom: -100%;
+    }
   }
   h1 {
     position: relative;
-  z-index: 1000;
+    z-index: 1000;
 
     display: inline-block;
     color: $brand-light;
@@ -81,7 +83,7 @@ header {
 }
 #alloy-nav-toggle {
   position: fixed;
-  top: 0;
+  top: 15vh;
   right: 0;
   z-index: 4000;
   background-color: $brand-one;

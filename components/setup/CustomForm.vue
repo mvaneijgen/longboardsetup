@@ -1,12 +1,15 @@
 <template>
   <div class="component-Custom">
     <form @submit.prevent="handleSubmit">
-
       <div class="alloy-input-field">
         <label for="selectType">Select part</label>
         <select id="selectType" v-model="item.custom" required>
-          <option disabled value="">Please select one</option>
-          <option v-for="(item, index) in this.types" :key="index" :value="item.toLowerCase()">{{ item }}</option>
+          <option disabled value>Please select one</option>
+          <option
+            v-for="(item, index) in this.types"
+            :key="index"
+            :value="item.toLowerCase()"
+          >{{ item }}</option>
           <option value="custom">Everything else</option>
         </select>
       </div>
@@ -28,19 +31,21 @@
       </div>
 
       <div class="alloy-btn-group">
-
         <button v-if="hasQueries" @click.prevent="deleteMe" class="btn btn--icon">
           <span>Delete this item</span>
           <icon-base width="20" height="20" icon-name="trash">
-            <icon-trash />
+            <icon-trash/>
           </icon-base>
         </button>
-
-        <input v-if="hasQueries" type="submit" value="Change" :disabled="item.custom == '' || item.title == ''">
+        
+        <input
+          v-if="hasQueries"
+          type="submit"
+          value="Change"
+          :disabled="item.custom == '' || item.title == ''"
+        >
         <input v-else type="submit" value="Add" :disabled="item.custom == '' || item.title == ''">
-
       </div>
-
     </form>
   </div>
 </template>
@@ -48,17 +53,17 @@
 <script>
 import { mapGetters } from "vuex";
 // 🛠 Utils
-import { slugify } from '@/assets/utils/filters.js';
+import { slugify } from "@/assets/utils/filters.js";
 
-import IconBase from '@/components//IconBase.vue'
-import IconTrash from '@/components/icons/IconTrash.vue'
+import IconBase from "@/components//IconBase.vue";
+import IconTrash from "@/components/icons/IconTrash.vue";
 
 export default {
   // props: ['item'],
-  name: 'CustomForm',
-    components: {
+  name: "CustomForm",
+  components: {
     IconBase,
-    IconTrash,
+    IconTrash
   },
   data() {
     return {
@@ -66,21 +71,21 @@ export default {
       hasQueries: false,
       locationOn: false,
       item: {
-        view: 'simple',
-        type: '',
-        id: '',
-        custom: '',
-        title: '',
-        slug: '',
-        location: '',
-      },
-    }
+        view: "simple",
+        type: "",
+        id: "",
+        custom: "",
+        title: "",
+        slug: "",
+        location: ""
+      }
+    };
   }, // End data
   computed: {
     ...mapGetters({
       // map `this.doneCount` to `this.$store.getters.doneTodosCount`
       getShareURL: "setup/getShareURL",
-      getSetupCurrent: "setup/getSetupCurrent",
+      getSetupCurrent: "setup/getSetupCurrent"
     })
   },
   methods: {
@@ -88,43 +93,40 @@ export default {
       // const queries = this.getShareURL.reduce((key, value) => { return { ...key, ...value } }, {});
 
       this.$router.push({
-        path: '/setup',
-        query: this.getShareURL,
+        path: "/setup",
+        query: this.getShareURL
       });
     },
     handleSubmit: function() {
       const currentSetupNumber = this.getSetupCurrent.length;
-      if(this.item.id == '') {
+      if (this.item.id == "") {
         this.item.id = `${this.item.custom}${currentSetupNumber}`;
       }
 
-      let slugCustom = `${this.item.custom}~`;
-      if (this.item.location != '') {
-        slugCustom = `${this.item.custom}~${slugify(this.item.location)}~`;
-      }
-
-      if (this.item.type == '') {
+      if (this.item.type == "") {
         this.item.type = `custom${currentSetupNumber}`;
       }
 
-      this.item.slug = `${slugCustom}${slugify(this.item.title)}`;
-
-      this.$store.commit('setup/setupAdd', this.item);
+      this.item.slug = `${this.item.custom}~${slugify(this.item.title)}`;
+      if (this.item.location != "") {
+        this.item.slug += `~${this.item.location}`;
+      }
+      this.$store.commit("setup/setupAdd", this.item);
       this.routeToSetup();
     },
-    deleteMe: function(){
-      this.$store.commit('setup/setupRemove', this.item);
+    deleteMe: function() {
+      this.$store.commit("setup/setupRemove", this.item);
 
       this.routeToSetup();
 
       const notification = {
         title: `${this.item.title} removed from your setup`,
-        content: "We will miss him",
-        image: '',
-        type: 'warning',
-        timer: 3500,
-      }
-      this.$store.commit('notifications/addNotification', notification);
+        content: "We'll miss him",
+        image: "",
+        type: "warning",
+        timer: 3500
+      };
+      this.$store.commit("notifications/addNotification", notification);
     }
   }, // Are functions run on user actions example @click or on lifecycle hooks
   created() {
@@ -136,7 +138,7 @@ export default {
       this.item.id = this.$route.query.id;
       // this.item.custom = this.$route.query.id.replace(/\d+/g,'');
       this.item.custom = this.$route.query.custom;
-      if(this.$route.query.location != '') {
+      if (this.$route.query.location != "") {
         this.locationOn = true;
       }
       this.item.location = this.$route.query.location;
@@ -144,8 +146,8 @@ export default {
       this.item.slug = this.$route.query.slug;
       this.item.type = this.$route.query.type;
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss"  scoped>
