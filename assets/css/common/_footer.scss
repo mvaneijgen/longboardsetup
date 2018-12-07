@@ -1,8 +1,3 @@
-// footer {
-//   display: grid;
-//   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-// }
-
 footer {
   position: relative;
   background-color: $brand-light;
@@ -11,16 +6,17 @@ footer {
   padding-bottom: $base-margin * 4;
   padding-left: 10px;
   padding-right: 10px;
-  .alloy-col {
-    // border-top: 2px solid;
-    // border-color: $brand-one-lighten;
-    // padding-top: $base-margin * 2;
-    // margin-bottom: $base-margin * 2;
-
-    // &.alloy-text-light {
-    //   * {
-    //     color: $brand-light;
-    //   }
-    // }
+  > .inner {
+    max-width: 100%;
+    @include media-breakpoint-up(md) {
+      max-width: 80vw;
+    }
+    margin: 0 auto;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(1, 1fr);
+    @include media-breakpoint-up(lg) {
+      // @media only screen and (min-width: $alloy-md-mq) {
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
   }
 }

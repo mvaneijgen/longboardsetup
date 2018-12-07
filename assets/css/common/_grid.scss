@@ -29,19 +29,19 @@ p {
   }
 }
 .alloy-page--content,
-footer > .inner,
 .component-Navigation nav,
 .alloy-page--type {
   max-width: 900px;
   margin: 0 auto;
 }
+
 .alloy-page--content {
   position: relative;
   z-index: 1000;
   background-color: $brand-one;
   padding-top: $base-margin;
   @include media-breakpoint-up(md) {
-  padding: $base-margin * 2;
+    padding: $base-margin * 2;
   }
   a {
     color: $brand-light;
@@ -80,16 +80,7 @@ footer,
     }
   }
 }
-footer {
-  > .inner {
-    grid-auto-rows: auto;
-    grid-template-columns: repeat(1, 1fr);
-    @include media-breakpoint-up(lg) {
-      // @media only screen and (min-width: $alloy-md-mq) {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-  }
-}
+
 // Items
 .alloy-select-grid,
 .alloy-setup {
@@ -126,7 +117,7 @@ footer {
     grid-row: span 4;
 
     @include media-breakpoint-up(sm) {
-        grid-row: span 6;
+      grid-row: span 6;
     }
     // @include media-breakpoint-up(lg) {
     //   grid-row: span $base-grid-row * 2;
@@ -162,17 +153,4 @@ footer {
 }
 //------------------------------------------------------//
 // END CSS Grid settings
-//------------------------------------------------------//
-//------------------------------------------------------//
-// Items select list
-//------------------------------------------------------//
-// .alloy-page.alloy-page--type {
-//   > * {
-//     display: inline-block;
-//     width: 32%;
-//     margin: 5px;
-//   }
-// }
-//------------------------------------------------------//
-// END Items select list
 //------------------------------------------------------//

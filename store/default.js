@@ -30,6 +30,7 @@ export const state = () => ({
     linkedin_username: "mvaneijgen",
     codepen_username: "mvaneijgen",
     avatar: '"http://0.gravatar.com/avatar/8a68ce0259bbb16411035e487ecb27c5"',
+    url: "https://mvaneijgen.nl"
   },
   //------------------------------------------------------//
   // Tools {object}
