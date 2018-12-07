@@ -22,7 +22,7 @@
         <div class="alloy-meta">
           <p>
             <strong>{{ item.custom }}</strong>
-            <span v-if="item.location !== ''">| {{ item.location }}</span>
+            <span v-if="item.location && item.location !== ''">| {{ item.location }}</span>
           </p>
         </div>
         <h3>{{item.title}}</h3>
