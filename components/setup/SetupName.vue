@@ -1,38 +1,20 @@
 <template>
   <div class="component-SetupName">
     <div class="inner">
-      <h1>{{ this.setupName }}<button
-          class="editName"
-          v-if="!showNameInput"
-          @click="nameInputToggle"
-        >
-          <IconBase
-            width="20"
-            height="20"
-            icon-name="edit"
-          >
-            <icon-edit />
+      <h1>
+        {{ this.setupName }}
+        <button class="editName" v-if="!showNameInput" @click="nameInputToggle">
+          <IconBase width="20" height="20" icon-name="edit">
+            <icon-edit/>
           </IconBase>
         </button>
       </h1>
 
-      <form
-        v-show="showNameInput"
-        @submit.prevent="saveNameInput"
-      >
+      <form v-show="showNameInput" @submit.prevent="saveNameInput">
         <div class="alloy-input-field">
-
-          <input
-            type="text"
-            ref="nameInput"
-            v-model="setupName"
-          >
-          <input
-            type="submit"
-            value="Save"
-          >
+          <input type="text" ref="nameInput" v-model="setupName">
+          <input type="submit" value="Save">
         </div>
-
       </form>
     </div>
   </div>
@@ -138,7 +120,7 @@ export default {
   right: -35px;
   height: auto;
   padding: 5px;
-  padding-left: 15px;
+  padding-left: 25px;
   z-index: -1;
 }
 </style>

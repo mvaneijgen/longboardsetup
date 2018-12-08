@@ -7,6 +7,7 @@
           <transition-group name="slide-in" tag="div" class="transition-card">
             <Item v-for="item in allSearchItems" :key="item.id" :item="item"/>
           </transition-group>
+          <!-- <NothingFound/> -->
           <transition-group name="slide-in" tag="div" class="transition-card">
             <Item v-for="item in allItems" :key="item.id" :item="item"/>
           </transition-group>
@@ -21,6 +22,7 @@
 <script>
 import CustomForm from "@/components/setup/CustomForm.vue";
 import Item from "@/components/setup/Item.vue";
+import NothingFound from "@/components/setup/empty-state/NothingFound.vue";
 
 // 🛠 Utils
 import { fromInputData } from "@/assets/utils/fromInputData.js";
@@ -32,7 +34,8 @@ export default {
   // layout: 'simple',
   components: {
     CustomForm,
-    Item
+    Item,
+    NothingFound
   },
   // middleware: "api",
   data() {

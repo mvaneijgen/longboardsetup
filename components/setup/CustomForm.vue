@@ -74,7 +74,6 @@ export default {
   }, // End data
   computed: {
     ...mapGetters({
-      getShareURL: "setup/getShareURL",
       getSetupCurrent: "setup/getSetupCurrent",
       getCurrentItem: "setup/getCurrentItem"
     })
@@ -82,8 +81,7 @@ export default {
   methods: {
     routeToSetup: function() {
       this.$router.push({
-        path: "/setup",
-        query: this.getShareURL
+        path: "/setup"
       });
     },
     handleSubmit: function() {

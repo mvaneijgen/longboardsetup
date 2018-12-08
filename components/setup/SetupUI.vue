@@ -32,7 +32,8 @@ export default {
   computed: {
     ...mapGetters({
       getSetupCurrent: "setup/getSetupCurrent",
-      getSetupNotEdited: "setup/getSetupNotEdited"
+      getSetupNotEdited: "setup/getSetupNotEdited",
+      getShareURL: "setup/getShareURL"
     })
   },
   methods: {

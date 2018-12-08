@@ -40,41 +40,41 @@ export const state = () => ({
       title: "Vue.js/Nuxt.js",
       about:
         "Everything you see here is powered by Vue.js with a Nuxt.js shell.",
-      url: "",
-      image: "",
+      url: "https://vuejs.org",
+      image: "vue.png",
     },
     {
       title: "Wordpress",
       about:
         "And then in particular, the Wordpress Rest API. This hosts all this app its data.",
-      url: "",
-      image: "",
+      url: "https://wordpress.org",
+      image: "wordpress.png",
     },
     {
       title: "Greensock",
       about: "For all these awesome SVG animations.",
-      url: "",
-      image: "",
+      url: "https://greensock.com",
+      image: "greensock.png",
     },
     {
       title: "Github pages",
       about: "The site is hosted on the powerful servers of Github (for free).",
-      url: "",
-      image: "",
+      url: "https://pages.github.com",
+      image: "github-pages.png",
     },
     {
       title: "Sketch",
       about:
         "All UI sketches were first drawn in Sketch to get a feel for the general layout and figure out what components need to be realized.",
-      url: "",
-      image: "",
+      url: "https://www.sketchapp.com",
+      image: "sketch.png",
     },
     {
       title: "Affinity Designer",
       about:
         "Most of the SVG on the site are hand drawn using Affinity Designer. A great alternative if you don't want to be locked in to the Adobe suite.",
-      url: "",
-      image: "",
+      url: "https://affinity.serif.com/designer/",
+      image: "affinity-designer.png",
     },
   ],
   //------------------------------------------------------//

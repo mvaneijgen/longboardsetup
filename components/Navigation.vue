@@ -35,7 +35,7 @@
           >
         </div>
 
-        <template v-if="'setup' == this.$route.name">
+        <template v-if="'setup' == this.$route.name && !this.$store.state.setup.setupNotEdited">
           <button class="alloy-share btn btn--alt btn--icon">
             <span>Share</span>
             <icon-base width="20" height="20" icon-name="share">
