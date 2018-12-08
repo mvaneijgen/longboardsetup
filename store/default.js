@@ -2,13 +2,9 @@ export const state = () => ({
   title: "longboard setup.com",
   tagline: "Share your dream setup",
   url: "https://longboardsetup.com",
+  api: "https://api.longboardsetup.com",
   description:
     "I am a graphic desigher from The Netherlands, working for my self since 2009 and recently under the name Studio Alloy as a collective of creative designer and developers.",
-  // twitter_username: "mvaneijgen",
-  // github_username: " mvaneijgen",
-  // linkedin_username: "mvaneijgen",
-  // codepen_username: "mvaneijgen",
-  // copyright: "Mitchel van Eijgen",
   //------------------------------------------------------//
   // Site content
   //------------------------------------------------------//
@@ -86,7 +82,7 @@ export const state = () => ({
       description: "Help fill our database by uploading your own!",
       cta: "Upload your own",
       type: "cta--alt",
-      url: "#",
+      url: "submit",
     },
     {
       title: "Have a lot of products to add?",
@@ -94,7 +90,7 @@ export const state = () => ({
         "If you have a large collection or products, we love to add them all at once. Just get in contact with us.",
       cta: "Contact",
       type: "",
-      url: "#",
+      url: "submit",
     },
   ],
   //------------------------------------------------------//
@@ -129,14 +125,8 @@ export const state = () => ({
   ],
 });
 
-// export const mutations = {
-//   setupClear(state, payload) {
-//     state.setupCurrent = state.initSetupCurrent;
-//   },
-// };
-
-// export const getters = {
-//   get(state) {
-//     return state.list;
-//   }
-// };
+export const getters = {
+  getDefaults: state => key => {
+    return state[key];
+  },
+};

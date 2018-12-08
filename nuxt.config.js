@@ -9,8 +9,8 @@
 
 module.exports = {
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   css: ["@/assets/css/main.scss"],
   // ...routerBase,
   head: {
@@ -50,12 +50,13 @@ module.exports = {
     script: [{ src: "/MorphSVGPlugin.min.js" }],
   },
   /*
-  ** Customize the progress bar color
-  */
+   ** Customize the progress bar color
+   */
   modules: ["@nuxtjs/axios"],
   axios: {
     baseURL: "https://api.longboardsetup.com/wp-json",
   },
+  plugins: [{ src: "~/plugins/vuex-persist", ssr: false }],
   generate: {
     dir: "docs",
   },
@@ -64,12 +65,12 @@ module.exports = {
     height: "8px",
   },
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** Run ESLint on save
-    */
+     ** Run ESLint on save
+     */
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({

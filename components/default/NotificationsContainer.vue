@@ -1,36 +1,40 @@
 <template>
   <div class="component-NotificationsContainer">
     <transition-group name="slide-in" mode="out-in">
-      <Notification v-for="(notification, index) in getNotifications" :key="index" :notification="notification"/>
+      <Notification
+        v-for="(notification) in getNotifications"
+        :key="notification.id"
+        :notification="notification"
+      />
     </transition-group>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import Notification from '@/components/default/Notification.vue';
+import Notification from "@/components/default/Notification.vue";
 
 export default {
   // props: ['item'],
-  name: 'NotificationsContainer',
+  name: "NotificationsContainer",
   components: {
-    Notification,
+    Notification
   },
   data() {
     return {
-      title: 'NotificationsContainer'
-    }
+      title: "NotificationsContainer"
+    };
   }, // End data
   computed: {
-  ...mapGetters({
-      getNotifications: 'notifications/getNotifications',
-    }),
-  },
-}
+    ...mapGetters({
+      getNotifications: "notifications/getNotifications"
+    })
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/css/common/_variables.scss';
+@import "~/assets/css/common/_variables.scss";
 
 .component-NotificationsContainer {
   position: fixed;

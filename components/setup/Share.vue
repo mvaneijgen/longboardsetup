@@ -33,7 +33,7 @@
         <div class="centered">
           <button class="btn btn--alt btn--large" @click="copyURL">Copy link!</button>
         </div>
-        <div class="share">share: r,t,f</div>
+        <Social/>
       </div>
     </div>
   </div>
@@ -41,9 +41,13 @@
 
 <script>
 import { mapGetters } from "vuex";
+import Social from "@/components/default/Social.vue";
 
 export default {
   name: "Share",
+  components: {
+    Social
+  },
   data() {
     return {
       title: "Share your setup",
@@ -124,11 +128,11 @@ export default {
   }
   .setup-name {
     font-size: 42px;
-    line-height: 1.8em;
+    line-height: 1.4em;
     text-shadow: makelongshadow($brand-one-lighten, $brand-two-lighten);
   }
   #share-container {
-    width: 400px;
+    width: 500px;
     max-width: 100%;
     background-color: $brand-one-lighten;
     color: $brand-light;

@@ -11,7 +11,7 @@
           <strong>{{ cta.title }}</strong>
           <span>{{ cta.description }}</span>
         </p>
-        <a :href="cta.url" class="btn btn--small">{{ cta.cta }}</a>
+        <nuxt-link :to="cta.url" class="btn btn--small">{{ cta.cta }}</nuxt-link>
       </div>
     </div>
   </div>
@@ -65,4 +65,12 @@ export default {
     }
   }
 }
+// .alloy-slide-nav {
+//   .alloy-cards.cta {
+//     background-color: $brand-one;
+//     .btn {
+//       background-color: $brand-one-lighten;
+//     }
+//   }
+// }
 </style>
