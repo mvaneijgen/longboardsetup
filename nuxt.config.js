@@ -26,11 +26,11 @@ module.exports = {
       { property: "og:type", content: "article" },
       {
         property: "og:title",
-        content: "Share your longboard setup | longboardsetup.com",
+        content: "Share your longboardsetup.com",
       },
       {
         property: "og:description",
-        content: "Build your dream setup",
+        content: "Build & share your dream setup your dream 🛹",
       },
       { property: "og:url", content: "https://longboardsetup.com" },
       {

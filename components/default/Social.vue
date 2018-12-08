@@ -6,7 +6,7 @@
       </li>
       <li>
         <a
-          :href="`http://www.reddit.com/submit?url=${fullURL}&title=${fullURL}`"
+          :href="`http://www.reddit.com/submit?url=${fullURL}&title=${shareText}`"
           target="_blank"
           title="Submit to Reddit"
         >
@@ -17,7 +17,7 @@
       </li>
       <li>
         <a
-          href="`https://www.facebook.com/sharer/sharer.php?u=${fullURL}&t=${fullURL}`"
+          href="`https://www.facebook.com/sharer/sharer.php?u=${fullURL}&t=${shareText}`"
           target="_blank"
           title="Share on Facebook"
         >
@@ -28,7 +28,7 @@
       </li>
       <li>
         <a
-          :href="`https://twitter.com/intent/tweet?source=${fullURL}&text=${fullURL}`"
+          :href="`https://twitter.com/intent/tweet?source=${fullURL}&text=${shareText}`"
           target="_blank"
           title="Tweet"
         >
@@ -40,7 +40,7 @@
 
       <li>
         <a
-          href="`whatsapp://send?text=${fullURL}%20${fullURL}`"
+          href="`whatsapp://send?text=${fullURL}%20${shareText}`"
           target="_blank"
           title="Share via WhatsApp"
         >
@@ -74,7 +74,8 @@ export default {
   },
   data() {
     return {
-      title: "Social"
+      title: "Social",
+      shareText: this.$store.getters("name/getName")
     };
   }, // End data
   computed: {
