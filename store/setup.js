@@ -21,9 +21,19 @@ const initSetupCurrent = [
     title: "Pick your wheels",
   },
 ];
+const initItem = {
+  view: "simple",
+  type: "",
+  id: "",
+  custom: "",
+  title: "",
+  slug: "",
+  location: "",
+};
 export const state = () => ({
   title: "Longboard Setup",
   setupCurrent: [...initSetupCurrent],
+  itemCurrent: { ...initItem },
   setupNotEdited: true,
 });
 
@@ -44,6 +54,8 @@ export const mutations = {
   },
   // END Add a item 🔨 to the setup 🧰 or change one
 
+  // END Add a item 🔨 to the setup 🧰 or change one
+
   //------------------------------------------------------//
   // Remove an item 🔨 from the setup 🧰
   //------------------------------------------------------//
@@ -59,25 +71,41 @@ export const mutations = {
   //------------------------------------------------------//
   // ❌ Clear the whole setup 🧰 and restore it
   //------------------------------------------------------//
-  setupClear(state, payload) {
-    state.setupCurrent = [];
-    state.initSetupCurrent.forEach(item => {
-      state.setupCurrent.push(item);
-    });
+  setupClear(state) {
+    state.setupCurrent = [...initSetupCurrent];
   },
   // END ❌ Clear the whole setup 🧰 and restore it
+
+  //------------------------------------------------------//
+  // ❌ Clear the whole item 🔨 and restore it
+  //------------------------------------------------------//
+  itemCurrentClear(state) {
+    state.itemCurrent = { ...initItem };
+  },
+  // END ❌ Clear the whole setup 🔨 and restore it
+  itemCurrentAdd(state, payload) {
+    state.itemCurrent = { ...payload };
+  },
 };
 //------------------------------------------------------//
 // Getters
 //------------------------------------------------------//
 export const getters = {
   //------------------------------------------------------//
-  // 🧰 Get current setup
+  // Get current setup 🧰
   //------------------------------------------------------//
   getSetupCurrent: state => {
     return state.setupCurrent;
   },
-  // END 🧰 Get current setup
+  // END Get current setup 🧰
+
+  //------------------------------------------------------//
+  // Get current item 🔨
+  //------------------------------------------------------//
+  getCurrentItem: state => {
+    return state.itemCurrent;
+  },
+  // END Get current setup 🔨
 
   //------------------------------------------------------//
   // 🐦 Create share URL

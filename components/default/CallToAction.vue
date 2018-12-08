@@ -33,7 +33,7 @@ export default {
 @import "~/assets/css/common/_variables.scss";
 .component-CallToAction {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-column-gap: $base-margin;
   grid-row-gap: $base-margin;
 }

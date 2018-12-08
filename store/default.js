@@ -14,7 +14,7 @@ export const state = () => ({
   //------------------------------------------------------//
   about_text: `
   <p>As a long distance push boarder myself I’ve found it difficult to find the right setup for me, this resulted in doing some miss buys. Next to that it's hard to get effective feedback via online platforms, but I believe the community has the knowledge, it just needs to be easier to share setups.</p>
-  <p>That is why I've build this tool to make it easy to share your current, dream or complicated setup. It can also be used to request feedback on a specific part, just leave that part empty and share the URL to <a href="https://www.reddit.com/r/longboarding/">/r/longboarding</a>, Discord or any other platform or your choosing and have the community discus on that part and share suggestions.</p>
+  <p>That is why I've build this tool to make it easy to share your current, dream or complicated setup. It can also be used to request feedback on a specific part, just leave that part empty and share the URL to <a href="https://www.reddit.com/r/longboarding/">/r/longboarding</a>, Discord or any other platform of your choosing and have the community discus on that part and share suggestions.</p>
   `,
   //------------------------------------------------------//
   // About me
@@ -30,7 +30,7 @@ export const state = () => ({
     linkedin_username: "mvaneijgen",
     codepen_username: "mvaneijgen",
     avatar: '"http://0.gravatar.com/avatar/8a68ce0259bbb16411035e487ecb27c5"',
-    url: "https://mvaneijgen.nl"
+    url: "https://mvaneijgen.nl",
   },
   //------------------------------------------------------//
   // Tools {object}
@@ -59,6 +59,20 @@ export const state = () => ({
     {
       title: "Github pages",
       about: "The site is hosted on the powerful servers of Github (for free).",
+      url: "",
+      image: "",
+    },
+    {
+      title: "Sketch",
+      about:
+        "All UI sketches were first drawn in Sketch to get a feel for the general layout and figure out what components need to be realized.",
+      url: "",
+      image: "",
+    },
+    {
+      title: "Affinity Designer",
+      about:
+        "Most of the SVG on the site are hand drawn using Affinity Designer. A great alternative if you don't want to be locked in to the Adobe suite.",
       url: "",
       image: "",
     },

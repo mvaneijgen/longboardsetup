@@ -55,11 +55,10 @@ import { mapGetters } from "vuex";
 // 🛠 Utils
 import { slugify } from "@/assets/utils/filters.js";
 
-import IconBase from "@/components//IconBase.vue";
+import IconBase from "@/components/IconBase.vue";
 import IconTrash from "@/components/icons/IconTrash.vue";
 
 export default {
-  // props: ['item'],
   name: "CustomForm",
   components: {
     IconBase,
@@ -70,28 +69,18 @@ export default {
       types: this.$store.state.items.types,
       hasQueries: false,
       locationOn: false,
-      item: {
-        view: "simple",
-        type: "",
-        id: "",
-        custom: "",
-        title: "",
-        slug: "",
-        location: ""
-      }
+      item: {}
     };
   }, // End data
   computed: {
     ...mapGetters({
-      // map `this.doneCount` to `this.$store.getters.doneTodosCount`
       getShareURL: "setup/getShareURL",
-      getSetupCurrent: "setup/getSetupCurrent"
+      getSetupCurrent: "setup/getSetupCurrent",
+      getCurrentItem: "setup/getCurrentItem"
     })
   },
   methods: {
     routeToSetup: function() {
-      // const queries = this.getShareURL.reduce((key, value) => { return { ...key, ...value } }, {});
-
       this.$router.push({
         path: "/setup",
         query: this.getShareURL
@@ -112,8 +101,12 @@ export default {
         this.item.slug += `~${this.item.location}`;
       }
       this.$store.commit("setup/setupAdd", this.item);
+      this.$store.commit("setup/itemCurrentClear");
       this.routeToSetup();
     },
+    //------------------------------------------------------//
+    // Delete ❌ item from Setup 🧰 and Create Notification 💌
+    //------------------------------------------------------//
     deleteMe: function() {
       this.$store.commit("setup/setupRemove", this.item);
 
@@ -127,25 +120,15 @@ export default {
         timer: 3500
       };
       this.$store.commit("notifications/addNotification", notification);
+    },
+    // END Create Notification 💌
+
+    setItemFromStore: function() {
+      this.item = { ...this.getCurrentItem };
     }
   }, // Are functions run on user actions example @click or on lifecycle hooks
   created() {
-    // const queryLength = Object.keys(this.$route.query).length;
-
-    if (Object.keys(this.$route.query).length) {
-      this.hasQueries = true;
-      // console.warn(this.$route.query.length);
-      this.item.id = this.$route.query.id;
-      // this.item.custom = this.$route.query.id.replace(/\d+/g,'');
-      this.item.custom = this.$route.query.custom;
-      if (this.$route.query.location != "") {
-        this.locationOn = true;
-      }
-      this.item.location = this.$route.query.location;
-      this.item.title = this.$route.query.title;
-      this.item.slug = this.$route.query.slug;
-      this.item.type = this.$route.query.type;
-    }
+    this.setItemFromStore();
   }
 };
 </script>

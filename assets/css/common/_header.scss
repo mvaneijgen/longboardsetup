@@ -9,23 +9,18 @@ header {
   background-color: $brand-light;
   text-align: center;
 
-  #header-animation {
+  svg#header-animation {
     position: absolute;
-    bottom: -30px;
     left: 0;
+    bottom: 0;
+    transform: translateY(95%);
     width: 100%;
     height: auto;
-    @include media-breakpoint-up(md) {
-      bottom: -50%;
-    }
-    @include media-breakpoint-up(lg) {
-      bottom: -100%;
-    }
   }
   h1 {
     position: relative;
     z-index: 1000;
-
+    margin: 0px $base-margin * 2;
     display: inline-block;
     color: $brand-light;
     @include responsive-font(4vw, 35px, 150px, 50px);
@@ -83,7 +78,10 @@ header {
 }
 #alloy-nav-toggle {
   position: fixed;
-  top: 15vh;
+  top: $base-margin * 2;
+  @include media-breakpoint-up(lg) {
+    top: 15vh;
+  }
   right: 0;
   z-index: 4000;
   background-color: $brand-one;

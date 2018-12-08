@@ -48,7 +48,7 @@ import IconInfo from "@/components/icons/IconInfo.vue";
 
 export default {
   props: ["item"],
-  name: "Item",
+  name: "ItemSetup",
   components: {
     EmptyDecksIcon,
     EmptyTrucksIcon,
@@ -66,19 +66,14 @@ export default {
     imageLink: function(image) {
       return require(`~/assets/images/${image}.svg`);
     },
-    toggleInfo: function(event) {
+    toggleInfo: function() {
       this.showInfo = !this.showInfo;
     },
-    loadItemType: function(event) {
+    loadItemType: function() {
+      this.$store.commit("setup/itemCurrentAdd", this.item);
+
       this.$router.push({
-        path: `/setup/${this.item.type.replace(/\d+/g, "")}`,
-        query: {
-          id: this.item.id,
-          custom: this.item.custom,
-          type: this.item.type,
-          title: this.item.title,
-          location: this.item.location
-        }
+        path: `/setup/${this.item.type.replace(/\d+/g, "")}`
       });
     }
   }

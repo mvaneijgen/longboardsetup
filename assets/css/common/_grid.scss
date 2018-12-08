@@ -5,16 +5,6 @@ body {
   margin: 0;
   background-color: $brand-one;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  margin-bottom: $base-margin;
-}
 //------------------------------------------------------//
 // Pages
 //------------------------------------------------------//
@@ -24,8 +14,10 @@ p {
   margin-bottom: $base-margin * 8 !important;
   margin: 0 auto;
 
-  @include media-breakpoint-up(lg) {
-    // @media only screen and (min-width: $alloy-md-mq) {
+  section {
+    @include media-breakpoint-up(md) {
+      margin-bottom: $base-margin * 4;
+    }
   }
 }
 .alloy-page--content,
@@ -64,6 +56,10 @@ footer,
 
     grid-row-gap: $base-margin;
     grid-column-gap: $base-margin;
+    @media screen and (min-width: 400px) and (max-width: 767px) {
+      grid-row-gap: 25px;
+      grid-column-gap: 20px;
+    }
     @include media-breakpoint-up(md) {
       // @media only screen and (min-width: $alloy-md-mq) {
       grid-row-gap: $base-margin * 2;
