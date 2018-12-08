@@ -52,14 +52,14 @@ export const getters = {
   getItems: state => itemType => {
     return state[itemType].items;
   },
+  getSearch: state => itemType => {
+    return state[itemType].search;
+  },
   getSearchResults: state => itemType => {
     return state[itemType].searchResults;
   },
   getTypePage: state => itemType => {
     return state[itemType].page;
-  },
-  getSearch: state => itemType => {
-    return state[itemType].search;
   },
   getTypes: state => {
     return state.types;

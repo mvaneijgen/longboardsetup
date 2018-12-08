@@ -35,19 +35,14 @@
           >
         </div>
 
-        <template v-if="'setup' == this.$route.name && !this.$store.state.setup.setupNotEdited">
-          <button class="alloy-share btn btn--alt btn--icon">
+        <template v-if="'setup' == this.$route.name && this.$store.state.setup.setupNotEdited">
+          <button class="alloy-share btn btn--alt btn--icon" @click="openShareModal">
             <span>Share</span>
             <icon-base width="20" height="20" icon-name="share">
               <icon-share/>
             </icon-base>
           </button>
         </template>
-
-        <!-- <div class="alloy-input-field">
-          <label for="share">URL</label>
-          <input type="text" id="share" :value="getShareURL">
-        </div>-->
       </div>
     </nav>
   </div>
@@ -77,11 +72,6 @@ export default {
     IconShare,
     IconArrowLeft
   },
-  data() {
-    return {
-      type: this.$route.params.type
-    };
-  }, // End data
   methods: {
     toggleAllInfo: function(event) {
       document.body.classList.toggle("showAllInfo");
@@ -91,6 +81,9 @@ export default {
       if (confirm("Are you sure? This will remove all your hard work.")) {
         this.$store.commit("setup/setupClear");
       }
+    },
+    openShareModal: function() {
+      this.$store.commit("setup/setShowShareModel", true);
     }
   },
   computed: {
@@ -99,13 +92,13 @@ export default {
     // }),
     searchField: {
       get() {
-        return this.$store.getters["items/getSearch"](this.type);
+        return this.$store.getters["items/getSearch"](this.$route.params.type);
       },
       set(value) {
         this.$axios
           .get(
             `wp/v2/${
-              this.type
+              this.$route.params.type
             }?orderby=title&order=asc&per_page=100&search=${value}&_embed`
           )
           .then(response => {
@@ -113,14 +106,14 @@ export default {
             // Push the data to the store
             this.$store.commit({
               type: "items/addSearchItems",
-              itemType: this.type,
+              itemType: this.$route.params.type,
               items: response.data.map(fromInputData)
             });
           });
         // Set search term 🔎 for correct type
         this.$store.commit({
           type: "items/setSearch",
-          itemType: this.type,
+          itemType: this.$route.params.type,
           searchTerm: value
         });
       }
@@ -145,7 +138,6 @@ export default {
   }
 }
 .alloy-share {
-  // float: right;
   align-self: flex-end;
   margin-right: 0;
 }
@@ -155,17 +147,4 @@ export default {
     margin-bottom: 0;
   }
 }
-// @include media-breakpoint-down(md) {
-//   input,
-//   .btn {
-//     font-size: 0.8rem;
-//     line-height: 1em;
-//     padding: 5px 10px;
-//   }
-//   label {
-//     font-size: 0.4rem;
-//     padding: 3px 5px;
-//     top: -5px;
-//   }
-// }
 </style>

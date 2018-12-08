@@ -146,7 +146,7 @@ $base-transition: 300ms;
 // END UI transtions /starr
 //------------------------------------------------------//
 //------------------------------------------------------//
-// Slide in  
+// Slide in
 //------------------------------------------------------//
 .slide-in-enter-active,
 .slide-in-leave-active {
@@ -158,7 +158,6 @@ $base-transition: 300ms;
     // &:nth-child(#{$i}n+18),
     &:nth-child(#{$i}) {
       transition-delay: 100ms * $i;
-      
     }
   }
 }
@@ -167,12 +166,28 @@ $base-transition: 300ms;
   opacity: 0;
   transform: translateX(350px);
 }
-// .slide-in-enter-to,
-// .slide-in-leave {
-//   opacity: 1;
-//   transform: translateX(0);
-// }
+.slide-in-enter-to,
+.slide-in-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+// END Slide in
 
 //------------------------------------------------------//
-// END Slide in 
+// 🎉 Pop transtion
 //------------------------------------------------------//
+.pop-enter-active,
+.pop-leave-active {
+  transition: transform;
+  transition-duration: $base-transition * 2, $base-transition * 2;
+  transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+}
+.pop-enter,
+.pop-leave-to {
+  transform: scale(10);
+}
+.pop-enter-to,
+.pop-leave {
+  transform: scale(0);
+}
+// END 🎉 Pop transtion

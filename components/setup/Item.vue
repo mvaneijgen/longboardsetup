@@ -52,6 +52,7 @@ export default {
     },
     itemEdit: function(event) {
       this.$store.commit("setup/setupAdd", this.item);
+      this.$store.commit("setup/setSetupNotEdited", true);
 
       this.$router.push({
         path: "/setup"

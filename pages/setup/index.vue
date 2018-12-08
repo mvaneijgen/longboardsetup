@@ -1,7 +1,7 @@
 <template>
   <div class="alloy-page alloy-page--setup">
     <SetupUI/>
-    <Share/>
+    <Share v-if="getShowShareModel"/>
   </div>
 </template>
 
@@ -19,7 +19,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getShareURL: "setup/getShareURL"
+      getShareURL: "setup/getShareURL",
+      getShowShareModel: "setup/getShowShareModel"
     })
   },
   mounted() {

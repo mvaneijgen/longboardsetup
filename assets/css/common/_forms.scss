@@ -95,6 +95,13 @@ input[type="submit"] {
   border-color: $brand-grey;
   padding: 2px 5px;
 }
+.btn--large {
+  font-size: 2rem;
+  line-height: 1em;
+  font-weight: 700;
+  padding: $base-margin $base-margin * 2 $base-margin + 5px;
+  margin-bottom: $base-margin;
+}
 .alloy-btn-group {
   display: flex;
   .btn,

@@ -35,6 +35,7 @@ export const state = () => ({
   setupCurrent: [...initSetupCurrent],
   itemCurrent: { ...initItem },
   setupNotEdited: true,
+  showShareModel: false,
 });
 
 export const mutations = {
@@ -86,6 +87,12 @@ export const mutations = {
   itemCurrentAdd(state, payload) {
     state.itemCurrent = { ...payload };
   },
+  setSetupNotEdited(state, payload) {
+    state.setupNotEdited = payload;
+  },
+  setShowShareModel(state, payload) {
+    state.showShareModel = payload;
+  },
 };
 //------------------------------------------------------//
 // Getters
@@ -122,6 +129,10 @@ export const getters = {
     return state.setupNotEdited;
   },
   // END 🐦 Create share URL
+
+  getShowShareModel: state => {
+    return state.showShareModel;
+  },
 };
 //------------------------------------------------------//
 // END Getters
