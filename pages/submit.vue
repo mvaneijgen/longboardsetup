@@ -13,11 +13,11 @@
         </section>
 
         <section>
-          <div class="alloy-btn-group">
+          <div class="alloy-btn-group alloy-submit">
             <a
               v-for="(type, index) in types"
               :key="index"
-              :href="type"
+              :href="`https://api.longboardsetup.com/submit-${type}`"
               class="btn btn--large"
             >{{type}} from</a>
             <!-- <div class="alloy-cards submit" v-for="(type, index) in types" :key="index">
@@ -34,11 +34,14 @@
           <p>Do you have more than ten items to submit? I can run an importer. What I would need from you is some sort of data set file (eg a .json, .csv, .xml, ect)</p>
           <p>The link below takes you to a form where I would ask some general information from you and if you can already provide the data files. If you like some help you can also use the same form.</p>
           <br>
-          <a href class="btn btn--alt btn--large">Go to the submit form</a>
+          <a
+            href="https://api.longboardsetup.com/bulk-submit"
+            class="btn btn--alt btn--large"
+          >Go to the submit form</a>
         </section>
       </div>
     </div>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
@@ -74,5 +77,8 @@ export default {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-column-gap: $base-margin;
   grid-row-gap: $base-margin;
+}
+.alloy-submit {
+  text-transform: capitalize;
 }
 </style>

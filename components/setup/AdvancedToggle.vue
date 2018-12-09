@@ -1,8 +1,17 @@
 <template>
   <div class="component-AdvancedToggle">
     <div class="toggle">
-      <input class="tgl tgl-ios" id="cb2" type="checkbox" :checked="this.$store.state.setup.advancedOn" />
-      <label @click="advancedToggle" class="tgl-btn" for="cb2"></label>
+      <input
+        class="tgl tgl-ios"
+        id="cb2"
+        type="checkbox"
+        :checked="this.$store.state.setup.advancedOn"
+      />
+      <label
+        @click="advancedToggle"
+        class="tgl-btn"
+        for="cb2"
+      ></label>
     </div>
 
     <span>Looking for more items? Enable advanced mode.</span>
@@ -10,21 +19,20 @@
 </template>
 
 <script>
-
 export default {
   // props: ['item'],
-  name: 'AdvancedToggle',
+  name: "AdvancedToggle",
   data() {
     return {
       // title: 'AdvancedToggle'
-    }
+    };
   }, // End data
   methods: {
     advancedToggle: function() {
-      this.$store.commit('setup/advancedToggle');
+      this.$store.commit("setup/advancedToggle");
     }
-  }, // Are functions run on user actions example @click or on lifecycle hooks
-}
+  } // Are functions run on user actions example @click or on lifecycle hooks
+};
 </script>
 
 <style lang="scss" scoped>

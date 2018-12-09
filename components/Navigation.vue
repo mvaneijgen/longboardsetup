@@ -3,30 +3,55 @@
     <nav>
       <div class="alloy-btn-group">
         <template v-if="'setup' != this.$route.name">
-          <nuxt-link to="/setup" class="btn btn--icon btn--icon-left">
-            <icon-base width="20" height="20" icon-name="arrow-left">
-              <icon-arrow-left/>
+          <nuxt-link
+            to="/setup"
+            class="btn btn--icon btn--icon-left"
+          >
+            <icon-base
+              width="20"
+              height="20"
+              icon-name="arrow-left"
+            >
+              <icon-arrow-left />
             </icon-base>
             <span>Back</span>
           </nuxt-link>
         </template>
 
-        <button v-if="'setup' == this.$route.name" @click="setupClear" class="btn btn--icon">
+        <button
+          v-if="'setup' == this.$route.name"
+          @click="setupClear"
+          class="btn btn--icon"
+        >
           <span>Clear</span>
-          <icon-base width="20" height="20" icon-name="trash">
-            <icon-trash/>
-          </icon-base>
-        </button>
-        
-        <button @click="toggleAllInfo" class="btn btn--icon">
-          <span>Info</span>
-          <icon-base width="20" height="20" icon-name="info">
-            <icon-info/>
+          <icon-base
+            width="20"
+            height="20"
+            icon-name="trash"
+          >
+            <icon-trash />
           </icon-base>
         </button>
 
-        <div v-if="'setup-type' == this.$route.name" class="alloy-input-field">
-          <label for="searchTerm">Search</label>
+        <button
+          @click="toggleAllInfo"
+          class="btn btn--icon"
+        >
+          <span>Info</span>
+          <icon-base
+            width="20"
+            height="20"
+            icon-name="info"
+          >
+            <icon-info />
+          </icon-base>
+        </button>
+
+        <div
+          v-if="'setup-type' == this.$route.name"
+          class="alloy-input-field"
+        >
+          <label for="searchTerm">Search (enter to submit)</label>
           <input
             type="text"
             id="searchTerm"
@@ -36,10 +61,17 @@
         </div>
 
         <template v-if="'setup' == this.$route.name && this.$store.state.setup.setupNotEdited">
-          <button class="alloy-share btn btn--alt btn--icon" @click="openShareModal">
+          <button
+            class="alloy-share btn btn--alt btn--icon"
+            @click="openShareModal"
+          >
             <span>Share</span>
-            <icon-base width="20" height="20" icon-name="share">
-              <icon-share/>
+            <icon-base
+              width="20"
+              height="20"
+              icon-name="share"
+            >
+              <icon-share />
             </icon-base>
           </button>
         </template>
