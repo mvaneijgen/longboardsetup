@@ -11,7 +11,6 @@ module.exports = {
   /*
    ** Headers of the page
    */
-  css: ["@/assets/css/main.scss"],
   // ...routerBase,
   head: {
     title: "Longboard Setup",
@@ -49,6 +48,8 @@ module.exports = {
     script: [{ src: "/DrawSVGPlugin.min.js" }],
     script: [{ src: "/MorphSVGPlugin.min.js" }],
   },
+  css: ["@/assets/css/main.scss"],
+
   /*
    ** Customize the progress bar color
    */
