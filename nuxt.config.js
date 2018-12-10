@@ -60,6 +60,7 @@ module.exports = {
   plugins: [{ src: "~/plugins/vuex-persist", ssr: false }],
   generate: {
     dir: "docs",
+    routes: ["/setup/decks", "/setup/trucks", "/setup/wheels"],
   },
   loading: {
     color: "#E64",
