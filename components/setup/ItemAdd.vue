@@ -1,31 +1,40 @@
 <template>
-  <nuxt-link to="/setup/custom" class="alloy-cards alloy-items" data-type="add">
+  <div @click="loadItemType" class="alloy-cards alloy-items" data-type="add">
     <div class="inner">
       <icon-base width="45" height="45" icon-name="add">
-        <icon-add />
+        <icon-add/>
       </icon-base>
     </div>
-  </nuxt-link>
+  </div>
 </template>
 
 <script>
-import IconBase from '@/components//IconBase.vue'
-import IconAdd from '@/components/icons/IconAdd.vue'
+import IconBase from "@/components/IconBase.vue";
+import IconAdd from "@/components/icons/IconAdd.vue";
 
 export default {
   // props: ['item'],
-  name: 'ItemAdd',
-    components: {
+  name: "ItemAdd",
+  components: {
     // Icon logic
     IconBase,
-    IconAdd,
+    IconAdd
   },
   data() {
     return {
-      title: 'ItemAdd'
-    }
+      item: {}
+    };
   }, // End data
-}
+  methods: {
+    loadItemType: function() {
+      this.$store.commit("setup/itemCurrentAdd", this.item);
+
+      this.$router.push({
+        path: `/setup/custom`
+      });
+    }
+  }
+};
 </script>
 
 <style lang="scss"  scoped>

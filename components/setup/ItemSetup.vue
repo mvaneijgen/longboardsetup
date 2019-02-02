@@ -26,14 +26,14 @@
           </p>
         </div>
         <h3>{{item.title}}</h3>
-        <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a>
+        <!-- <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a> -->
       </div>
     </div>
-    <button v-if="item.view != 'simple'" @click="toggleInfo" class="btn btn--small btn--subtle">
+    <!-- <button v-if="item.view != 'simple'" @click="toggleInfo" class="btn btn--small btn--subtle">
       <icon-base width="20" height="20" icon-name="info">
         <icon-info/>
       </icon-base>
-    </button>
+    </button>-->
   </div>
 </template>
 
@@ -74,6 +74,7 @@ export default {
 
       this.$router.push({
         path: `/setup/${this.item.type.replace(/\d+/g, "")}`
+        // path: `/setup/${this.item.type}`
       });
     }
   }

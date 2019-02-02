@@ -31,7 +31,7 @@
       </div>
 
       <div class="alloy-btn-group">
-        <button v-if="hasQueries" @click.prevent="deleteMe" class="btn btn--icon">
+        <button v-if="item.id" @click.prevent="deleteMe" class="btn btn--icon">
           <span>Delete this item</span>
           <icon-base width="20" height="20" icon-name="trash">
             <icon-trash/>
@@ -39,12 +39,12 @@
         </button>
         
         <input
-          v-if="hasQueries"
+          v-if="item.id"
           type="submit"
           value="Change"
           :disabled="item.custom == '' || item.title == ''"
         >
-        <input v-else type="submit" value="Add" :disabled="item.custom == '' || item.title == ''">
+        <input v-else type="submit" value="Add" :disabled="!item.custom || !item.title">
       </div>
     </form>
   </div>
@@ -85,17 +85,19 @@ export default {
       });
     },
     handleSubmit: function() {
+      console.warn(this.getSetupCurrent.length);
       const currentSetupNumber = this.getSetupCurrent.length;
-      if (this.item.id == "") {
+      this.item.view = "simple";
+      if (!this.item.id) {
         this.item.id = `${this.item.custom}${currentSetupNumber}`;
       }
 
-      if (this.item.type == "") {
+      if (!this.item.type) {
         this.item.type = `custom${currentSetupNumber}`;
       }
 
       this.item.slug = `${this.item.custom}~${slugify(this.item.title)}`;
-      if (this.item.location != "") {
+      if (this.item.location) {
         this.item.slug += `~${this.item.location}`;
       }
       this.$store.commit("setup/setupAdd", this.item);

@@ -75,7 +75,8 @@ export default {
   data() {
     return {
       title: "Social",
-      shareText: this.$store.getters("name/getName")
+      // shareText: this.$store.getters("name/getName")
+      shareText: "test"
     };
   }, // End data
   computed: {

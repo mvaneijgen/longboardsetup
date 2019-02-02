@@ -51,7 +51,7 @@ export const mutations = {
     } else {
       state.setupCurrent.push(payload);
     }
-    state.setupEdited = true;
+    state.setupNotEdited = false;
   },
   // END Add a item 🔨 to the setup 🧰 or change one
 

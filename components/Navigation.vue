@@ -3,75 +3,46 @@
     <nav>
       <div class="alloy-btn-group">
         <template v-if="'setup' != this.$route.name">
-          <nuxt-link
-            to="/setup"
-            class="btn btn--icon btn--icon-left"
-          >
-            <icon-base
-              width="20"
-              height="20"
-              icon-name="arrow-left"
-            >
-              <icon-arrow-left />
+          <nuxt-link to="/setup" class="btn btn--icon btn--icon-left">
+            <icon-base width="20" height="20" icon-name="arrow-left">
+              <icon-arrow-left/>
             </icon-base>
             <span>Back</span>
           </nuxt-link>
         </template>
 
-        <button
-          v-if="'setup' == this.$route.name"
-          @click="setupClear"
-          class="btn btn--icon"
-        >
+        <button v-if="'setup' == this.$route.name" @click="setupClear" class="btn btn--icon">
           <span>Clear</span>
-          <icon-base
-            width="20"
-            height="20"
-            icon-name="trash"
-          >
-            <icon-trash />
+          <icon-base width="20" height="20" icon-name="trash">
+            <icon-trash/>
           </icon-base>
         </button>
-
-        <button
-          @click="toggleAllInfo"
-          class="btn btn--icon"
-        >
+        
+        <button @click="toggleAllInfo" class="btn btn--icon">
           <span>Info</span>
-          <icon-base
-            width="20"
-            height="20"
-            icon-name="info"
-          >
-            <icon-info />
+          <icon-base width="20" height="20" icon-name="info">
+            <icon-info/>
           </icon-base>
         </button>
 
-        <div
-          v-if="'setup-type' == this.$route.name"
-          class="alloy-input-field"
-        >
-          <label for="searchTerm">Search (enter to submit)</label>
-          <input
-            type="text"
-            id="searchTerm"
-            v-model.lazy.trim="searchField"
-            :placeholder="`Search ${this.$route.params.type}...`"
-          >
+        <div v-if="'setup-type' == this.$route.name" class="alloy-input-field">
+          <form id="searchForm" @submit.prevent="searchSubmit" action="#" method="post">
+            <label for="searchTerm">Search</label>
+            <input
+              type="text"
+              id="searchTerm"
+              :placeholder="`Search ${this.$route.params.type}...`"
+              v-model.lazy.trim="searchField"
+            >
+            <input type="submit" value="⏎">
+          </form>
         </div>
 
         <template v-if="'setup' == this.$route.name && this.$store.state.setup.setupNotEdited">
-          <button
-            class="alloy-share btn btn--alt btn--icon"
-            @click="openShareModal"
-          >
+          <button class="alloy-share btn btn--alt btn--icon" @click="openShareModal">
             <span>Share</span>
-            <icon-base
-              width="20"
-              height="20"
-              icon-name="share"
-            >
-              <icon-share />
+            <icon-base width="20" height="20" icon-name="share">
+              <icon-share/>
             </icon-base>
           </button>
         </template>
@@ -116,7 +87,31 @@ export default {
     },
     openShareModal: function() {
       this.$store.commit("setup/setShowShareModel", true);
+    },
+    //------------------------------------------------------//
+    // 🔎 Submit Search form
+    //------------------------------------------------------//
+    searchSubmit: function(event) {
+      const value = this.$store.getters["items/getSearch"](
+        this.$route.params.type
+      );
+      this.$axios
+        .get(
+          `wp/v2/${
+            this.$route.params.type
+          }?orderby=title&order=asc&per_page=100&search=${value}&_embed`
+        )
+        .then(response => {
+          console.warn(response.data);
+          // Push the data to the store
+          this.$store.commit({
+            type: "items/addSearchItems",
+            itemType: this.$route.params.type,
+            items: response.data.map(fromInputData)
+          });
+        });
     }
+    // 🔎 Submit Search form
   },
   computed: {
     // ...mapGetters({
@@ -127,21 +122,6 @@ export default {
         return this.$store.getters["items/getSearch"](this.$route.params.type);
       },
       set(value) {
-        this.$axios
-          .get(
-            `wp/v2/${
-              this.$route.params.type
-            }?orderby=title&order=asc&per_page=100&search=${value}&_embed`
-          )
-          .then(response => {
-            console.warn(response.data);
-            // Push the data to the store
-            this.$store.commit({
-              type: "items/addSearchItems",
-              itemType: this.$route.params.type,
-              items: response.data.map(fromInputData)
-            });
-          });
         // Set search term 🔎 for correct type
         this.$store.commit({
           type: "items/setSearch",
@@ -177,6 +157,20 @@ export default {
   display: inline-block;
   input {
     margin-bottom: 0;
+  }
+}
+#searchForm {
+  position: relative;
+  [type="submit"] {
+    font-size: 0.8rem;
+    line-height: 1.2em;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    transform: scale(0.6);
+    margin: 0;
+    background-color: $brand-one-lighten;
+    border-color: $brand-one-lighten;
   }
 }
 </style>
