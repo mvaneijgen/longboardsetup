@@ -98,9 +98,8 @@ export default {
 <style scoped>
 .banana {
   position: absolute;
-  bottom: -10px;
+  bottom: 10px;
   right: 15px;
   width: 40px;
 }
 </style>
-0

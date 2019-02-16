@@ -42,13 +42,6 @@ export const mutations = {
 };
 
 export const getters = {
-  // getItems: state => itemType => {
-  //   return state[itemType].items.filter(item => {
-  //     return item.title
-  //       .toLowerCase()
-  //       .match(state[itemType].search.toLowerCase());
-  //   });
-  // },
   getItems: state => itemType => {
     return state[itemType].items;
   },

@@ -21,12 +21,10 @@ body {
   }
 }
 .alloy-page--content,
-.component-Navigation nav,
-.alloy-page--type {
+.component-Navigation nav {
   max-width: 900px;
   margin: 0 auto;
 }
-
 .alloy-page--content {
   position: relative;
   z-index: 1000;
@@ -120,22 +118,35 @@ footer,
     // }
   }
 }
-
+//------------------------------------------------------//
+// Type page Flexbox layout
+//------------------------------------------------------//
+@include media-breakpoint-up(md) {
+  .alloy-page--type {
+    max-width: 80%;
+  }
+}
 .alloy-select-flexbox {
   .transition-card,
   > .inner {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .alloy-cards {
-    // flex-grow: 1;
-    margin-bottom: 2%;
-    width: 49%;
-    @include media-breakpoint-up(lg) {
-      // @media only screen and (min-width: $alloy-md-mq) {
-      width: 32%;
-    }
+    flex-grow: 1;
+    width: 250px;
+    margin: 10px;
+    // margin-bottom: 2%;
+    // width: 49%;
+    // @include media-breakpoint-up(lg) {
+    //   // @media only screen and (min-width: $alloy-md-mq) {
+    //   width: 32%;
+    // }
+    // @include media-breakpoint-up(xl) {
+    //   // @media only screen and (min-width: $alloy-md-mq) {
+    //   width: 10%;
+    // }
 
     &[data-type="decks"],
     &[data-type="deck"] {
@@ -147,6 +158,8 @@ footer,
     }
   }
 }
+// END Flexbox layout
+
 //------------------------------------------------------//
 // END CSS Grid settings
 //------------------------------------------------------//

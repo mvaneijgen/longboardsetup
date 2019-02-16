@@ -4,13 +4,13 @@
       <CustomForm v-if="'/setup/custom' == this.$route.path"/>
       <div class="alloy-select-flexbox">
         <div class="inner">
+          <h4>Found n search results</h4>
           <transition-group name="slide-in" tag="div" class="transition-card">
-            <Item v-for="item in allItems" :key="item.id" :item="item"/>
+            <Item v-for="item in allSearchItems" :key="item.id" :item="item"/>
           </transition-group>
+          <h2>End of search result</h2>
         </div>
       </div>
-      <h1 style="color: #fff" v-if="loading">Loading...</h1>
-      <button @click="itemsLoad" class="centered" :disabled="loading">Load more</button>
     </div>
   </div>
 </template>
@@ -83,28 +83,10 @@ export default {
           });
           this.loading = false;
         });
-    },
-    itemsinfIniteScroll() {
-      window.addEventListener("scroll", () => {
-        const scrollTop = Math.max(
-          window.pageYOffset,
-          document.documentElement.scrollTop,
-          document.body.scrollTop
-        );
-
-        let bottomOfWindow =
-          scrollTop + window.innerHeight ===
-          document.documentElement.offsetHeight;
-
-        if (!this.loading && bottomOfWindow) {
-          this.itemsLoad();
-        }
-      });
     }
   },
   // Life cycle hooks
   mounted() {
-    this.itemsinfIniteScroll();
     const notification = {
       title: "Help get a full collection!",
       content:
@@ -115,14 +97,6 @@ export default {
       timer: 10000
     };
     this.$store.commit("notifications/addNotification", notification);
-  },
-  created() {
-    if (!this.$store.state.items[this.$route.params.type].items.length) {
-      this.itemsLoad();
-    }
-  },
-  destroyed() {
-    // window.removeEventListener('scroll');
   }
 };
 </script>
