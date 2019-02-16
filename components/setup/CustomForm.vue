@@ -21,8 +21,7 @@
 
       <div class="alloy-checkbox-field">
         <input id="selectedLocation" type="checkbox" v-model="locationOn">
-        <label for="selectedLocation">Add custom location</label>
-        <small>Do you want to define a custom for this part of your setup, e.g. back, front, top, bottom, ect.</small>
+        <label for="selectedLocation">Define a custom position (e.g. back, top, bottom, ect.)</label>
       </div>
 
       <div class="alloy-input-field" v-show="locationOn">

@@ -105,16 +105,6 @@ export default {
   // Life cycle hooks
   mounted() {
     this.itemsinfIniteScroll();
-    const notification = {
-      title: "Help get a full collection!",
-      content:
-        "We still miss certain products. Help others out by submitting new products!",
-      image: "",
-      type: "alert",
-      link: "/submit",
-      timer: 10000
-    };
-    this.$store.commit("notifications/addNotification", notification);
   },
   created() {
     if (!this.$store.state.items[this.$route.params.type].items.length) {

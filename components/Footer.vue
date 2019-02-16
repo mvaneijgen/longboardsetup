@@ -13,7 +13,11 @@
         </ul>
         <h4>What to help?</h4>
         <p>Are you a Vue.js/Nuxt or Javascript developer?</p>
-        <a href="#" class="btn btn--small">Shoot me a message</a>
+        <nuxt-link to="/contact" class="btn btn--small">Shoot me a message</nuxt-link>
+
+        <h4>This site is being hosted on Github Pages</h4>
+        <p>If you're looking for the source code or are just interested the see how it's build you can take a look at the repository</p>
+        <a href="https://github.com/mvaneijgen/longboardsetup" class="btn btn--small">Github repo</a>
       </div>
 
       <div class="alloy-col">

@@ -5,7 +5,7 @@
       <h3>Are you missing products?</h3>
       <p>We've gathered 2000+ products, but there are so much more items that we ware still missing.</p>
       <p>If you're missing a item you want to use in your setup, please submit it. We'll review it and it will be on the website within hours.</p>
-      <p>By even submitting just one item, you'll be helping greatly! But for the brave we can also run an import if you have many products to submit, follow the link below</p>
+      <p>Even by submitting just one item, you'll be helping greatly! But for the brave we can also run an import if you have many products to submit at, follow the link below</p>
       <nuxt-link to="/submit" class="btn">Upload products</nuxt-link>
     </div>
   </div>

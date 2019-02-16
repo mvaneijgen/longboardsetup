@@ -115,7 +115,7 @@ export default {
         });
       // 📲 Route to _type search page
       this.$router.push({
-        path: `${this.$route.params.type}/search`
+        path: `/setup/${this.$route.params.type}/search`
       });
     }
     // 🔎 Submit Search form

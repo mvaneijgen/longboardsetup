@@ -4,11 +4,9 @@
       <CustomForm v-if="'/setup/custom' == this.$route.path"/>
       <div class="alloy-select-flexbox">
         <div class="inner">
-          <h4>Found n search results</h4>
           <transition-group name="slide-in" tag="div" class="transition-card">
             <Item v-for="item in allSearchItems" :key="item.id" :item="item"/>
           </transition-group>
-          <h2>End of search result</h2>
         </div>
       </div>
     </div>
@@ -88,11 +86,11 @@ export default {
   // Life cycle hooks
   mounted() {
     const notification = {
-      title: "Help get a full collection!",
+      title: "Are you missing products?",
       content:
-        "We still miss certain products. Help others out by submitting new products!",
+        "We've gathered around 2000+ items, but there are so much more items that we ware still missing.",
       image: "",
-      type: "alert",
+      type: "",
       link: "/submit",
       timer: 10000
     };

@@ -15,6 +15,7 @@ input[type="submit"],
   font-size: 1rem;
   line-height: 1em;
   border-radius: $base-radius;
+  margin-bottom: $base-margin;
 }
 button,
 input[type="submit"],
@@ -42,6 +43,11 @@ select {
 
 select {
   appearance: none;
+}
+.alloy-cards {
+  .btn {
+    margin-bottom: 0;
+  }
 }
 //------------------------------------------------------//
 // Buttons/submit

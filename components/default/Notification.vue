@@ -1,52 +1,64 @@
 <template>
-  <div class="alloy-cards alloy-items alloy-items--tools" :data-type="notification.type" @click="notificationRemove(notification.id)">
-    <h5>{{ notification.title }}</h5>
-    <p>{{ notification.content }}</p>
+  <div
+    class="alloy-cards alloy-items alloy-items--tools"
+    :data-type="notification.type"
+    @click="notificationRemove(notification.id)"
+  >
+    <button @click="notificationRemove(notification.id)">close</button>
+    <nuxt-link v-if="notification.link" :to="notification.link">
+      <h5 class="alloy-title">{{ notification.title }}</h5>
+      <p>
+        {{ notification.content }}
+        <nuxt-link v-if="notification.link" :to="notification.link" class="read-more">Read more</nuxt-link>
+      </p>
+    </nuxt-link>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['notification'],
-  name: 'Notification',
+  props: ["notification"],
+  name: "Notification",
   data() {
     return {
-      title: 'Notification'
-    }
+      title: "Notification"
+    };
   }, // End data
   methods: {
     notificationRemove: function(id) {
-      this.$store.commit('notifications/removeNotification', id);
+      this.$store.commit("notifications/removeNotification", id);
     },
     notificationTimer: function(id, timer) {
-      setTimeout( () => { 
-        this.notificationRemove(id)
+      setTimeout(() => {
+        this.notificationRemove(id);
       }, timer);
-    },
+    }
   },
   mounted() {
     this.notificationTimer(this.notification.index, this.notification.timer);
-  }, 
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/css/common/_variables.scss';
+@import "~/assets/css/common/_variables.scss";
 
 .alloy-cards {
+  cursor: pointer;
   padding: $base-margin;
-  font-size: .8rem;
+  font-size: 0.8rem;
   line-height: 1.4em;
   color: $brand-light;
   margin-bottom: $base-margin;
-  h5 {
+  .alloy-title {
+    font-family: $font-base;
     font-size: 1rem;
   }
-&:hover {
+  &:hover {
     transform: scale(1);
   }
-  > *  {
-    margin: 0; 
+  > * {
+    margin: 0;
   }
 }
 [data-type] {
@@ -57,5 +69,12 @@ export default {
 }
 [data-type="warning"] {
   background-color: $notification-warning;
+}
+a {
+  color: $brand-light;
+  text-decoration: none;
+}
+.read-more {
+  text-decoration: underline;
 }
 </style>
