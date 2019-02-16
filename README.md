@@ -17,6 +17,7 @@ $ npm start
 
 # generate static project
 $ npm run generate
+$ yarn run generate:gh-pages # to build the Github Pages project
 ```
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
