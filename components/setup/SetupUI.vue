@@ -22,7 +22,8 @@ export default {
   name: "SetupUI",
   data() {
     return {
-      queries: this.$route.query
+      queries: this.$route.query,
+      notificationTrigger: false
     };
   },
   components: {
@@ -87,7 +88,22 @@ export default {
           }
         });
       }
+    },
+    //------------------------------------------------------//
+    // 🔔Create notification based on the amount of items in the setup
+    //------------------------------------------------------//
+    triggerNameSetup: function() {
+      const notification = {
+        title: "Nice your setup is coming along nicely",
+        content:
+          "Why don't you give it a name! Just lick on the title on top of the screen",
+        image: "",
+        type: "",
+        timer: 3500
+      };
+      this.$store.commit("notifications/addNotification", notification);
     }
+    // END 🔔Create notification based on the amount of items in the setup
   },
   mounted() {
     this.fetchItems();

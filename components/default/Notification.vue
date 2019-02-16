@@ -5,13 +5,11 @@
     @click="notificationRemove(notification.id)"
   >
     <button @click="notificationRemove(notification.id)">close</button>
-    <nuxt-link v-if="notification.link" :to="notification.link">
-      <h5 class="alloy-title">{{ notification.title }}</h5>
-      <p>
-        {{ notification.content }}
-        <nuxt-link v-if="notification.link" :to="notification.link" class="read-more">Read more</nuxt-link>
-      </p>
-    </nuxt-link>
+    <h5 class="alloy-title">{{ notification.title }}</h5>
+    <p>
+      {{ notification.content }}
+      <nuxt-link v-if="notification.link" :to="notification.link" class="read-more">Read more</nuxt-link>
+    </p>
   </div>
 </template>
 

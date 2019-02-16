@@ -1,7 +1,7 @@
 <template>
   <div class="component-SetupName">
     <div class="inner">
-      <h1>
+      <h1 @click="nameInputToggle">
         {{ this.setupName }}
         <button class="editName" v-if="!showNameInput" @click="nameInputToggle">
           <IconBase width="20" height="20" icon-name="edit">

@@ -102,26 +102,26 @@ export const state = () => ({
       description: "",
     },
     {
-      name: "Store most visited/popular in firebase database",
+      name: "Store most visited/popular setups",
       description: "",
     },
   ],
   specialThanks: [
     {
-      name: "username",
-      realname: "Real name",
-      url: "#",
+      name: "aiyekara",
+      realname: "",
+      url: "//reddit.com/u/aiyekara",
     },
-    // {
-    //   name: "aureex",
-    //   realname: "",
-    //   url: "https://www.reddit.com/user/aureex",
-    // },
-    // {
-    //   name: "aiyekara",
-    //   realname: "",
-    //   url: "https://www.reddit.com/user/aiyekara",
-    // },
+    {
+      name: "aureex",
+      realname: "",
+      url: "https://www.reddit.com/user/aureex",
+    },
+    {
+      name: "FrodoTBaggins88",
+      realname: "",
+      url: "https://www.reddit.com/user/FrodoTBaggins88",
+    },
   ],
 });
 
