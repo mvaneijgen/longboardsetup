@@ -137,13 +137,14 @@ footer,
   .alloy-cards {
     flex-grow: 1;
     width: 250px;
-    margin: 10px;
+    margin: 1%;
     // margin-bottom: 2%;
     // width: 49%;
-    // @include media-breakpoint-up(lg) {
-    //   // @media only screen and (min-width: $alloy-md-mq) {
-    //   width: 32%;
-    // }
+    @include media-breakpoint-down(sm) {
+      // @media only screen and (min-width: $alloy-md-mq) {
+      width: 250px;
+      width: 45%;
+    }
     // @include media-breakpoint-up(xl) {
     //   // @media only screen and (min-width: $alloy-md-mq) {
     //   width: 10%;

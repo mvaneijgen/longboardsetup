@@ -80,12 +80,13 @@ export default {
     },
     copyURL: function() {
       this.copiedURL = true;
+
       function fallbackCopyTextToClipboard(text) {
-        var textArea = document.createElement("textarea");
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
+        var inputLinkCopy = document.createElement("input");
+        inputLinkCopy.value = text;
+        document.body.appendChild(inputLinkCopy);
+        inputLinkCopy.focus();
+        inputLinkCopy.select();
 
         try {
           var successful = document.execCommand("copy");
@@ -95,7 +96,7 @@ export default {
           console.error("Fallback: Oops, unable to copy", err);
         }
 
-        document.body.removeChild(textArea);
+        document.body.removeChild(inputLinkCopy);
       }
       function copyTextToClipboard(text) {
         if (!navigator.clipboard) {
