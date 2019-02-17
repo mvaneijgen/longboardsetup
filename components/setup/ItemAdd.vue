@@ -1,10 +1,10 @@
 <template>
   <div @click="loadItemType" class="alloy-cards alloy-items" data-type="add">
     <div class="inner">
-      <span>Custom item</span>
       <icon-base width="45" height="45" icon-name="add">
         <icon-add/>
       </icon-base>
+      <span>Custom item</span>
     </div>
   </div>
 </template>
@@ -58,7 +58,7 @@ export default {
     span {
       font-size: 1.4rem;
       display: inline-block;
-      margin-right: $base-margin;
+      margin-left: $base-margin;
     }
   }
 }

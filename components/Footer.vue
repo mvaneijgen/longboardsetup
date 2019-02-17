@@ -11,7 +11,7 @@
         <ul>
           <li v-for="(todo, index) in todos" :key="index">{{ todo.name }}</li>
         </ul>
-        <h4>What to help?</h4>
+        <h4>Want to help?</h4>
         <p>Are you a Vue.js/Nuxt or Javascript developer?</p>
         <nuxt-link to="/contact" class="btn btn--small">Shoot me a message</nuxt-link>
 

@@ -39,7 +39,7 @@ header {
 }
 .alloy-slide-nav {
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   position: fixed;
   background-color: $brand-one;
   top: 0;
@@ -80,7 +80,7 @@ header {
 }
 #alloy-nav-toggle {
   position: fixed;
-  top: $base-margin * 2;
+  top: 35vh;
   @include media-breakpoint-up(lg) {
     top: 15vh;
   }

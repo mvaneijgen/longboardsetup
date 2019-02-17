@@ -88,3 +88,12 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.alloy-meta {
+  p {
+    span {
+      margin-left: 5px;
+    }
+  }
+}
+</style>

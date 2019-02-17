@@ -3,7 +3,9 @@
     <div class="inner">
       <ItemSetup v-for="item in getSetupCurrent" :key="item.id" :item="item"/>
       <div v-if="!getIfCustomItem" class="advanced-info">
-        <span>Looking for more brackets, bearings or a seconds pair of trucks (or even a third...)? Down here you can add a custom item.</span>
+        <span>
+          <strong>Looking for more items?</strong> Such as brackets, bearings or a seconds pair of trucks (or even a third pair...)?
+        </span>
       </div>
       <ItemAdd/>
     </div>
