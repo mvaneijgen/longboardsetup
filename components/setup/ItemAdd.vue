@@ -1,6 +1,7 @@
 <template>
   <div @click="loadItemType" class="alloy-cards alloy-items" data-type="add">
     <div class="inner">
+      <span>Custom item</span>
       <icon-base width="45" height="45" icon-name="add">
         <icon-add/>
       </icon-base>
@@ -53,6 +54,12 @@ export default {
     color: $brand-light;
     font-size: 54px;
     line-height: 1em;
+
+    span {
+      font-size: 1.4rem;
+      display: inline-block;
+      margin-right: $base-margin;
+    }
   }
 }
 </style>

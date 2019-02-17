@@ -41,7 +41,7 @@
           </form>
         </div>
 
-        <template v-if="'setup' == this.$route.name && this.$store.state.setup.setupNotEdited">
+        <template v-if="'setup' == this.$route.name">
           <button class="alloy-share btn btn--alt btn--icon" @click="openShareModal">
             <span>Share</span>
             <icon-base width="20" height="20" icon-name="share">
@@ -105,7 +105,7 @@ export default {
           }?orderby=title&order=asc&per_page=100&search=${value}&_embed`
         )
         .then(response => {
-          console.warn(response.data);
+          // console.warn(response.data);
           // Push the data to the store
           this.$store.commit({
             type: "items/addSearchItems",

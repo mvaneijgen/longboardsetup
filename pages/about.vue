@@ -2,12 +2,11 @@
   <div>
     <div class="alloy-page alloy-page--content alloy-page--about">
       <div class="alloy-conttent alloy-text-light">
-
         <h2>About</h2>
         <div v-html="this.$store.state.default.about_text"></div>
       </div>
 
-      <ToolsUsed />
+      <ToolsUsed/>
     </div>
     <Footer/>
   </div>
@@ -25,8 +24,8 @@ export default {
   },
   data() {
     return {
-      notificationShow: true,
-    }
+      notificationShow: true
+    };
   },
   methods: {
     notificationAbout: function() {
@@ -35,18 +34,18 @@ export default {
       const notification = {
         title: "You should be building a deck!",
         content: "But if you really want here is boring text",
-        image: '',
-        type: '',
-        timer: 3500,
-      }
-      this.$store.commit('notifications/addNotification', notification);
+        image: "",
+        type: "",
+        timer: 6000
+      };
+      this.$store.commit("notifications/addNotification", notification);
     }
   },
   created() {
     if (process.browser) {
-    if(this.notificationShow) {
-      this.notificationAbout();
-    }
+      if (this.notificationShow) {
+        this.notificationAbout();
+      }
     }
   }
 };

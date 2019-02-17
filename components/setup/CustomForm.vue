@@ -116,7 +116,7 @@ export default {
         content: "We'll miss him",
         image: "",
         type: "warning",
-        timer: 3500
+        timer: 6000
       };
       this.$store.commit("notifications/addNotification", notification);
     },

@@ -22,11 +22,19 @@
         <div class="alloy-meta">
           <p>
             <strong>{{ item.custom }}</strong>
-            <span v-if="item.location && item.location !== ''">| {{ item.location }}</span>
+            <span
+              v-if="item.location && item.location !== '' && item.location !== 'undefined'"
+            >| {{ item.location }}</span>
           </p>
         </div>
+        <div v-if="item.view === 'advanced'">
+          <h6>{{item.type.replace('decks','deck')}}</h6>
+        </div>
         <h3>{{item.title}}</h3>
-        <!-- <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a> -->
+        <div v-if="item.view === 'advanced'">
+          <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a>
+          <a :href="`//api.longboardsetup.com/${item.type}/${item.slug}`" class="report">Report</a>
+        </div>
       </div>
     </div>
     <!-- <button v-if="item.view != 'simple'" @click="toggleInfo" class="btn btn--small btn--subtle">

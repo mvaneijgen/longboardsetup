@@ -4,7 +4,12 @@
     :data-type="notification.type"
     @click="notificationRemove(notification.id)"
   >
-    <button @click="notificationRemove(notification.id)">close</button>
+    <div class="close" @click="notificationRemove(notification.id)">
+      <icon-base width="20" height="20" icon-name="close">
+        <icon-close/>
+      </icon-base>
+    </div>
+
     <h5 class="alloy-title">{{ notification.title }}</h5>
     <p>
       {{ notification.content }}
@@ -14,9 +19,16 @@
 </template>
 
 <script>
+import IconBase from "@/components/IconBase.vue";
+import IconClose from "@/components/icons/IconClose.vue";
 export default {
   props: ["notification"],
   name: "Notification",
+  components: {
+    // Icon logic
+    IconBase,
+    IconClose
+  },
   data() {
     return {
       title: "Notification"
@@ -57,6 +69,20 @@ export default {
   }
   > * {
     margin: 0;
+  }
+  .close {
+    background-color: transparent;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+
+    svg {
+      width: 100%;
+      height: auto;
+      margin-bottom: 0;
+    }
   }
 }
 [data-type] {

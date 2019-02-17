@@ -92,7 +92,7 @@ export default {
         content: "I hope you're proud of yourself",
         image: "",
         type: "",
-        timer: 3500
+        timer: 6000
       };
       this.$store.commit("notifications/addNotification", notification);
     }

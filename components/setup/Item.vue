@@ -17,6 +17,7 @@
         </div>
         <h3 v-html="item.title"></h3>
         <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a>
+        <a :href="`//api.longboardsetup.com/${item.type}/${item.slug}`" class="report">Report</a>
       </div>
     </div>
     <!-- <button v-if="item.view != 'simple'" @click="toggleInfo" class="btn btn--small btn--subtle">

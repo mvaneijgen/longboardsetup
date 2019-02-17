@@ -133,6 +133,28 @@ export const getters = {
   getShowShareModel: state => {
     return state.showShareModel;
   },
+  getRealSetupLength: state => {
+    const filteredState = state.setupCurrent.filter(
+      item => item.view != "empty"
+    );
+    const realLength = filteredState.length;
+    return realLength;
+  },
+  getIfCustomItem: state => {
+    const checkUsername = item => item.type.includes('custom');
+    return state.setupCurrent.some(checkUsername)
+  },
+  //   //------------------------------------------------------//
+  // // 🔔 Genarate notification based on number of items in 🧰 setup
+  // //------------------------------------------------------//
+  //   getNumberOfSetupAndName: state => {
+  //     if (state.) {
+
+  //     }
+  //     return true;
+  //     return false;
+  //   },
+  // // END 🔔 Genarate notification based on number of items in 🧰 setup
 };
 //------------------------------------------------------//
 // END Getters

@@ -4,9 +4,16 @@
       <CustomForm v-if="'/setup/custom' == this.$route.path"/>
       <div class="alloy-select-flexbox">
         <div class="inner">
+          <div class="alloy-result-info">
+            <span>
+              We've found {{allSearchItems.length}} for "{{this.$store.getters["items/getSearch"](this.$route.params.type)}}". If your product is not shown, refine your search result.
+              <nuxt-link to="/submit">Or submit a product!</nuxt-link>
+            </span>
+          </div>
           <transition-group name="slide-in" tag="div" class="transition-card">
             <Item v-for="item in allSearchItems" :key="item.id" :item="item"/>
           </transition-group>
+          <NothingFound v-if="allSearchItems.length < 1"></NothingFound>
         </div>
       </div>
     </div>
@@ -38,49 +45,15 @@ export default {
     return {
       customShow: false,
       type: this.$route.params.type,
-      page: this.$store.state.items[this.$route.params.type].page,
       loading: false,
       hasSearchResults: false
     };
   }, // End data
   computed: {
-    allItems() {
-      return this.$store.getters["items/getItems"](this.$route.params.type);
-    },
     allSearchItems() {
       return this.$store.getters["items/getSearchResults"](
         this.$route.params.type
       );
-    },
-    pageNumber() {
-      return this.$store.getters["items/getTypePage"](this.$route.params.type);
-    }
-  },
-  methods: {
-    itemsLoad() {
-      this.loading = true;
-
-      this.$axios
-        .get(
-          `wp/v2/${this.type}?${queries.join("&")}&page=${this.$store.getters[
-            "items/getTypePage"
-          ](this.$route.params.type)}&_embed`
-        )
-        .then(response => {
-          // Push the data to the store
-          this.$store.commit({
-            type: "items/addItems",
-            itemType: this.type,
-            items: response.data.map(fromInputData)
-          });
-
-          // Increase the page number each time the function is run
-          this.$store.commit({
-            type: "items/incrementPage",
-            itemType: this.type
-          });
-          this.loading = false;
-        });
     }
   },
   // Life cycle hooks
@@ -98,4 +71,18 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+@import "~/assets/css/common/_variables.scss";
+
+.alloy-result-info {
+  flex-grow: 1;
+  padding: 0 $base-margin;
+  position: relative;
+  text-align: center;
+  span {
+    font-size: 0.8rem;
+    line-height: 1em;
+  }
+}
+</style>
 

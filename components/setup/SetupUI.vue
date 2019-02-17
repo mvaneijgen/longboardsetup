@@ -2,7 +2,9 @@
   <div class="alloy-setup">
     <div class="inner">
       <ItemSetup v-for="item in getSetupCurrent" :key="item.id" :item="item"/>
-
+      <div v-if="!getIfCustomItem" class="advanced-info">
+        <span>Looking for more brackets, bearings or a seconds pair of trucks (or even a third...)? Down here you can add a custom item.</span>
+      </div>
       <ItemAdd/>
     </div>
   </div>
@@ -34,7 +36,9 @@ export default {
     ...mapGetters({
       getSetupCurrent: "setup/getSetupCurrent",
       getSetupNotEdited: "setup/getSetupNotEdited",
-      getShareURL: "setup/getShareURL"
+      getShareURL: "setup/getShareURL",
+      getRealSetupLength: "setup/getRealSetupLength",
+      getIfCustomItem: "setup/getIfCustomItem"
     })
   },
   methods: {
@@ -92,14 +96,14 @@ export default {
     //------------------------------------------------------//
     // 🔔Create notification based on the amount of items in the setup
     //------------------------------------------------------//
-    triggerNameSetup: function() {
+    triggerNameSetupNotification: function() {
       const notification = {
         title: "Nice your setup is coming along nicely",
         content:
           "Why don't you give it a name! Just lick on the title on top of the screen",
         image: "",
-        type: "",
-        timer: 3500
+        type: "warning",
+        timer: 6000
       };
       this.$store.commit("notifications/addNotification", notification);
     }
@@ -107,6 +111,26 @@ export default {
   },
   mounted() {
     this.fetchItems();
+  },
+  watch: {
+    getRealSetupLength: function(value) {
+      if (value === 3) {
+        this.triggerNameSetupNotification();
+      }
+    }
   }
 };
 </script>
+<style lang="scss" scoped>
+@import "~/assets/css/common/_variables.scss";
+
+.advanced-info {
+  grid-column: span 2;
+  grid-row: span 1;
+  color: $brand-light;
+  span {
+    font-size: 0.8rem;
+    line-height: 1rem;
+  }
+}
+</style>

@@ -71,7 +71,7 @@ export default {
           content: "Hope it will grow up agile & strong!",
           image: "",
           type: "",
-          timer: 3500
+          timer: 6000
         };
         this.$store.commit("notifications/addNotification", notification);
       }

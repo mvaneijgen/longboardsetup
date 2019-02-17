@@ -14,6 +14,21 @@ module.exports = {
   // ...routerBase,
   head: {
     title: "Longboard Setup",
+    manifest: {
+      name: "Longboard Setup",
+      short_name: "Longboard Setup",
+      lang: "en",
+      icons: [
+        {
+          src: "android-chrome-96x96.png",
+          sizes: "96x96",
+          type: "image/png",
+        },
+      ],
+      theme_color: "#1c0137",
+      background_color: "#1c0137",
+      display: "standalone",
+    },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -37,7 +52,13 @@ module.exports = {
         content: "https://longboardsetup.com/social.jpg",
       },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "https://longboardsetup.com/favicon.ico",
+      },
+    ],
     link: [
       {
         rel: "stylesheet",

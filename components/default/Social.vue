@@ -38,7 +38,7 @@
         </a>
       </li>
 
-      <li>
+      <li v-if="isMobile">
         <a
           href="`whatsapp://send?text=${fullURL}%20${shareText}`"
           target="_blank"
@@ -55,6 +55,8 @@
 
 <script>
 // Icon logic
+import { isMobile } from "@/assets/utils/filters.js";
+
 import IconBase from "@/components/IconBase.vue";
 import IconFacebook from "@/components/icons/IconFacebook.vue";
 import IconReddit from "@/components/icons/IconReddit.vue";

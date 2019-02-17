@@ -1,7 +1,11 @@
 <template>
   <div id="modal-Share">
     <div class="alloy-cards" id="share-container">
-      <button class="btn close" @click="closeShareModal">close</button>
+      <button class="btn close" @click="closeShareModal">
+        <icon-base width="20" height="20" icon-name="close">
+          <icon-close/>
+        </icon-base>
+      </button>
       <div v-if="copiedURL" class="copied centered">
         <div v-if="copiedURL" class="circle-scale"></div>
 
@@ -42,11 +46,15 @@
 <script>
 import { mapGetters } from "vuex";
 import Social from "@/components/default/Social.vue";
+import IconBase from "@/components/IconBase.vue";
+import IconClose from "@/components/icons/IconClose.vue";
 
 export default {
   name: "Share",
   components: {
-    Social
+    Social,
+    IconBase,
+    IconClose
   },
   data() {
     return {
