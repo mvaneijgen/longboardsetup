@@ -87,20 +87,25 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.inner {
-  // display: flex;
-  // justify-content: center;
-  position: relative;
-  z-index: 10;
-  // max-width: 800px;
-  // margin: 0 auto;
-  text-align: center;
+.component-SetupName {
+  // overflow: hidden;
+
+  .inner {
+    // display: flex;
+    // justify-content: center;
+    position: relative;
+    z-index: 10;
+    // max-width: 800px;
+    // margin: 0 auto;
+    text-align: center;
+  }
 }
 .alloy-input-field {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -20%);
+  padding: 0 10px;
   width: 400px;
   max-width: 100%;
   display: flex;
@@ -111,6 +116,13 @@ export default {
   }
   > * {
     margin: 0;
+  }
+  input[type="submit"] {
+    position: absolute;
+    top: 7px;
+    right: 7px + 10px;
+    padding: 5px 10px;
+    line-height: 1em;
   }
 }
 .editName {

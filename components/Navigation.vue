@@ -18,7 +18,11 @@
           </icon-base>
         </button>
         
-        <button @click="toggleAllInfo" class="btn btn--icon">
+        <button
+          v-if="'setup' == this.$route.name || 'setup-type' == this.$route.name"
+          @click="toggleAllInfo"
+          class="btn btn--icon"
+        >
           <span>Info</span>
           <icon-base width="20" height="20" icon-name="info">
             <icon-info/>
@@ -143,7 +147,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
-
+button,
+input[type="submit"],
+.btn {
+  margin-bottom: 0;
+}
 .component-Navigation {
   position: fixed;
   z-index: 1000;

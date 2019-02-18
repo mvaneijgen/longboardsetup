@@ -16,6 +16,7 @@
           <nuxt-link to="/setup/decks">All Decks</nuxt-link>
           <nuxt-link to="/setup/trucks">All Trucks</nuxt-link>
           <nuxt-link to="/setup/wheels">All Wheels</nuxt-link>
+          <nuxt-link to="/submit">Submit products</nuxt-link>
           <nuxt-link to="/about">About</nuxt-link>
           <nuxt-link to="/contact">Contact</nuxt-link>
         </nav>

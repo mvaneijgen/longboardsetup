@@ -1,5 +1,24 @@
 <template>
   <div class="component-Custom">
+    <div data-view="simple" class="alloy-items alloy-cards alloy-card--preview">
+      <div class="inner">
+        <div class="preview">Preview</div>
+        <img v-if="item.custom" :src="imageLink(item.custom)">
+        <img v-else :src="imageLink('custom')">
+        <div class="alloy-content">
+          <div class="alloy-meta">
+            <p>
+              <strong v-if="item.custom">{{item.custom}}</strong>
+              <strong v-else>Item type</strong>
+              <span v-if="item.location">| {{item.location}}</span>
+            </p>
+          </div>
+          <h3 v-if="item.title">{{ item.title }}</h3>
+          <h3 v-else>Input a name</h3>
+        </div>
+      </div>
+    </div>
+
     <form @submit.prevent="handleSubmit">
       <div class="alloy-input-field">
         <label for="selectType">Select part</label>
@@ -123,7 +142,14 @@ export default {
     // END Create Notification 💌
 
     setItemFromStore: function() {
+      // console.warn(this.getCurrentItem);
+      if (this.getCurrentItem.location) {
+        this.locationOn = true;
+      }
       this.item = { ...this.getCurrentItem };
+    },
+    imageLink: function(image) {
+      return require(`~/assets/images/${image}.svg`);
     }
   }, // Are functions run on user actions example @click or on lifecycle hooks
   created() {
@@ -134,7 +160,9 @@ export default {
 
 <style lang="scss"  scoped>
 @import "~/assets/css/common/_variables.scss";
-
+.alloy-btn-group {
+  justify-content: flex-end;
+}
 .alloy-checkbox-field {
   color: $brand-light;
   margin-bottom: $base-margin * 2;
@@ -144,5 +172,19 @@ export default {
   small {
     display: block;
   }
+}
+.alloy-card--preview {
+  margin-bottom: $base-margin * 2;
+  height: 120px;
+}
+.preview {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-transform: uppercase;
+  color: $brand-grey;
+  padding: 5px;
+  font-size: 12px;
+  line-height: 1em;
 }
 </style>

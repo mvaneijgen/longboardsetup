@@ -127,8 +127,10 @@ export default {
 @import "~/assets/css/common/_variables.scss";
 
 .advanced-info {
+  display: grid;
   grid-column: span 2;
-  grid-row: span 1;
+  grid-auto-rows: minmax(min-content, max-content);
+
   color: $brand-light;
   span {
     font-size: 0.8rem;

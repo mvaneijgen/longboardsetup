@@ -1,6 +1,6 @@
 export const state = () => ({
   title: "longboard setup.com",
-  tagline: "Build & share your dream setup!",
+  tagline: "Build & share your (dream) setup!",
   url: "https://longboardsetup.com",
   api: "https://api.longboardsetup.com",
   description:

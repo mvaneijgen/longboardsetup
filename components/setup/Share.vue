@@ -123,10 +123,13 @@ export default {
 @import "~/assets/css/common/_variables.scss";
 #modal-Share {
   position: fixed;
+  @include media-breakpoint-down(sm) {
+    position: absolute;
+  }
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: rgba($brand-dark, $base-alpha/2);
   z-index: 9000;
   display: flex;

@@ -20,7 +20,7 @@ header {
   h1 {
     position: relative;
     z-index: 1000;
-    margin: 0 $base-margin * 2;
+    margin: 0 38px;
     display: inline-block;
     color: $brand-light;
     @include responsive-font(4vw, 35px, 150px, 50px);
@@ -80,9 +80,12 @@ header {
 }
 #alloy-nav-toggle {
   position: fixed;
-  top: 35vh;
+  top: 45vh;
+  opacity: 0.4;
+
   @include media-breakpoint-up(lg) {
     top: 15vh;
+    opacity: 1;
   }
   right: 0;
   z-index: 4000;
@@ -91,10 +94,15 @@ header {
   width: 60px;
   height: 52px;
   transform: rotate(0deg);
-  transition: 0.5s ease-in-out;
   cursor: pointer;
   padding: $base-margin;
-
+  // Transiton
+  transition: transform, opacity;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
   .inner {
     position: relative;
   }

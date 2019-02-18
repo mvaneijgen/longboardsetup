@@ -34,6 +34,9 @@ export default {
 .component-CallToAction {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
   grid-column-gap: $base-margin;
   grid-row-gap: $base-margin;
 }

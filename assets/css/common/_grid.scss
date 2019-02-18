@@ -16,6 +16,8 @@ body {
   margin: 0 auto;
 
   section {
+    margin-bottom: $base-margin * 2;
+
     @include media-breakpoint-up(md) {
       margin-bottom: $base-margin * 4;
     }

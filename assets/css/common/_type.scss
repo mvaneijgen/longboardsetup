@@ -4,7 +4,7 @@ pre {
 }
 body {
   font-family: $font-base;
-  font-size: 16px;
+  font-size: 18px;
   @include media-breakpoint-up(lg) {
     font-size: 20px;
   }

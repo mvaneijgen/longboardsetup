@@ -114,10 +114,13 @@ input[type="submit"] {
 }
 .alloy-btn-group {
   display: flex;
+  flex-flow: row wrap;
   .btn,
   button,
   input[type="submit"] {
     margin-right: 10px;
+    // flex-grow: 1;
+    text-align: center;
     @include media-breakpoint-up(lg) {
       margin-right: $base-margin;
     }
