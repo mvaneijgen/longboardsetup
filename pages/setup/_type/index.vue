@@ -24,7 +24,7 @@ import NothingFound from "@/components/setup/empty-state/NothingFound.vue";
 // 🛠 Utils
 import { fromInputData } from "@/assets/utils/fromInputData.js";
 
-const queries = ["orderby=title", "order=asc", "per_page=18", "_embed"];
+const queries = ["orderby=date", "order=asc", "per_page=18", "_embed"];
 
 export default {
   name: "type",

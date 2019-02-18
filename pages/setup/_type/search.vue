@@ -13,7 +13,9 @@
           <transition-group name="slide-in" tag="div" class="transition-card">
             <Item v-for="item in allSearchItems" :key="item.id" :item="item"/>
           </transition-group>
-          <NothingFound v-if="allSearchItems.length < 1"></NothingFound>
+          <transition name="fade">
+            <NothingFound v-if="allSearchItems.length < 1"></NothingFound>
+          </transition>
         </div>
       </div>
     </div>
@@ -76,6 +78,7 @@ export default {
 
 .alloy-result-info {
   flex-grow: 1;
+  background-color: $brand-light;
   padding: 0 $base-margin;
   position: relative;
   text-align: center;

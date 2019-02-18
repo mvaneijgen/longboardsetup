@@ -12,7 +12,8 @@
 
     <h5 class="alloy-title">{{ notification.title }}</h5>
     <p>
-      {{ notification.content }}
+      <nuxt-link v-if="notification.link" :to="notification.link">{{ notification.content }}</nuxt-link>
+      <template v-else>{{ notification.content }}</template>
       <nuxt-link v-if="notification.link" :to="notification.link" class="read-more">Read more</nuxt-link>
     </p>
   </div>

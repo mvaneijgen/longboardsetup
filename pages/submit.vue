@@ -64,19 +64,9 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
 
-// .alloy-cards.submit {
-//   background-color: $brand-one-lighten;
-//   padding: $base-margin;
-//   .btn {
-//     background-color: $brand-one;
-//   }
-// }
-// .submit-container {
-//   display: grid;
-//   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-//   grid-column-gap: $base-margin;
-//   grid-row-gap: $base-margin;
-// }
+.alloy-btn-group {
+  flex-flow: row wrap;
+}
 .alloy-submit {
   text-transform: capitalize;
 }

@@ -82,6 +82,14 @@
       float: right;
     }
   }
+  &[data-view="simple"] {
+    .alloy-meta {
+      font-size: 14px;
+    }
+    h3 {
+      font-size: inherit !important;
+    }
+  }
   button {
     position: absolute;
     bottom: $base-margin;

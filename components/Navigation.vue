@@ -165,7 +165,7 @@ input[type="submit"],
   }
 }
 .alloy-share {
-  align-self: flex-end;
+  margin-left: auto;
   margin-right: 0;
 }
 .alloy-input-field {

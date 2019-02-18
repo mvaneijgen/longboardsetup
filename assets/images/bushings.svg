@@ -2,8 +2,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
     <g id="bushing">
-        <ellipse cx="150" cy="86.484" rx="40.814" ry="7.653" style="fill:none;stroke:#ccc;stroke-width:2px;"/>
-        <ellipse cx="150" cy="88.014" rx="113.258" ry="26.019" style="fill:none;stroke:#ccc;stroke-width:2px;"/>
-        <path d="M263.258,88.014c0,0 0,109.612 0,123.972c0,14.36 -50.749,26.019 -113.258,26.019c-62.509,0 -113.258,-11.659 -113.258,-26.019c0,-14.36 0,-123.972 0,-123.972" style="fill:none;stroke:#ccc;stroke-width:2px;"/>
+        <path d="M202.588,121.218C202.588,121.218 202.588,172.114 202.588,178.782C202.588,185.449 179.024,190.863 150,190.863C120.976,190.863 97.412,185.449 97.412,178.782C97.412,172.114 97.412,121.218 97.412,121.218" style="fill:#ccc;stroke:#ccc;stroke-width:0.93px;"/>
+        <ellipse cx="150" cy="121.218" rx="52.588" ry="12.081" style="fill:#ccc;stroke:#fff;stroke-width:0.93px;"/>
+        <ellipse cx="150" cy="120.508" rx="18.951" ry="3.553" style="fill:#fff;stroke:#ccc;stroke-width:0.93px;"/>
     </g>
 </svg>

@@ -161,7 +161,10 @@ export default {
 <style lang="scss"  scoped>
 @import "~/assets/css/common/_variables.scss";
 .alloy-btn-group {
-  justify-content: flex-end;
+  justify-content: space-between;
+  input[type="submit"] {
+    margin-left: auto;
+  }
 }
 .alloy-checkbox-field {
   color: $brand-light;
