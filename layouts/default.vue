@@ -2,10 +2,9 @@
   <div>
     <Header/>
     <nuxt/>
-    <!-- <Navigation
+    <Navigation
       v-if="'setup' == this.$route.name || 'setup-type' == this.$route.name || 'setup-custom' == this.$route.name || 'setup-type-search' == this.$route.name || !this.$store.state.setup.setupNotEdited"
-    />-->
-    <Navigation v-if="!this.$store.state.setup.setupNotEdited"/>
+    />
     <NotificationsContainer/>
   </div>
 </template>
