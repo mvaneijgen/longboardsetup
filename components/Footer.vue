@@ -7,7 +7,7 @@
 
       <div class="alloy-col">
         <h3>Road map</h3>
-        <p>Projects are never done, as specially not personal side projects</p>
+        <p>Projects are never done! Therefore you’ll get to peek behind the scenes. This is my todo list:</p>
         <ul>
           <li v-for="(todo, index) in todos" :key="index">{{ todo.name }}</li>
         </ul>
@@ -15,8 +15,8 @@
         <p>Are you a Vue.js/Nuxt or Javascript developer?</p>
         <nuxt-link to="/contact" class="btn btn--small">Shoot me a message</nuxt-link>
 
-        <h4>This site is being hosted on Github Pages</h4>
-        <p>If you're looking for the source code or are just interested the see how it's build you can take a look at the repository</p>
+        <h4>This site is hosted on Github Pages</h4>
+        <p>If you're looking for the source code or if you’re just interested to see how it's build you can take a look at the repository.</p>
         <a href="https://github.com/mvaneijgen/longboardsetup" class="btn btn--small">Github repo</a>
       </div>
 

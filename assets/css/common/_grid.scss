@@ -138,15 +138,25 @@ footer,
   }
   .alloy-cards {
     flex-grow: 1;
-    width: 250px;
     margin: 1%;
+    width: 100px;
+    @include media-breakpoint-up(md) {
+      width: 150px;
+    }
+    @include media-breakpoint-up(lg) {
+      width: 200px;
+    }
+    // @include media-breakpoint-up(xl) {
+    //   width: 250px;
+    // }
+
     // margin-bottom: 2%;
     // width: 49%;
-    @include media-breakpoint-down(sm) {
-      // @media only screen and (min-width: $alloy-md-mq) {
-      width: 250px;
-      width: 45%;
-    }
+    // @include media-breakpoint-down(sm) {
+    //   // @media only screen and (min-width: $alloy-md-mq) {
+    //   width: 250px;
+    //   width: 45%;
+    // }
     // @include media-breakpoint-up(xl) {
     //   // @media only screen and (min-width: $alloy-md-mq) {
     //   width: 10%;
@@ -154,11 +164,17 @@ footer,
 
     &[data-type="decks"],
     &[data-type="deck"] {
-      height: 400px;
-      @include media-breakpoint-up(lg) {
-        // @media only screen and (min-width: $alloy-md-mq) {
-        height: 500px;
+      height: 200px;
+      @include media-breakpoint-up(md) {
+        height: 300px;
       }
+      @include media-breakpoint-up(lg) {
+        height: 400px;
+      }
+      // @include media-breakpoint-up(xl) {
+      //   // @media only screen and (min-width: $alloy-md-mq) {
+      //   height: 500px;
+      // }
     }
   }
 }

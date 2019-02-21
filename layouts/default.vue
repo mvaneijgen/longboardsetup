@@ -2,9 +2,11 @@
   <div>
     <Header/>
     <nuxt/>
-    <Navigation
-      v-if="'setup' == this.$route.name || 'setup-type' == this.$route.name || 'setup-custom' == this.$route.name || 'setup-type-search' == this.$route.name || !this.$store.state.setup.setupNotEdited"
-    />
+    <transition name="slide-up">
+      <Navigation
+        v-if="'setup' == this.$route.name || 'setup-type' == this.$route.name || 'setup-custom' == this.$route.name || 'setup-type-search' == this.$route.name || !this.$store.state.setup.setupNotEdited"
+      />
+    </transition>
     <NotificationsContainer/>
   </div>
 </template>

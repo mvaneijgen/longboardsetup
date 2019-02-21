@@ -170,6 +170,7 @@ input[type="submit"],
 }
 .alloy-input-field {
   display: inline-block;
+  width: 100%;
   input {
     margin-bottom: 0;
   }

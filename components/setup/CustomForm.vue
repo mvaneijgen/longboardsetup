@@ -103,7 +103,6 @@ export default {
       });
     },
     handleSubmit: function() {
-      console.warn(this.getSetupCurrent.length);
       const currentSetupNumber = this.getSetupCurrent.length;
       this.item.view = "simple";
       if (!this.item.id) {

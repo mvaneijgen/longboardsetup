@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div
     class="alloy-items alloy-cards"
     :data-type="item.type"
@@ -7,16 +7,18 @@
     :data-info="showInfo"
   >
     <div class="inner" @click="loadItemType">
-      <template v-if="item.view == 'empty'">
-        <EmptyDecksIcon v-if="item.type == 'decks'"/>
-        <EmptyTrucksIcon v-if="item.type == 'trucks'"/>
-        <EmptyWheelsIcon v-if="item.type == 'wheels'"/>
-      </template>
+      <transition-group name="fade" mode="out-in">
+        <template v-if="item.view == 'empty'">
+          <EmptyDecksIcon v-if="item.type == 'decks'" key="decks"/>
+          <EmptyTrucksIcon v-if="item.type == 'trucks'" key="decks"/>
+          <EmptyWheelsIcon v-if="item.type == 'wheels'" key="decks"/>
+        </template>
 
-      <template v-else>
-        <img v-if="item.view != 'simple'" :src="item.image" :alt="item.title">
-        <img v-else :src="imageLink(item.custom)" :alt="item.title">
-      </template>
+        <template v-else>
+          <img v-if="item.view != 'simple'" :src="item.image" :alt="item.title" :key="item.title">
+          <img v-else :src="imageLink(item.custom)" :alt="item.title">
+        </template>
+      </transition-group>
 
       <div class="alloy-content">
         <div class="alloy-meta">

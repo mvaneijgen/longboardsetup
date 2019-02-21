@@ -39,10 +39,11 @@
     width: 100%;
     display: inline-block;
     opacity: 0;
-    transition: opacity;
-    transition-duration: 300ms;
-    transition-timing-function: ease;
 
+    transition: opacity;
+    transition-duration: 500ms;
+    transition-delay: 300ms;
+    transition-timing-function: ease;
     p {
       margin: 0;
     }
@@ -70,10 +71,10 @@
     }
     h6 {
       text-transform: uppercase;
-
-      @include media-breakpoint-down(sm) {
-        margin-bottom: 5px;
-      }
+      margin: 0;
+      // @include media-breakpoint-down(sm) {
+      //   margin-bottom: 5px;
+      // }
       @include media-breakpoint-down(xs) {
         display: none;
       }

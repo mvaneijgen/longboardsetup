@@ -4,7 +4,7 @@
       <ItemSetup v-for="item in getSetupCurrent" :key="item.id" :item="item"/>
       <div v-if="!getIfCustomItem" class="advanced-info">
         <span>
-          <strong>Looking for more items?</strong> Such as brackets, bearings or a seconds pair of trucks (or even a third pair...)?
+          <strong>Looking for more items?</strong> Such as brackets, bearings or a second pair of trucks (maybe even a third... weirdo)?
         </span>
       </div>
       <ItemAdd/>
@@ -55,6 +55,10 @@ export default {
             "setup/setupAdd",
             response.data.map(fromInputData)[0]
           );
+          // ! update the the URL after each API call to fix none after load
+          this.$router.push({
+            query: this.getShareURL
+          });
         });
     },
     setCustom: function(item) {
@@ -129,8 +133,10 @@ export default {
 .advanced-info {
   display: grid;
   grid-column: span 2;
-  grid-auto-rows: minmax(min-content, max-content);
+  // grid-auto-rows: minmax(min-content, max-content);
 
+  justify-items: center;
+  align-items: center;
   color: $brand-light;
   span {
     font-size: 0.8rem;

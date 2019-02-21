@@ -78,16 +78,17 @@ export const state = () => ({
   //------------------------------------------------------//
   callToActions: [
     {
-      title: "Are you missing products?",
-      description: "Help fill our database by uploading your own!",
+      title: "Are there any products you’re missing?",
+      description:
+        "Help the community, by uploading missing items to fill up the database.",
       cta: "Upload your own",
       type: "cta--alt",
       url: "/submit",
     },
     {
-      title: "Have a lot of products to add?",
+      title: "Have multiple products to add?",
       description:
-        "If you have a large collection or products, we love to add them all at once. Just get in contact with us.",
+        "If you have a large collection of products, we wil help you by adding them all at once. Just get in contact with us. ",
       cta: "Contact",
       type: "",
       url: "/submit",
@@ -98,11 +99,15 @@ export const state = () => ({
   //------------------------------------------------------//
   todos: [
     {
-      name: "Allow saving setups in localStorage()",
+      name: "Allow saving multiple setups",
       description: "",
     },
     {
-      name: "Store most visited/popular setups",
+      name: "Create a list of most visited/popular setups",
+      description: "",
+    },
+    {
+      name: "Allow for a visual way to have two different trucks/wheels",
       description: "",
     },
   ],
