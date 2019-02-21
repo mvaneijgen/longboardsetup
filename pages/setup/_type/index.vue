@@ -9,7 +9,7 @@
           </transition-group>
         </div>
       </div>
-      <h1 style="color: #fff" v-if="loading">Loading...</h1>
+      <h1 style="color: #fff" v-if="loading">Loading {{type}}...</h1>
       <button @click="itemsLoad" class="centered" :disabled="loading">Load more</button>
     </div>
   </div>
