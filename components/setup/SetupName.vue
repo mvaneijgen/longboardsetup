@@ -41,7 +41,8 @@ export default {
   computed: {
     ...mapGetters({
       getName: "name/getName",
-      getUserBool: "name/getUserBool"
+      getUserBool: "name/getUserBool",
+      getShareURL: "setup/getShareURL"
     }),
     setupName: {
       get() {
@@ -63,7 +64,9 @@ export default {
     },
     saveNameInput: function() {
       this.showNameInput = false;
-
+      this.$router.push({
+        query: this.getShareURL
+      });
       if (this.nameNotification) {
         // console.warn(this.getUserBool);
         this.nameNotification = false;
