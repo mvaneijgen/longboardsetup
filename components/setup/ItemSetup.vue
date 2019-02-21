@@ -30,7 +30,7 @@
         <div v-if="item.view === 'advanced'">
           <h6>{{item.type.replace('decks','deck')}}</h6>
         </div>
-        <h3>{{item.title}}</h3>
+        <h3 v-html="item.title"></h3>
         <div v-if="item.view === 'advanced'">
           <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a>
           <a :href="`//api.longboardsetup.com/${item.type}/${item.slug}`" class="report">Report</a>

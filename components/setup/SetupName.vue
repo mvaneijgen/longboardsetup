@@ -48,6 +48,7 @@ export default {
         return this.getName;
       },
       set(value) {
+        // router.push({ path: 'register', query: { plan: 'private' }})
         this.$store.commit("name/setName", value);
         this.$store.commit("name/setNameUser");
       }
@@ -64,7 +65,7 @@ export default {
       this.showNameInput = false;
 
       if (this.nameNotification) {
-        console.warn(this.getUserBool);
+        // console.warn(this.getUserBool);
         this.nameNotification = false;
         const notification = {
           title: "You've given your baby a name",

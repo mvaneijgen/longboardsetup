@@ -19,7 +19,7 @@
         </button>
         
         <button
-          v-if="'setup' == this.$route.name || 'setup-type' == this.$route.name"
+          v-if="'setup' == this.$route.name || 'setup-type' == this.$route.name || 'setup-type-search' == this.$route.name"
           @click="toggleAllInfo"
           class="btn btn--icon"
         >

@@ -82,7 +82,7 @@ export const state = () => ({
       description: "Help fill our database by uploading your own!",
       cta: "Upload your own",
       type: "cta--alt",
-      url: "submit",
+      url: "/submit",
     },
     {
       title: "Have a lot of products to add?",
@@ -90,7 +90,7 @@ export const state = () => ({
         "If you have a large collection or products, we love to add them all at once. Just get in contact with us.",
       cta: "Contact",
       type: "",
-      url: "submit",
+      url: "/submit",
     },
   ],
   //------------------------------------------------------//
