@@ -13,12 +13,15 @@
           <span class="emoji">🙈</span>
           <h3>Something went wrong!</h3>
           <p>Please copy the link manually</p>
-          <input type="text" :value="fullURL" ref="fullURLstring">
+          <form action id="share-url">
+            <input type="text" :value="fullURL" ref="fullURLstring" readonly>
+          </form>
         </div>
         <div v-else class="pass">
           <span class="emoji">🎉</span>
           <h3>Copied link!</h3>
           <p>Do with it what ever you want!</p>
+          <button class="btn btn--small" @click="closeShareModal">close window</button>
         </div>
       </div>
       <div class="inner">

@@ -151,6 +151,16 @@ button,
 input[type="submit"],
 .btn {
   margin-bottom: 0;
+  background-color: $brand-one;
+  &.btn--alt {
+    background-color: $brand-two;
+  }
+}
+input[type="text"] {
+  line-height: 1.3em;
+}
+input {
+  border-color: $brand-one;
 }
 .component-Navigation {
   position: fixed;
@@ -158,7 +168,7 @@ input[type="submit"],
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: $brand-two-lighten;
+  background-color: $brand-one-lighten;
   padding: 10px;
   @include media-breakpoint-up(lg) {
     padding: $base-margin;

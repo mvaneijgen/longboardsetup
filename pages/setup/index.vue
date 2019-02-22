@@ -1,7 +1,9 @@
 <template>
   <div class="alloy-page alloy-page--setup">
     <SetupUI/>
-    <Share v-if="getShowShareModel"/>
+    <transition name="slide-in">
+      <Share v-if="getShowShareModel"/>
+    </transition>
   </div>
 </template>
 

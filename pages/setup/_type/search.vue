@@ -6,14 +6,14 @@
         <div class="inner">
           <div class="alloy-result-info">
             <span>
-              We've found {{allSearchItems.length}} for "{{this.$store.getters["items/getSearch"](this.$route.params.type)}}". If your product is not shown, refine your search result.
-              <nuxt-link to="/submit">Or submit a product!</nuxt-link>
+              We've found {{allSearchItems.length}} items for "{{this.$store.getters["items/getSearch"](this.$route.params.type)}}". If your product is not shown, refine your search result
+              <nuxt-link to="/submit">or submit a product!</nuxt-link>
             </span>
           </div>
           <transition-group name="slide-in" tag="div" class="transition-card">
             <Item v-for="item in allSearchItems" :key="item.id" :item="item"/>
           </transition-group>
-          <transition name="fade">
+          <transition name="slide-in">
             <NothingFound v-if="allSearchItems.length < 1"></NothingFound>
           </transition>
         </div>
