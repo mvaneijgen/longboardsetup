@@ -84,39 +84,60 @@ export default {
     copyURL: function() {
       this.copiedURL = true;
 
-      function fallbackCopyTextToClipboard(text) {
-        var inputLinkCopy = document.createElement("input");
-        inputLinkCopy.value = text;
-        document.body.appendChild(inputLinkCopy);
-        inputLinkCopy.focus();
-        inputLinkCopy.select();
+      // function fallbackCopyTextToClipboard(text) {
+      //   var inputLinkCopy = document.createElement("input");
+      //   inputLinkCopy.value = text;
+      //   document.body.appendChild(inputLinkCopy);
+      //   inputLinkCopy.focus();
+      //   inputLinkCopy.select();
 
-        try {
-          var successful = document.execCommand("copy");
-          var msg = successful ? "successful" : "unsuccessful";
-          console.log("Fallback: Copying text command was " + msg);
-        } catch (err) {
-          console.error("Fallback: Oops, unable to copy", err);
-        }
+      //   try {
+      //     var successful = document.execCommand("copy");
+      //     var msg = successful ? "successful" : "unsuccessful";
+      //     console.log("Fallback: Copying text command was " + msg);
+      //   } catch (err) {
+      //     console.error("Fallback: Oops, unable to copy", err);
+      //   }
 
-        document.body.removeChild(inputLinkCopy);
-      }
-      function copyTextToClipboard(text) {
-        if (!navigator.clipboard) {
-          fallbackCopyTextToClipboard(text);
-          return;
+      //   document.body.removeChild(inputLinkCopy);
+      // }
+      // function copyTextToClipboard(text) {
+      //   if (!navigator.clipboard) {
+      //     fallbackCopyTextToClipboard(text);
+      //     return;
+      //   }
+      //   navigator.clipboard.writeText(text).then(
+      //     function() {
+      //       console.log("Async: Copying to clipboard was successful!");
+      //     },
+      //     function(err) {
+      //       this.copiedURLfailed = true;
+      //       console.error("Async: Could not copy text: ", err);
+      //     }
+      //   );
+      // }
+      const copyToClipboard = str => {
+        const el = document.createElement("textarea"); // Create a <textarea> element
+        el.value = str; // Set its value to the string that you want copied
+        el.setAttribute("readonly", ""); // Make it readonly to be tamper-proof
+        el.style.position = "absolute";
+        el.style.left = "-9999px"; // Move outside the screen to make it invisible
+        document.body.appendChild(el); // Append the <textarea> element to the HTML document
+        const selected =
+          document.getSelection().rangeCount > 0 // Check if there is any content selected previously
+            ? document.getSelection().getRangeAt(0) // Store selection if found
+            : false; // Mark as false to know no selection existed before
+        el.select(); // Select the <textarea> content
+        document.execCommand("copy"); // Copy - only works as a result of a user action (e.g. click events)
+        document.body.removeChild(el); // Remove the <textarea> element
+        if (selected) {
+          // If a selection existed before copying
+          document.getSelection().removeAllRanges(); // Unselect everything on the HTML document
+          document.getSelection().addRange(selected); // Restore the original selection
         }
-        navigator.clipboard.writeText(text).then(
-          function() {
-            console.log("Async: Copying to clipboard was successful!");
-          },
-          function(err) {
-            this.copiedURLfailed = true;
-            console.error("Async: Could not copy text: ", err);
-          }
-        );
-      }
-      copyTextToClipboard(this.fullURL);
+      };
+      // copyTextToClipboard(this.fullURL);
+      copyToClipboard(this.fullURL);
     }
   }
 };
