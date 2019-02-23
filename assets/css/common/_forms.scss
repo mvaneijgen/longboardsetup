@@ -105,6 +105,12 @@ input[type="submit"] {
   border-color: $brand-grey;
   padding: 2px 5px;
 }
+.btn--hover-alert {
+  &:hover {
+    background-color: $brand-alert !important;
+    border-color: $brand-alert !important;
+  }
+}
 .btn--large {
   font-size: 2rem;
   line-height: 1em;

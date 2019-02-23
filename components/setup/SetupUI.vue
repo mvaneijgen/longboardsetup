@@ -27,7 +27,8 @@ export default {
   data() {
     return {
       queries: this.$route.query,
-      notificationTrigger: false
+      notificationTrigger: false,
+      setupLength: this.$store.state.setup.getRealSetupLength
     };
   },
   components: {
@@ -39,7 +40,7 @@ export default {
       getSetupCurrent: "setup/getSetupCurrent",
       getSetupNotEdited: "setup/getSetupNotEdited",
       getShareURL: "setup/getShareURL",
-      getRealSetupLength: "setup/getRealSetupLength",
+      // getRealSetupLength: "setup/getRealSetupLength",
       getIfCustomItem: "setup/getIfCustomItem"
     })
   },
@@ -119,7 +120,9 @@ export default {
     this.fetchItems();
   },
   watch: {
-    getRealSetupLength: function(value) {
+    setupLength: function(value) {
+      console.warn(value);
+      console.warn(this.setupLength);
       if (value === 3) {
         this.triggerNameSetupNotification();
       }

@@ -100,6 +100,7 @@ a {
   text-decoration: none;
 }
 .read-more {
+  margin-left: 5px;
   text-decoration: underline;
 }
 </style>

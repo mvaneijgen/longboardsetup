@@ -7,11 +7,16 @@
             <icon-base width="20" height="20" icon-name="arrow-left">
               <icon-arrow-left/>
             </icon-base>
+            <!-- <span v-i>Back</span> -->
             <span>Back</span>
           </nuxt-link>
         </template>
 
-        <button v-if="'setup' == this.$route.name" @click="setupClear" class="btn btn--icon">
+        <button
+          v-if="'setup' == this.$route.name"
+          @click="setupClear"
+          class="btn btn--icon btn--hover-alert"
+        >
           <span>Clear</span>
           <icon-base width="20" height="20" icon-name="trash">
             <icon-trash/>
@@ -28,6 +33,15 @@
             <icon-info/>
           </icon-base>
         </button>
+
+        <template v-if="'setup' == this.$route.name">
+          <nuxt-link to="/setup/custom" class="btn btn--icon btn--icon-left">
+            <icon-base width="20" height="20" icon-name="Add item">
+              <icon-add/>
+            </icon-base>
+            <span>Add item</span>
+          </nuxt-link>
+        </template>
 
         <div
           v-if="'setup-type' == this.$route.name || 'setup-type-search' == this.$route.name"
@@ -68,6 +82,7 @@ import { fromInputData } from "@/assets/utils/fromInputData.js";
 // Icon logic
 import IconBase from "@/components/IconBase.vue";
 import IconInfo from "@/components/icons/IconInfo.vue";
+import IconAdd from "@/components/icons/IconAdd.vue";
 import IconTrash from "@/components/icons/IconTrash.vue";
 import IconShare from "@/components/icons/IconShare.vue";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
@@ -79,6 +94,7 @@ export default {
     // Icon logic
     IconBase,
     IconInfo,
+    IconAdd,
     IconTrash,
     IconShare,
     IconArrowLeft
@@ -150,7 +166,7 @@ input[type="submit"],
   }
 }
 input[type="text"] {
-  line-height: 1.3em;
+  line-height: 1.1em;
 }
 input {
   border-color: $brand-one;

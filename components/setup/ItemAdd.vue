@@ -1,10 +1,10 @@
 <template>
   <div @click="loadItemType" class="alloy-cards alloy-items" data-type="add">
     <div class="inner">
-      <icon-base width="45" height="45" icon-name="add">
+      <icon-base width="45" height="45" icon-name="Add item">
         <icon-add/>
       </icon-base>
-      <span>Custom item</span>
+      <span>Add item</span>
     </div>
   </div>
 </template>

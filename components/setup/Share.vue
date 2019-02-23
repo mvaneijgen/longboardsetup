@@ -33,7 +33,7 @@
               {{item.type}}
               <span v-if="item.location && item.location !== ''">| {{ item.location }}</span>
             </span>
-            {{item.title}}
+            <span v-html="item.title"></span>
           </li>
         </ul>
         <input type="text" :value="fullURL" ref="fullURLstring">

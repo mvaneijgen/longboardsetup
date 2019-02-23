@@ -91,6 +91,16 @@ export default {
   },
   // Life cycle hooks
   mounted() {
+    const notification = {
+      title: "Are you missing products?",
+      content:
+        "We've gathered around 2000+ items, but there are so much more items that we ware still missing.",
+      image: "",
+      type: "",
+      link: "/submit",
+      timer: 10000
+    };
+    this.$store.commit("notifications/addNotification", notification);
     this.itemsinfIniteScroll();
   },
   created() {

@@ -113,7 +113,8 @@ export default {
         this.item.type = `custom${currentSetupNumber}`;
       }
 
-      this.item.slug = `${this.item.custom}~${slugify(this.item.title)}`;
+      // this.item.slug = `${this.item.custom}~${slugify(this.item.title)}`; // ! Will remove capitalize words by user
+      this.item.slug = `${this.item.custom}~${this.item.title}`;
       if (this.item.location) {
         this.item.slug += `~${this.item.location}`;
       }
@@ -142,7 +143,10 @@ export default {
 
     setItemFromStore: function() {
       // console.warn(this.getCurrentItem);
-      if (this.getCurrentItem.location) {
+      if (
+        this.getCurrentItem.location &&
+        this.getCurrentItem.location !== "undefined"
+      ) {
         this.locationOn = true;
       }
       this.item = { ...this.getCurrentItem };

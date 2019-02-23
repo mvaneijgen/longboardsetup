@@ -105,5 +105,6 @@ export default {
   bottom: 10px;
   right: 15px;
   width: 40px;
+  cursor: pointer;
 }
 </style>
