@@ -18,8 +18,6 @@
 <script>
 import CustomForm from "@/components/setup/CustomForm.vue";
 import Item from "@/components/setup/Item.vue";
-import NothingFound from "@/components/setup/empty-state/NothingFound.vue";
-// import TypeCallToAction from "@/components/default/TypeCallToAction.vue";
 
 // 🛠 Utils
 import { fromInputData } from "@/assets/utils/fromInputData.js";
@@ -28,35 +26,24 @@ const queries = ["orderby=date", "order=desc", "per_page=20", "_embed"];
 
 export default {
   name: "type",
-  // layout: 'simple',
   components: {
     CustomForm,
-    Item,
-    NothingFound
-    // TypeCallToAction
+    Item
   },
-  // middleware: "api",
   data() {
     return {
-      customShow: false,
       type: this.$route.params.type,
       page: this.$store.state.items[this.$route.params.type].page,
-      loading: false,
-      hasSearchResults: false
+      loading: false
     };
   }, // End data
   computed: {
     allItems() {
       return this.$store.getters["items/getItems"](this.$route.params.type);
-    },
-    allSearchItems() {
-      return this.$store.getters["items/getSearchResults"](
-        this.$route.params.type
-      );
-    },
-    pageNumber() {
-      return this.$store.getters["items/getTypePage"](this.$route.params.type);
     }
+    // pageNumber() {
+    //   return this.$store.getters["items/getTypePage"](this.$route.params.type);
+    // }
   },
   methods: {
     itemsLoad() {

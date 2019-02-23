@@ -38,6 +38,7 @@
             <input
               type="text"
               id="searchTerm"
+              ref="search"
               :placeholder="`Search ${this.$route.params.type}...`"
               v-model.lazy.trim="searchField"
             >
@@ -99,27 +100,16 @@ export default {
     // 🔎 Submit Search form
     //------------------------------------------------------//
     searchSubmit: function(event) {
-      const value = this.$store.getters["items/getSearch"](
-        this.$route.params.type
-      );
-      this.$axios
-        .get(
-          `wp/v2/${
-            this.$route.params.type
-          }?orderby=title&order=asc&per_page=100&search=${value}&_embed`
-        )
-        .then(response => {
-          // console.warn(response.data);
-          // Push the data to the store
-          this.$store.commit({
-            type: "items/addSearchItems",
-            itemType: this.$route.params.type,
-            items: response.data.map(fromInputData)
-          });
-        });
+      // console.warn(this.$refs.search);
+      this.$refs.search.blur();
+      this.$store.commit({
+        type: "items/resetSearch",
+        itemType: this.$route.params.type
+      });
       // 📲 Route to _type search page
       this.$router.push({
-        path: `/setup/${this.$route.params.type}/search`
+        path: `/setup/${this.$route.params.type}/search`,
+        query: { search: this.searchField }
       });
     }
     // 🔎 Submit Search form
@@ -152,8 +142,11 @@ input[type="submit"],
 .btn {
   margin-bottom: 0;
   background-color: $brand-one;
+  border-color: $brand-one;
+
   &.btn--alt {
     background-color: $brand-two;
+    border-color: $brand-two;
   }
 }
 input[type="text"] {
