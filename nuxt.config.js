@@ -83,7 +83,7 @@ module.exports = {
   axios: {
     baseURL: "https://api.longboardsetup.com/wp-json",
   },
-  // plugins: [{ src: "~/plugins/vuex-persist", ssr: false }],
+  plugins: [{ src: "~/plugins/vuex-persist", ssr: false }],
   generate: {
     dir: "docs",
     routes: ["/setup/decks", "/setup/trucks", "/setup/wheels"],
