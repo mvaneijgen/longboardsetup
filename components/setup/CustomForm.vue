@@ -182,6 +182,11 @@ export default {
 .alloy-card--preview {
   margin-bottom: $base-margin * 2;
   height: 120px;
+  .alloy-meta {
+    span {
+      margin-left: 5px;
+    }
+  }
 }
 .preview {
   position: absolute;

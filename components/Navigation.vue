@@ -15,7 +15,7 @@
         <button
           v-if="'setup' == this.$route.name"
           @click="setupClear"
-          class="btn btn--icon btn--hover-alert"
+          class="btn btn--icon btn--hover-alert btn--clear"
         >
           <span>Clear</span>
           <icon-base width="20" height="20" icon-name="trash">
@@ -39,7 +39,7 @@
             <icon-base width="20" height="20" icon-name="Add item">
               <icon-add/>
             </icon-base>
-            <span>Add item</span>
+            <span>Item</span>
           </nuxt-link>
         </template>
 
@@ -207,6 +207,14 @@ input {
     margin: 0;
     background-color: $brand-one-lighten;
     border-color: $brand-one-lighten;
+  }
+}
+@include media-breakpoint-down(sm) {
+  .btn--clear {
+    padding: 10px 15px 10px 25px;
+    span {
+      display: none;
+    }
   }
 }
 </style>
