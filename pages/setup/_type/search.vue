@@ -5,10 +5,10 @@
       <div class="alloy-select-flexbox">
         <div class="inner">
           <div class="alloy-result-info">
-            <!-- <span>
-              We've found {{allSearchItems.length}} items for "{{this.$store.getters["items/getSearch"](this.$route.params.type)}}". If your product is not shown, refine your search result
+            <span>
+              We've found {{results}} products for "{{this.$store.getters["items/getSearch"](this.$route.params.type)}}". If your product is not shown, refine your search result
               <nuxt-link to="/submit">or submit a product!</nuxt-link>
-            </span>-->
+            </span>
           </div>
           <transition-group name="slide-in" tag="div" class="transition-card">
             <Item v-for="item in allSearchItems" :key="item.id" :item="item"/>
@@ -41,10 +41,9 @@ export default {
   },
   data() {
     return {
-      type: this.$route.params.type,
-      page: this.$store.state.items[this.$route.params.type].pageSearch,
       loading: false,
-      hasSearchResults: false
+      results: 0,
+      moreResults: true
     };
   }, // End data
   computed: {
@@ -66,12 +65,12 @@ export default {
         .get(
           `wp/v2/${this.$route.params.type}?${queries.join(
             "&"
-          )}&search=${value}&page=${this.$store.getters[
+          )}&search=${value.toLowerCase()}&page=${this.$store.getters[
             "items/getTypePageSearch"
           ](this.$route.params.type)}&_embed`
         )
         .then(response => {
-          // console.warn(response.data);
+          console.warn(response);
           // Push the data to the store
           this.$store.commit({
             type: "items/addSearchItems",
@@ -81,10 +80,18 @@ export default {
           // increment page by +1
           this.$store.commit({
             type: "items/incrementPageSearch",
-            itemType: this.type
+            itemType: this.$route.params.type
           });
           // Set loading animation to false
           this.loading = false;
+          this.results = response.headers["x-wp-total"];
+          // const pageTotal = response.headers["x-wp-totalpages"];
+          // const pageCurrent = this.$store.getters["items/getTypePageSearch"](
+          //   this.$route.params.type
+          // );
+          // if (pageTotal >= pageCurrent) {
+          //   this.moreResults = false;
+          // }
         });
     },
     itemsinfIniteScroll() {
@@ -99,7 +106,9 @@ export default {
           scrollTop + window.innerHeight ===
           document.documentElement.offsetHeight;
 
-        if (!this.loading && bottomOfWindow) {
+        // if (!this.loading && bottomOfWindow && !this.isFetching) {
+        if (bottomOfWindow) {
+          this.isFetching = true;
           this.itemsLoad();
         }
       });
@@ -108,7 +117,13 @@ export default {
   // Life cycle hooks
   mounted() {
     // Start API cal on frist load
-    this.itemsinfIniteScroll();
+    // this.itemsinfIniteScroll();
+  },
+  watch: {
+    $route(to, from) {
+      // react to route changes...
+      this.itemsLoad();
+    }
   },
   created() {
     if (

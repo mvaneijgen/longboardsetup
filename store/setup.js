@@ -141,8 +141,8 @@ export const getters = {
     return realLength;
   },
   getIfCustomItem: state => {
-    const checkUsername = item => item.type.includes('custom');
-    return state.setupCurrent.some(checkUsername)
+    const checkUsername = item => item.type.includes("custom");
+    return state.setupCurrent.some(checkUsername);
   },
   //   //------------------------------------------------------//
   // // 🔔 Genarate notification based on number of items in 🧰 setup

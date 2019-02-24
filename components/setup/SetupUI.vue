@@ -27,8 +27,7 @@ export default {
   data() {
     return {
       queries: this.$route.query,
-      notificationTrigger: false,
-      setupLength: this.$store.state.setup.getRealSetupLength
+      notificationTrigger: false
     };
   },
   components: {
@@ -40,7 +39,6 @@ export default {
       getSetupCurrent: "setup/getSetupCurrent",
       getSetupNotEdited: "setup/getSetupNotEdited",
       getShareURL: "setup/getShareURL",
-      // getRealSetupLength: "setup/getRealSetupLength",
       getIfCustomItem: "setup/getIfCustomItem"
     })
   },
@@ -118,15 +116,6 @@ export default {
   },
   mounted() {
     this.fetchItems();
-  },
-  watch: {
-    setupLength: function(value) {
-      console.warn(value);
-      console.warn(this.setupLength);
-      if (value === 3) {
-        this.triggerNameSetupNotification();
-      }
-    }
   }
 };
 </script>

@@ -53,7 +53,7 @@
               type="text"
               id="searchTerm"
               ref="search"
-              :placeholder="`Search ${this.$route.params.type}...`"
+              :placeholder="`Search ${this.$route.params.type}... (name or brand)`"
               v-model.lazy.trim="searchField"
             >
             <input type="submit" value="⏎">
@@ -125,7 +125,7 @@ export default {
       // 📲 Route to _type search page
       this.$router.push({
         path: `/setup/${this.$route.params.type}/search`,
-        query: { search: this.searchField }
+        query: { q: this.searchField }
       });
     }
     // 🔎 Submit Search form

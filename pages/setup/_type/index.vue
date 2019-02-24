@@ -101,7 +101,7 @@ export default {
       timer: 10000
     };
     this.$store.commit("notifications/addNotification", notification);
-    this.itemsinfIniteScroll();
+    // this.itemsinfIniteScroll();
   },
   created() {
     if (!this.$store.state.items[this.$route.params.type].items.length) {
