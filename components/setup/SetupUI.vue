@@ -2,12 +2,12 @@
   <div class="alloy-setup">
     <div class="inner">
       <ItemSetup v-for="item in getSetupCurrent" :key="item.id" :item="item"/>
+      <ItemAdd/>
       <div v-if="!getIfCustomItem" class="advanced-info">
         <span>
           <strong>Looking for more items?</strong> Such as brackets, bearings or a second pair of trucks (maybe even a third... weirdo)?
         </span>
       </div>
-      <ItemAdd/>
     </div>
   </div>
 </template>
@@ -97,22 +97,7 @@ export default {
           }
         });
       }
-    },
-    //------------------------------------------------------//
-    // 🔔Create notification based on the amount of items in the setup
-    //------------------------------------------------------//
-    triggerNameSetupNotification: function() {
-      const notification = {
-        title: "Nice your setup is coming along nicely",
-        content:
-          "Why don't you give it a name! Just lick on the title on top of the screen",
-        image: "",
-        type: "warning",
-        timer: 6000
-      };
-      this.$store.commit("notifications/addNotification", notification);
     }
-    // END 🔔Create notification based on the amount of items in the setup
   },
   mounted() {
     this.fetchItems();

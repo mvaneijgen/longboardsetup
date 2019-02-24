@@ -14,6 +14,39 @@
   }
 }
 .alloy-items {
+  &[data-type="decks"],
+  &[data-type="trucks"],
+  &[data-type="wheels"] {
+    .alloy-content {
+      transform: translateY(50px);
+      background-color: transparent;
+      transition: opacity, transform, background-color, color;
+      transition-duration: 500ms;
+      transition-delay: 300ms;
+      transition-timing-function: ease;
+    }
+    &:hover {
+      .alloy-content {
+        background-color: lighten($brand-one, 20%);
+        transform: translateY(0);
+        pointer-events: auto;
+        color: $brand-light;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.showAllInfo {
+  .alloy-content {
+    background-color: lighten($brand-one, 20%);
+    transform: translateY(0);
+    pointer-events: auto;
+    color: $brand-light;
+    opacity: 1;
+  }
+}
+.alloy-items {
   cursor: pointer;
   transition: transform;
   transition-duration: 300ms;
@@ -31,19 +64,15 @@
       // @media only screen and (min-width: $alloy-md-mq) {
       padding: $base-margin;
     }
-    color: $brand-light;
-    background-color: lighten($brand-one, 20%);
+    color: rgba($brand-dark, 0.15);
+    // color: $brand-light;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     display: inline-block;
-    opacity: 0;
 
-    transition: opacity;
-    transition-duration: 500ms;
-    transition-delay: 300ms;
-    transition-timing-function: ease;
+    // Toggle stuffalign-content
     p {
       margin: 0;
     }
@@ -96,15 +125,6 @@
     bottom: $base-margin;
     right: $base-margin;
   }
-
-  // Toggle stuffalign-content
-  &:hover,
-  &[data-info="true"] {
-    .alloy-content {
-      pointer-events: auto;
-      opacity: 1;
-    }
-  }
   // END Toggle stuffalign-content
   img {
     width: 100%;
@@ -113,12 +133,7 @@
     pointer-events: none;
   }
 }
-.showAllInfo {
-  .alloy-content {
-    pointer-events: auto;
-    opacity: 1;
-  }
-}
+
 [data-view="simple"] {
   .alloy-content {
     margin-left: 110px;

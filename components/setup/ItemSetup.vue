@@ -30,13 +30,16 @@
         <div v-if="item.view === 'advanced'">
           <h6>{{item.type.replace('decks','deck')}}</h6>
         </div>
-        <h3 v-html="item.title"></h3>
+        <h3 class="item-title" v-html="item.title"></h3>
         <div v-if="item.view === 'advanced'">
           <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a>
           <a
             :href="`//api.longboardsetup.com/${item.type}/${item.slug}`"
             class="report"
           >Fix this item?</a>
+        </div>
+        <div v-else>
+          <a href style="pointen-events: none;">Browse all products</a>
         </div>
       </div>
     </div>

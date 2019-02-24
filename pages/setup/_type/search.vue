@@ -16,7 +16,7 @@
           <transition name="slide-in">
             <NothingFound v-if="allSearchItems.length < 1"></NothingFound>
           </transition>
-          <h1 style="color: #fff" v-if="loading">Loading {{type}}...</h1>
+          <h1 style="color: #fff" v-if="loading">Loading {{this.$route.params.type}}...</h1>
           <button @click="itemsLoad" class="centered" :disabled="loading">Load more</button>
         </div>
       </div>
@@ -42,8 +42,9 @@ export default {
   data() {
     return {
       loading: false,
-      results: 0,
-      moreResults: true
+      results: 0
+      // moreResults: true,
+      // pageTotal: null
     };
   }, // End data
   computed: {
@@ -89,10 +90,11 @@ export default {
           // const pageCurrent = this.$store.getters["items/getTypePageSearch"](
           //   this.$route.params.type
           // );
-          // if (pageTotal >= pageCurrent) {
+          // if (pageCurrent >= pageTotal) {
           //   this.moreResults = false;
           // }
         });
+      // }
     },
     itemsinfIniteScroll() {
       window.addEventListener("scroll", () => {

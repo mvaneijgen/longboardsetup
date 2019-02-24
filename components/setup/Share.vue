@@ -116,28 +116,73 @@ export default {
       //     }
       //   );
       // }
-      const copyToClipboard = str => {
-        const el = document.createElement("textarea"); // Create a <textarea> element
-        el.value = str; // Set its value to the string that you want copied
-        el.setAttribute("readonly", ""); // Make it readonly to be tamper-proof
-        el.style.position = "absolute";
-        el.style.left = "-9999px"; // Move outside the screen to make it invisible
-        document.body.appendChild(el); // Append the <textarea> element to the HTML document
-        const selected =
-          document.getSelection().rangeCount > 0 // Check if there is any content selected previously
-            ? document.getSelection().getRangeAt(0) // Store selection if found
-            : false; // Mark as false to know no selection existed before
-        el.select(); // Select the <textarea> content
-        document.execCommand("copy"); // Copy - only works as a result of a user action (e.g. click events)
-        document.body.removeChild(el); // Remove the <textarea> element
-        if (selected) {
-          // If a selection existed before copying
-          document.getSelection().removeAllRanges(); // Unselect everything on the HTML document
-          document.getSelection().addRange(selected); // Restore the original selection
+      // const copyToClipboard = str => {
+      //   const el = document.createElement("textarea"); // Create a <textarea> element
+      //   el.value = str; // Set its value to the string that you want copied
+      //   el.setAttribute("readonly", ""); // Make it readonly to be tamper-proof
+      //   el.style.position = "absolute";
+      //   el.style.left = "-9999px"; // Move outside the screen to make it invisible
+      //   document.body.appendChild(el); // Append the <textarea> element to the HTML document
+      //   const selected =
+      //     document.getSelection().rangeCount > 0 // Check if there is any content selected previously
+      //       ? document.getSelection().getRangeAt(0) // Store selection if found
+      //       : false; // Mark as false to know no selection existed before
+      //   el.select(); // Select the <textarea> content
+      //   document.execCommand("copy"); // Copy - only works as a result of a user action (e.g. click events)
+      //   document.body.removeChild(el); // Remove the <textarea> element
+      //   if (selected) {
+      //     // If a selection existed before copying
+      //     document.getSelection().removeAllRanges(); // Unselect everything on the HTML document
+      //     document.getSelection().addRange(selected); // Restore the original selection
+      //   }
+      // };
+      // // copyTextToClipboard(this.fullURL);
+      // copyToClipboard(this.fullURL);
+      window.Clipboard = (function(window, document, navigator) {
+        var textArea, copy;
+
+        function isOS() {
+          return navigator.userAgent.match(/ipad|iphone/i);
         }
-      };
-      // copyTextToClipboard(this.fullURL);
-      copyToClipboard(this.fullURL);
+
+        function createTextArea(text) {
+          textArea = document.createElement("textArea");
+          textArea.value = text;
+          document.body.appendChild(textArea);
+        }
+
+        function selectText() {
+          var range, selection;
+
+          if (isOS()) {
+            range = document.createRange();
+            range.selectNodeContents(textArea);
+            selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textArea.setSelectionRange(0, 999999);
+          } else {
+            textArea.select();
+          }
+        }
+
+        function copyToClipboard() {
+          document.execCommand("copy");
+          document.body.removeChild(textArea);
+        }
+
+        copy = function(text) {
+          createTextArea(text);
+          selectText();
+          copyToClipboard();
+        };
+
+        return {
+          copy: copy
+        };
+      })(window, document, navigator);
+
+      Clipboard.copy(this.fullURL);
     }
   }
 };

@@ -80,14 +80,14 @@ export default {
         this.$store.commit("notifications/addNotification", notification);
       }
     }
-  },
-  watch: {
-    $route() {
-      if (!this.getUserBool) {
-        this.$store.commit("name/nameGenerator");
-      }
-    }
   }
+  // watch: {
+  //   $route() {
+  //     if (!this.getUserBool) {
+  //       this.$store.commit("name/nameGenerator");
+  //     }
+  //   }
+  // }
 };
 </script>
 <style lang="scss" scoped>

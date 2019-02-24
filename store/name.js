@@ -1,7 +1,7 @@
 export const state = () => ({
   // This is the name.js store, with all the logic containing the random name generator,
   // or the custom the visitor has chosen him or her self.
-  nameCurrent: "Your Setup",
+  nameCurrent: "Name Your Setup",
 
   // A database of random names saved in three parts
   // 📝 this will later come from a real data base, but for testing purposes I have created a small demo
@@ -36,8 +36,10 @@ export const mutations = {
       state.nameRandom[updateCurrent][
         randomNum(state.nameRandom[updateCurrent].length)
       ];
-      
-    const nameCombined = `${state.nameCurrentRandom.prefix} ${state.nameCurrentRandom.location} ${state.nameCurrentRandom.suffix}`;
+
+    const nameCombined = `${state.nameCurrentRandom.prefix} ${
+      state.nameCurrentRandom.location
+    } ${state.nameCurrentRandom.suffix}`;
 
     state.nameCurrent = nameCombined;
     state.nameRandomIndex++;
@@ -47,11 +49,10 @@ export const mutations = {
   },
   setName(state, payload) {
     state.nameCurrent = payload;
-
   },
   setNameUser(state) {
     state.nameUserCustom = true;
-  }
+  },
 };
 export const getters = {
   getName: state => {

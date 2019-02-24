@@ -107,6 +107,7 @@ export default {
     setupClear: function() {
       if (confirm("Are you sure? This will remove all your hard work.")) {
         this.$store.commit("setup/setupClear");
+        this.$store.commit("name/setName", "Name Your Setup");
       }
     },
     openShareModal: function() {
