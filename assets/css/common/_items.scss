@@ -13,39 +13,9 @@
     height: 100%;
   }
 }
-.alloy-items {
-  &[data-type="decks"],
-  &[data-type="trucks"],
-  &[data-type="wheels"] {
-    .alloy-content {
-      transform: translateY(50px);
-      background-color: transparent;
-      transition: opacity, transform, background-color, color;
-      transition-duration: 500ms;
-      transition-delay: 300ms;
-      transition-timing-function: ease;
-    }
-    &:hover {
-      .alloy-content {
-        background-color: lighten($brand-one, 20%);
-        transform: translateY(0);
-        pointer-events: auto;
-        color: $brand-light;
-        opacity: 1;
-      }
-    }
-  }
-}
-
-.showAllInfo {
-  .alloy-content {
-    background-color: lighten($brand-one, 20%);
-    transform: translateY(0);
-    pointer-events: auto;
-    color: $brand-light;
-    opacity: 1;
-  }
-}
+//------------------------------------------------------//
+// General item styling
+//------------------------------------------------------//
 .alloy-items {
   cursor: pointer;
   transition: transform;
@@ -78,6 +48,8 @@
     }
     a {
       color: $brand-light;
+      line-height: 1em;
+      float: left;
     }
     .alloy-meta {
       text-transform: capitalize;
@@ -133,6 +105,61 @@
     pointer-events: none;
   }
 }
+
+// END General item styling
+//------------------------------------------------------//
+// 🛠 Advanced item styling
+//------------------------------------------------------//
+.alloy-items {
+  &[data-type="decks"],
+  &[data-type="trucks"],
+  &[data-type="wheels"] {
+    .alloy-content {
+      transform: translateY(30px);
+      background-color: transparent;
+      transition: opacity, transform, background-color, color;
+      transition-duration: 500ms;
+      transition-delay: 300ms;
+      transition-timing-function: ease;
+    }
+    .item-title {
+      margin-bottom: $base-margin;
+    }
+
+    &:hover {
+      .alloy-content {
+        background-color: lighten($brand-one, 20%);
+        transform: translateY(0);
+        pointer-events: auto;
+        color: $brand-light;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.showAllInfo {
+  [data-type="decks"],
+  [data-type="trucks"],
+  [data-type="wheels"] {
+    .alloy-content {
+      background-color: lighten($brand-one, 20%);
+      transform: translateY(0);
+      pointer-events: auto;
+      color: $brand-light;
+      opacity: 1;
+    }
+  }
+}
+[data-type="trucks"],
+[data-type="wheels"] {
+  .item-title {
+    font-size: 1em;
+    line-height: 1em;
+  }
+}
+
+// END 🛠 Advanced item styling
 
 [data-view="simple"] {
   .alloy-content {
