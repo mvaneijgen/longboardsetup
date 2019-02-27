@@ -2,12 +2,12 @@
   <div class="alloy-setup">
     <div class="inner">
       <ItemSetup v-for="item in getSetupCurrent" :key="item.id" :item="item"/>
-      <ItemAdd/>
       <div v-if="!getIfCustomItem" class="advanced-info">
         <span>
           <strong>Looking for more items?</strong> Such as brackets, bearings or a second pair of trucks (maybe even a third... weirdo)?
         </span>
       </div>
+      <ItemAdd/>
     </div>
   </div>
 </template>
@@ -19,7 +19,6 @@ import { fromInputData } from "@/assets/utils/fromInputData.js";
 
 import ItemSetup from "@/components/setup/ItemSetup.vue";
 import ItemAdd from "@/components/setup/ItemAdd.vue";
-
 // const queries = ["orderby=title", "order=asc", "per_page=1", "_embed"];
 
 export default {

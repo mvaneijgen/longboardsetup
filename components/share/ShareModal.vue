@@ -17,7 +17,7 @@
             <input type="text" :value="fullURL" ref="fullURLstring" readonly>
           </form>
         </div>
-        <div v-else class="pass">
+        <div class="pass">
           <span class="emoji">🎉</span>
           <h3>Copied link!</h3>
           <p>Do with it what ever you want!</p>

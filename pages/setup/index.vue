@@ -2,8 +2,9 @@
   <div class="alloy-page alloy-page--setup">
     <SetupUI/>
     <transition name="slide-in">
-      <Share v-if="getShowShareModel"/>
+      <ShareModal v-if="getShowShareModel"/>
     </transition>
+    <ShareFooter/>
   </div>
 </template>
 
@@ -11,13 +12,15 @@
 import { mapGetters } from "vuex";
 
 import SetupUI from "@/components/setup/SetupUI.vue";
-import Share from "@/components/setup/Share.vue";
+import ShareModal from "@/components/share/ShareModal.vue";
+import ShareFooter from "@/components/share/ShareFooter.vue";
 
 export default {
   transition: "page-alt",
   components: {
     SetupUI,
-    Share
+    ShareModal,
+    ShareFooter
   },
   computed: {
     ...mapGetters({
