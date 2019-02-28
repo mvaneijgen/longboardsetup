@@ -101,6 +101,11 @@ input[type="submit"],
 input[type="submit"] {
   background-color: $brand-two;
   border-color: $brand-two;
+
+  &:hover {
+    background-color: $brand-one;
+    border-color: $brand-one;
+  }
 }
 .btn--small {
   font-size: 0.8rem;

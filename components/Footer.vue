@@ -89,7 +89,7 @@ export default {
 
       const notification = {
         title: "You've found a banana!",
-        content: "I hope you're proud of yourself",
+        content: "I hope you're proud of yourself...",
         image: "",
         type: "",
         timer: 6000

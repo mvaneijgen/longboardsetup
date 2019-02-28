@@ -94,6 +94,29 @@ export const state = () => ({
       url: "/submit",
     },
   ],
+    //------------------------------------------------------//
+  // Longboard communities
+  //------------------------------------------------------//
+  communities: [
+    {
+      title: "/r/longboarding",
+      platform: "Reddit",
+      members: "71k",
+      url: "https://reddit.com/r/longboarding/",
+    },
+    {
+      title: "Distance Skateboarding Worldwide",
+      platform: "Facebook",
+      members: "2000+",
+      url: "https://www.facebook.com/groups/429473203919081/",
+    },
+    {
+      title: "Discord /r/longboarding",
+      platform: "Discord",
+      members: "1000+",
+      url: "https://discordapp.com/invite/unnhjay",
+    },
+  ],
   //------------------------------------------------------//
   // Site Roadmap/todos
   //------------------------------------------------------//

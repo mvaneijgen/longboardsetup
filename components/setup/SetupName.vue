@@ -59,7 +59,7 @@ export default {
     nameInputToggle: function() {
       this.showNameInput = true;
       this.$nextTick(() => {
-        this.$refs.nameInput.focus();
+        this.$refs.nameInput.select();
       });
     },
     saveNameInput: function() {

@@ -155,7 +155,7 @@ $base-transition: 300ms;
   transition-duration: $base-transition * 2, $base-transition * 2;
   transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
 
-  @for $i from 1 through 18 {
+  @for $i from 1 through 20 {
     // &:nth-child(#{$i}n+18),
     &:nth-child(#{$i}) {
       transition-delay: 50ms * $i;

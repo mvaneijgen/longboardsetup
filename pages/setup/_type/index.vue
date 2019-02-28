@@ -9,8 +9,11 @@
           </transition-group>
         </div>
       </div>
-      <h1 style="color: #fff" v-if="loading">Loading {{type}}...</h1>
-      <button @click="itemsLoad" class="centered" :disabled="loading">Load more</button>
+      <transition name="slide-in">
+        <NoMoreResults v-if="!moreResults"/>
+      </transition>
+      <h1 style="color: #fff" v-if="loading && moreResults">Loading {{type}}...</h1>
+      <button @click="itemsLoad" class="centered" v-if="moreResults" :disabled="loading">Load more</button>
     </div>
   </div>
 </template>
@@ -18,7 +21,7 @@
 <script>
 import CustomForm from "@/components/setup/CustomForm.vue";
 import Item from "@/components/setup/Item.vue";
-
+import NoMoreResults from "@/components/default/NoMoreResults.vue";
 // 🛠 Utils
 import { fromInputData } from "@/assets/utils/fromInputData.js";
 
@@ -28,13 +31,15 @@ export default {
   name: "type",
   components: {
     CustomForm,
-    Item
+    Item,
+    NoMoreResults
   },
   data() {
     return {
       type: this.$route.params.type,
       page: this.$store.state.items[this.$route.params.type].page,
-      loading: false
+      loading: false,
+      moreResults: true
     };
   }, // End data
   computed: {
@@ -47,47 +52,62 @@ export default {
   },
   methods: {
     itemsLoad() {
-      this.loading = true;
+      if (this.moreResults) {
+        this.loading = true;
 
-      this.$axios
-        .get(
-          `wp/v2/${this.type}?${queries.join("&")}&page=${this.$store.getters[
-            "items/getTypePage"
-          ](this.$route.params.type)}&_embed`
-        )
-        .then(response => {
-          // Push the data to the store
-          this.$store.commit({
-            type: "items/addItems",
-            itemType: this.type,
-            items: response.data.map(fromInputData)
-          });
+        this.$axios
+          .get(
+            `wp/v2/${this.type}?${queries.join("&")}&page=${this.$store.getters[
+              "items/getTypePage"
+            ](this.$route.params.type)}&_embed`
+          )
+          .then(response => {
+            // Check if its the last page of the API call
+            const pageTotal = response.headers["x-wp-totalpages"];
+            const pageCurrent = this.$store.getters["items/getTypePage"](
+              this.$route.params.type
+            );
+            // console.warn(`pageTotal = ${pageTotal} pageCurrent = ${pageCurrent}`);
+            if (pageCurrent >= pageTotal) {
+              this.moreResults = false;
+            }
+            // Push the data to the store
+            this.$store.commit({
+              type: "items/addItems",
+              itemType: this.type,
+              items: response.data.map(fromInputData)
+            });
 
-          // Increase the page number each time the function is run
-          this.$store.commit({
-            type: "items/incrementPage",
-            itemType: this.type
+            // Increase the page number each time the function is run
+            this.$store.commit({
+              type: "items/incrementPage",
+              itemType: this.type
+            });
+            this.loading = false;
           });
-          this.loading = false;
-        });
+      }
     },
+    //------------------------------------------------------//
+    // Infinity scroll
+    //------------------------------------------------------//
     itemsinfIniteScroll() {
       window.addEventListener("scroll", () => {
+        const docHeight = document.documentElement.offsetHeight;
         const scrollTop = Math.max(
           window.pageYOffset,
           document.documentElement.scrollTop,
           document.body.scrollTop
         );
-
-        let bottomOfWindow =
-          scrollTop + window.innerHeight ===
-          document.documentElement.offsetHeight;
+        const offset = 200;
+        let bottomOfWindow = scrollTop + window.innerHeight >= docHeight;
 
         if (!this.loading && bottomOfWindow) {
+          this.loading = true;
           this.itemsLoad();
         }
       });
     }
+    // END Infinity scroll
   },
   // Life cycle hooks
   mounted() {
@@ -101,7 +121,7 @@ export default {
       timer: 10000
     };
     this.$store.commit("notifications/addNotification", notification);
-    // this.itemsinfIniteScroll();
+    this.itemsinfIniteScroll();
   },
   created() {
     if (!this.$store.state.items[this.$route.params.type].items.length) {

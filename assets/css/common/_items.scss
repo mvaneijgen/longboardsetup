@@ -38,7 +38,10 @@
       // @media only screen and (min-width: $alloy-md-mq) {
       padding: $base-margin;
     }
-    color: rgba($brand-dark, 0.15);
+    color: #eee;
+    text-shadow: 1px 1px rgba($brand-dark, 0.5);
+    // background-color: rgba($brand-light, 0.3);
+    // background-color: red !important;
     // color: $brand-light;
     position: absolute;
     bottom: 0;
