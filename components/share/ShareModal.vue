@@ -30,8 +30,10 @@
         <ul>
           <li v-for="item in getSetupCurrent" :key="item.id">
             <span>
-              {{item.type}}
-              <span v-if="item.location && item.location !== ''">| {{ item.location }}</span>
+              {{item.type.replace('decks','deck')}}
+              <span
+                v-if="item.location && item.location !== ''"
+              >| {{ item.location }}</span>
             </span>
             <span v-html="item.title"></span>
           </li>
@@ -262,10 +264,16 @@ export default {
           line-height: 1.4em;
           > span {
             display: block;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             font-weight: 700;
             font-size: 0.8rem;
             line-height: 1.2em;
+            &:first-of-type {
+              text-transform: uppercase;
+            }
+            &:last-of-type {
+              font-size: 1.2rem;
+            }
           }
         }
       }

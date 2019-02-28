@@ -2,7 +2,7 @@
   <div class="component-NoMoreResults">
     <div class="inner">
       <h2>
-        You've reached the end of the results.
+        You've managed to reach the end of the results.
         <span>To bad it's not the end of the 🌈 rainbow!</span>
       </h2>
 
