@@ -2,6 +2,7 @@
   <div class="component-ShareFooter">
     <div class="alloy-share-intro">
       <h3>I've build a setup what now?</h3>
+      <p>First you can be really proud of yourself! 👏</p>
       <p>When you are ready, you can share your setup from here. This site is build for people who like some feedback on their setup, to improve it or just to show the world how awesome it is!</p>
       <p>You can either just share the text list of your setup or you can share the direct link. With this link other can view and edit your setup and share their suggestions right back at you.</p>
       <h4>Here are some nice communities to start with:</h4>
@@ -42,9 +43,15 @@ export default {
 .component-ShareFooter {
   padding-top: $base-margin * 2;
   display: flex;
-  > * {
-    flex-grow: 1;
-    width: 50%;
+  flex-direction: column;
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+    width: 130%;
+    transform: translateX(-15%);
+    > * {
+      flex-grow: 1;
+      width: 50%;
+    }
   }
 }
 .alloy-share-intro {

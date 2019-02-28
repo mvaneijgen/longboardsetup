@@ -96,7 +96,6 @@ export default {
             if (pageCurrent >= pageTotal) {
               this.moreResults = false;
             }
-            console.warn("banaan");
             // Push the data to the store
             this.$store.commit({
               type: "items/addSearchItems",

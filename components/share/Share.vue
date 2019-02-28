@@ -154,7 +154,7 @@ input {
           text-transform: uppercase;
         }
         &:last-of-type {
-          font-size: 1rem;
+          font-size: 1.2rem;
         }
       }
     }
