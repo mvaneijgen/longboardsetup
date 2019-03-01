@@ -1,9 +1,11 @@
 <template>
-  <div class="alloy-page alloy-page--setup">
-    <SetupUI/>
-    <transition name="slide-in">
-      <ShareModal v-if="getShowShareModel"/>
-    </transition>
+  <div>
+    <div class="alloy-page alloy-page--setup">
+      <SetupUI/>
+      <transition name="slide-in">
+        <ShareModal v-if="getShowShareModel"/>
+      </transition>
+    </div>
     <ShareFooter/>
   </div>
 </template>

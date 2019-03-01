@@ -31,7 +31,7 @@
       </ul>
       <input type="text" :value="fullURL" ref="fullURLstring">
       <div class="centered">
-        <button class="btn btn--alt" @click="copyURL">Copy link!</button>
+        <button class="btn btn--large btn--alt" @click="copyURL">Copy link!</button>
       </div>
       <Social/>
     </div>

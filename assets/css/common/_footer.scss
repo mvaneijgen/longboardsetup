@@ -24,6 +24,12 @@ footer {
   #share-container {
     .btn {
       background-color: $brand-two-lighten;
+      border-color: $brand-two-lighten;
+
+      &:hover {
+        background-color: $brand-one-lighten;
+        border-color: $brand-one-lighten;
+      }
     }
   }
 }
