@@ -2,7 +2,17 @@
   <footer>
     <div class="inner">
       <div class="alloy-col">
-        <CallToAction/>
+        <h3>What is this?</h3>
+        <!-- <h5 v-html="this.$store.state.default.tagline"></h5> -->
+        <p>PC part picker, but for longboards.</p>
+
+        <p>Build & share you (dream) setup, too get feedback or just to show the world how awesome it is.</p>
+
+        <!-- <h4>Mitchel van Eijgen</h4>
+        <p>
+          Graphic designer who loves technology.
+          <a href="https://mvaneijgen.nl">mvaneijgen.nl</a>
+        </p>-->
       </div>
 
       <div class="alloy-col">
@@ -21,17 +31,7 @@
       </div>
 
       <div class="alloy-col">
-        <h3>About</h3>
-        <div v-html="this.$store.state.default.about_text"></div>
-
-        <h4>Mitchel van Eijgen</h4>
-        <p>
-          Graphic designer who loves technology.
-          <a href="https://mvaneijgen.nl">mvaneijgen.nl</a>
-        </p>
-      </div>
-
-      <div class="alloy-col">
+        <CallToAction/>
         <SpecialThanks/>
       </div>
     </div>

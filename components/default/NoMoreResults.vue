@@ -3,9 +3,8 @@
     <div class="inner">
       <h2>
         You've managed to reach the end of the results.
-        <span>To bad it's not the end of the 🌈 rainbow!</span>
+        <span>Too bad it's not the end of the 🌈 rainbow!</span>
       </h2>
-
       <p>Do a refined search query to narrow down the item you are looking for. Or help yourself and others by submitting a product!</p>
       <nuxt-link to="/submit" class="btn btn--alt">Upload your own</nuxt-link>
     </div>

@@ -3,9 +3,9 @@
     <div class="alloy-page alloy-page--content alloy-page--about">
       <div class="alloy-conttent alloy-text-light">
         <section>
-          <h1>I need your help getting all longboard parts on this site!</h1>
-          <p>All items from this site are manually add through various means of finding items online. We've around 2000+ product at the moment and the list is my no means complete.</p>
-          <p>There are multiple older decks or different variations that are not yet in the collection. If you are a longboard dealer (or enthusiastic) and are looking to add a lot of products at once, please contact me via one of the options below.</p>
+          <h1>I need your help getting all longboard items on this site!</h1>
+          <p>All articles on this site are manually added through various means of finding items online. The list contains around 2000+ products at this moment, and it’s by no means complete.</p>
+          <p>There are multiple older decks or different variations that are not yet in the collection. If you are a longboard dealer (or enthusiastic) and are looking to add a lot of products at once, please contact me through one of the options below.</p>
         </section>
 
         <section>
@@ -32,8 +32,8 @@
 
         <section>
           <h2>Are you a longboard seller?</h2>
-          <p>Do you have more than ten items to submit? I can run an importer. What I would need from you is some sort of data set file (eg a .json, .csv, .xml, ect)</p>
-          <p>The link below takes you to a form where I would ask some general information from you and if you can already provide the data files. If you like some help you can also use the same form.</p>
+          <p>Do you have more than ten items to submit? I can run an importer. What I would need from you is some sort of data set file (eg a .json, .csv, .xml, ect).</p>
+          <p>The link below takes you to a form where you can fill in some general information, and where you can provide the data files. If you’d like some help you can use the same form.</p>
           <br>
           <a
             href="https://api.longboardsetup.com/bulk-submit"

@@ -4,8 +4,9 @@
       <div class="alloy-conttent alloy-text-light">
         <section>
           <h1>Contact</h1>
+
           <p>
-            This site is fully build and designed by me
+            This site is entirely build and designed by me
             <a
               href="this.$store.state.me.url"
             >Mitchel van Eijgen</a>. The code can be found in the
@@ -21,8 +22,9 @@
           <SpecialThanks/>
         </section>
         <section>
-          <h2>Help me get a complete database of longboard products</h2>
-          <p>All items from the site are scraped from various resources and is my no means complete. There are multiple older decks or different variations that are not yet in the collection. If you are a longboard dealer (or enthusiastic) and are looking to add a lot of products at once, please contact me via one of the options below.</p>
+          <h2>Help others by submitting products and complete the database of longboard products</h2>
+          <p>All items from the site are scraped from different resources and the list is by no means complete. There are multiple older decks or different variations that are not yet present in the current collection. If you are a longboard dealer (or enthusiastic) and are looking to add multiple products at once, please contact me through one of the options below.</p>
+          <br>
           <CallToAction/>
         </section>
         <section>

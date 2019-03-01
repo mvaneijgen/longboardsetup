@@ -3,10 +3,14 @@
     <h3>Special thanks!</h3>
     <ul>
       <li v-for="(person, index) in people" :key="index">
-        <a :href="person.url">
+        <a v-if="person.url" :href="person.url">
           {{ person.name }}
           <small v-if="person.realname">({{ person.realname }})</small>
         </a>
+        <template v-else>
+          {{ person.name }}
+          <small v-if="person.realname">({{ person.realname }})</small>
+        </template>
       </li>
     </ul>
   </div>

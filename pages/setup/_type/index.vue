@@ -114,7 +114,7 @@ export default {
     const notification = {
       title: "Are you missing products?",
       content:
-        "We've gathered around 2000+ items, but there are so much more items that we ware still missing.",
+        "We've gathered around 2000+ items, but there are so much more items that we’re still missing.",
       image: "",
       type: "",
       link: "/submit",

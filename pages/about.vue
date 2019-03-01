@@ -4,6 +4,10 @@
       <div class="alloy-conttent alloy-text-light">
         <h2>About</h2>
         <div v-html="this.$store.state.default.about_text"></div>
+        <blockquote>
+          <p>This is awesome! Kinda like PC Part Picker except for longboards.</p>
+          <cite>— JBizzy</cite>
+        </blockquote>
       </div>
 
       <ToolsUsed/>

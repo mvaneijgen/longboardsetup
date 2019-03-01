@@ -1,7 +1,6 @@
 <template>
   <div class="component-ToolsUsed">
     <div class="alloy-content alloy-text-light">
-      <h4>Like the site?</h4>
       <h2>Here are some tools that have been used in the creation of this site.</h2>
     </div>
     <p></p>

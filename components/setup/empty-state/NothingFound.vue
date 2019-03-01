@@ -5,9 +5,10 @@
         Sorry, we haven't found any "{{this.$store.getters["items/getSearch"](this.$route.params.type)}}" products in {{this.$route.params.type}}
         <span>and we need your help!</span>
       </h1>
+      <!-- > Even by submitting just one item, you'll be helping immensely! But for the brave we can also run an import if you have many products to submit at: Follow the link below: -->
       <p>We've gathered around 2000+ products, but there are so much more items that we're still missing.</p>
       <p>If you're missing an item you want to use in your setup, please submit it. We'll review your submission and it will be on the website within hours.</p>
-      <p>Even by submitting just one item, you'll be helping immensely! But for the brave we can also run an import if you have many products to submit at, follow the link below:</p>
+      <p>Even by submitting just one item, you'll be helping immensely! But for the brave we can also run an import if you have many products to submit at: Follow the link below:</p>
       <nuxt-link to="/submit" class="btn btn--alt btn--large">Submit a product</nuxt-link>
       <nuxt-link to="/submit">Or multiple products</nuxt-link>
     </div>

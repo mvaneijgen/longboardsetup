@@ -10,6 +10,7 @@ body {
   }
   line-height: 1.5em;
   -webkit-font-smoothing: antialiased;
+  font-display: swap;
 }
 h1,
 h2,
@@ -44,7 +45,25 @@ footer {
   font-size: 100px;
   line-height: 1.4em;
 }
-
+blockquote {
+  max-width: 600px;
+  margin-top: $base-margin * 4;
+  margin-bottom: $base-margin * 4;
+  margin-left: auto;
+  margin-right: auto;
+  p {
+    margin-bottom: 0;
+  }
+  @extend h1;
+  font-weight: 700;
+  text-shadow: makelongshadow($brand-one-lighten, $brand-two-lighten);
+  cite {
+    display: inline;
+    font-size: 1.2rem;
+    line-height: 1em;
+    text-shadow: none;
+  }
+}
 h1 {
   font-size: 2.4rem;
 }
@@ -60,6 +79,8 @@ h4 {
 }
 h5 {
   font-size: 1em;
+  // text-transform: uppercase;
+  // color: $brand-one;
 }
 h6 {
 }

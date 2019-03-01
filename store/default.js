@@ -9,8 +9,10 @@ export const state = () => ({
   // Site content
   //------------------------------------------------------//
   about_text: `
-  <p>As a long distance push boarder myself I’ve found it difficult to find the right setup for me, this resulted in doing some miss buys. Next to that it's hard to get effective feedback via online platforms, but I believe the community has the knowledge, it just needs to be easier to share setups.</p>
-  <p>That is why I've build this tool to make it easy to share your current, dream or complicated setup. It can also be used to request feedback on a specific part, just leave that part empty and share the URL to <a href="https://www.reddit.com/r/longboarding/">/r/longboarding</a>, Discord or any other platform of your choosing and have the community discus on that part and share suggestions.</p>
+  <p>As a long distance push boarder myself, I’ve found it difficult to find the right setup for me, which resulted in doing some mispurchases.</p>
+  <p>I believe the community has the knowledge, therefore it just needs to be easier to share setups, to get & give effective feedback via online platforms.</p>
+  <p>That is why I've build this tool to make it easy to share your current, your dream or your complicated setup.</p>
+  <p>The tool can also be used to request feedback on a specific part.Just leave that part empty and share the URL to <a href="https://www.reddit.com/r/longboarding/" target="_blank">/r/longboarding</a>, Discord or any other platform of your choosing and have the community discus on that part and share suggestions.</p>
   `,
   //------------------------------------------------------//
   // About me
@@ -20,7 +22,7 @@ export const state = () => ({
     tagline: "Graphic designer who loves technology",
     email: "mvaneijgen@gmail.com",
     phone: "06 38 63 27 35",
-    address: "Lange herenvest 122<br/>2011 BX Haarlem",
+    address: "Lange Herenvest 122<br/>2011 BX Haarlem",
     twitter_username: "mvaneijgen",
     github_username: " mvaneijgen",
     linkedin_username: "mvaneijgen",
@@ -80,7 +82,7 @@ export const state = () => ({
     {
       title: "Are there any products you’re missing?",
       description:
-        "Help the community, by uploading missing items to fill up the database.",
+        "Help the community by uploading missing items to fill up the database.",
       cta: "Upload your own",
       type: "cta--alt",
       url: "/submit",
@@ -88,13 +90,13 @@ export const state = () => ({
     {
       title: "Have multiple products to add?",
       description:
-        "If you have a large collection of products, we wil help you by adding them all at once. Just get in contact with us. ",
+        "If you have a large collection of products, we wil help you by adding them all at once.Just get in contact with us.",
       cta: "Contact",
       type: "",
       url: "/submit",
     },
   ],
-    //------------------------------------------------------//
+  //------------------------------------------------------//
   // Longboard communities
   //------------------------------------------------------//
   communities: [
@@ -133,6 +135,15 @@ export const state = () => ({
       name: "Allow for a visual way to have two different trucks/wheels",
       description: "",
     },
+    {
+      name:
+        "Do a reimport of a lot of trucks and wheels that have the wrong images",
+      description: "",
+    },
+    {
+      name: "Refactor a lot of code",
+      description: "",
+    },
   ],
   specialThanks: [
     {
@@ -149,6 +160,11 @@ export const state = () => ({
       name: "FrodoTBaggins88",
       realname: "",
       url: "https://www.reddit.com/user/FrodoTBaggins88",
+    },
+    {
+      name: "JBizzy",
+      realname: "",
+      url: "",
     },
   ],
 });
