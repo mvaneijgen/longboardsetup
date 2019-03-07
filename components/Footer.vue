@@ -8,11 +8,7 @@
 
         <p>Build & share you (dream) setup, too get feedback or just to show the world how awesome it is.</p>
 
-        <!-- <h4>Mitchel van Eijgen</h4>
-        <p>
-          Graphic designer who loves technology.
-          <a href="https://mvaneijgen.nl">mvaneijgen.nl</a>
-        </p>-->
+        <SpecialThanks/>
       </div>
 
       <div class="alloy-col">
@@ -32,7 +28,6 @@
 
       <div class="alloy-col">
         <CallToAction/>
-        <SpecialThanks/>
       </div>
     </div>
     <div class="banana" @click="foundBanana" v-if="banana">

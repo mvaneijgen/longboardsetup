@@ -136,16 +136,20 @@ footer,
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    justify-content: center;
   }
   .alloy-cards {
     flex-grow: 1;
     margin: 1%;
+    max-width: 150px;
     width: 100px;
     @include media-breakpoint-up(md) {
       width: 150px;
+      max-width: 180px;
     }
     @include media-breakpoint-up(lg) {
       width: 200px;
+      max-width: 220px;
     }
     // @include media-breakpoint-up(xl) {
     //   width: 250px;

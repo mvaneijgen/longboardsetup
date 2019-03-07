@@ -1,27 +1,23 @@
 <template>
   <div>
     <div class="alloy-page alloy-page--setup">
-
-      <SetupUI />
-
+      <SetupUI/>
     </div>
     <Footer/>
-
   </div>
 </template>
 
 <script>
-import SetupUI from '@/components/setup/SetupUI.vue';
-import Footer from '@/components/Footer.vue';
-
+import SetupUI from "@/components/setup/SetupUI.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  transition: 'page-alt',
+  transition: "page-alt",
   components: {
     SetupUI,
-    Footer,
-  },
-}
+    Footer
+  }
+};
 </script>
 
 <style>

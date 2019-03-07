@@ -20,6 +20,29 @@ export default {
     Header,
     NotificationsContainer,
     Navigation
+  },
+  data() {
+    return {
+      cookies: false
+    };
+  }, // End data
+  created() {
+    if (!this.cookies) {
+      const notification = {
+        title: "This site uses cookies",
+        content:
+          "We use functional cookies and track page views using Google Analytics & Hotjar. All data is anonymized and is not kept longer than necessary.",
+        image: "",
+        type: "warning",
+        link: "/privacy",
+        timer: 10000
+      };
+      this.$store.commit("notifications/addNotification", notification);
+      this.cookies = true;
+    }
+    if (process.browser) {
+      localStorage.removeItem("vuex");
+    }
   }
 };
 </script>

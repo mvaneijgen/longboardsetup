@@ -9,7 +9,8 @@ footer {
   > .inner {
     max-width: 100%;
     @include media-breakpoint-up(md) {
-      max-width: 80vw;
+      max-width: 1400px;
+      width: 70vw;
     }
     margin: 0 auto;
     grid-auto-rows: auto;

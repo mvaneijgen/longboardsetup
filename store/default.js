@@ -4,7 +4,7 @@ export const state = () => ({
   url: "https://longboardsetup.com",
   api: "https://api.longboardsetup.com",
   description:
-    "I am a graphic desigher from The Netherlands, working for my self since 2009 and recently under the name Studio Alloy as a collective of creative designer and developers.",
+    "I am a graphic designer from The Netherlands, working for myself since 2009 and recently under the name Studio Alloy which is a collective of creative designers and developers.",
   //------------------------------------------------------//
   // Site content
   //------------------------------------------------------//
@@ -27,6 +27,7 @@ export const state = () => ({
     github_username: " mvaneijgen",
     linkedin_username: "mvaneijgen",
     codepen_username: "mvaneijgen",
+    reddit_username: "mvaneijgen",
     avatar: '"http://0.gravatar.com/avatar/8a68ce0259bbb16411035e487ecb27c5"',
     url: "https://mvaneijgen.nl",
   },
@@ -94,6 +95,14 @@ export const state = () => ({
       cta: "Contact",
       type: "",
       url: "/submit",
+    },
+    {
+      title: "Want to help moderate this site?",
+      description:
+        "If you want to help making this site even better, I would love to hear from you. Just shoot me a message!",
+      cta: "Contact",
+      type: "",
+      url: "/contact",
     },
   ],
   //------------------------------------------------------//

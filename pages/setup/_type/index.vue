@@ -39,7 +39,8 @@ export default {
       type: this.$route.params.type,
       page: this.$store.state.items[this.$route.params.type].page,
       loading: false,
-      moreResults: true
+      moreResults: true,
+      notificationMissing: false
     };
   }, // End data
   computed: {
@@ -111,16 +112,24 @@ export default {
   },
   // Life cycle hooks
   mounted() {
-    const notification = {
-      title: "Are you missing products?",
-      content:
-        "We've gathered around 2000+ items, but there are so much more items that we’re still missing.",
-      image: "",
-      type: "",
-      link: "/submit",
-      timer: 10000
-    };
-    this.$store.commit("notifications/addNotification", notification);
+    //------------------------------------------------------//
+    // Create Notification
+    //------------------------------------------------------//
+    if (!this.notificationMissing) {
+      const notification = {
+        title: "Are you missing products?",
+        content:
+          "We've gathered around 2000+ items, but there are so much more items that we’re still missing.",
+        image: "",
+        type: "",
+        link: "/submit",
+        timer: 10000
+      };
+      this.$store.commit("notifications/addNotification", notification);
+      this.notificationMissing = true;
+    }
+    // END Create Notification
+
     this.itemsinfIniteScroll();
   },
   created() {

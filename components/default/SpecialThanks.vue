@@ -1,6 +1,6 @@
 <template>
   <div class="component-SpecialThanks">
-    <h3>Special thanks!</h3>
+    <h3>Special thanks to!</h3>
     <ul>
       <li v-for="(person, index) in people" :key="index">
         <a v-if="person.url" :href="person.url">
