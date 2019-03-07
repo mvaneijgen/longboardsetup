@@ -53,19 +53,20 @@ export default {
     return {
       title: "Share your setup",
       copiedURL: false,
-      copiedURLfailed: false
+      copiedURLfailed: false,
+      fullURL: ""
     };
   }, // End data
   computed: {
     ...mapGetters({
       getSetupCurrent: "setup/getSetupCurrent",
       getName: "name/getName"
-    }),
-    fullURL: function() {
-      if (process.browser) {
-        return window.location.href;
-      }
-    }
+    })
+    // fullURL: function() {
+    //   if (process.browser) {
+    //     return window.location.href;
+    //   }
+    // }
   },
   methods: {
     copyURL: function() {
@@ -116,6 +117,13 @@ export default {
       })(window, document, navigator);
 
       Clipboard.copy(this.fullURL);
+    }
+  },
+  watch: {
+    $route() {
+      if (process.browser) {
+        this.fullURL = window.location.href;
+      }
     }
   }
 };

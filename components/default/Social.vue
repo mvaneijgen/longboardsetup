@@ -1,7 +1,8 @@
 <template>
   <div class="component-Social">
+    <h5 class="centered">Share the link above to any of your favorite social platforms</h5>
     <ul class="share-buttons">
-      <li>
+      <!-- <li>
         <h3>Share</h3>
       </li>
       <li>
@@ -17,7 +18,7 @@
       </li>
       <li>
         <a
-          href="`https://www.facebook.com/sharer/sharer.php?u=${fullURL}&t=${shareText}`"
+          :href="`https://www.facebook.com/sharer/sharer.php?u=${fullURL}&t=${shareText}`"
           target="_blank"
           title="Share on Facebook"
         >
@@ -36,8 +37,7 @@
             <icon-twitter/>
           </icon-base>
         </a>
-      </li>
-
+      </li>-->
       <!-- <li class="whatsapp"  v-if="isMobile">
         <a
           href="`whatsapp://send?text=${fullURL}%20${shareText}`"
@@ -78,17 +78,18 @@ export default {
     return {
       title: "Social",
       // shareText: this.$store.getters("name/getName")
-      shareText: "test"
+      shareText: "test",
+      fullURL: ""
     };
   }, // End data
-  computed: {
-    fullURL: function() {
+  // mounted:
+  watch: {
+    $route() {
       if (process.browser) {
-        return window.location.href;
+        this.fullURL = window.location.href;
       }
     }
   }
-  // mounted:
 };
 </script>
 

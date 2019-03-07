@@ -52,7 +52,7 @@ export default {
     };
   }, // End data
   methods: {
-    doStuff() {
+    animateHeader() {
       const timelineWave = new TimelineMax();
 
       timelineWave
@@ -72,7 +72,7 @@ export default {
   },
   watch: {
     $route() {
-      this.doStuff();
+      this.animateHeader();
     }
   }
 };
