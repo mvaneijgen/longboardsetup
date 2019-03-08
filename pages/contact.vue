@@ -8,12 +8,15 @@
           <p>
             This site is entirely build and designed by me (
             <a
+              target="_blank"
               :href="this.$store.state.default.me.url"
             >Mitchel van Eijgen</a> ). The code can be found in the
             <a
+              target="_blank"
               href="https://github.com/mvaneijgen/longboardsetup"
             >Github repository</a>, it's also being hosted on Github, with the help of
             <a
+              target="_blank"
               href="//pages.github.com"
             >Github Pages</a>.
           </p>
@@ -27,22 +30,28 @@
           </p>
           <ul>
             <li>
-              <a target="_blank" :href="`${this.$store.state.default.me.twitter_username}`">Twitter</a>
-            </li>
-            <li>
-              <a target="_blank" :href="`${this.$store.state.default.me.reddit_username}`">Reddit</a>
-            </li>
-            <li>
-              <a target="_blank" :href="`${this.$store.state.default.me.github_username}`">Github</a>
+              <a
+                target="_blank"
+                :href="`https://twitter.com/${this.$store.state.default.me.twitter_username}`"
+              >Twitter</a>
             </li>
             <li>
               <a
                 target="_blank"
-                :href="`${this.$store.state.default.me.linkedin_username}`"
-              >Linkedin</a>
+                :href="`https://reddit.com/u/${this.$store.state.default.me.reddit_username}`"
+              >Reddit</a>
             </li>
             <li>
-              <a target="_blank" :href="`${this.$store.state.default.me.codepen_username}`">Codepen</a>
+              <a
+                target="_blank"
+                :href="`https://github.com/${this.$store.state.default.me.github_username}`"
+              >Github</a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                :href="`https://Codepen.io/${this.$store.state.default.me.codepen_username}`"
+              >Codepen</a>
             </li>
           </ul>
         </section>

@@ -3,7 +3,7 @@
     <h3>Special thanks to!</h3>
     <ul>
       <li v-for="(person, index) in people" :key="index">
-        <a v-if="person.url" :href="person.url">
+        <a v-if="person.url" target="_blank" :href="person.url">
           {{ person.name }}
           <small v-if="person.realname">({{ person.realname }})</small>
         </a>

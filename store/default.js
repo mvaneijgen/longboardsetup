@@ -24,7 +24,7 @@ export const state = () => ({
     phone: "06 38 63 27 35",
     address: "Lange Herenvest 122<br/>2011 BX Haarlem",
     twitter_username: "mvaneijgen",
-    github_username: " mvaneijgen",
+    github_username: "mvaneijgen",
     linkedin_username: "mvaneijgen",
     codepen_username: "mvaneijgen",
     reddit_username: "mvaneijgen",
@@ -133,6 +133,10 @@ export const state = () => ({
   //------------------------------------------------------//
   todos: [
     {
+      name: "Keep save state after refresh",
+      description: "",
+    },
+    {
       name: "Allow saving multiple setups",
       description: "",
     },
@@ -146,11 +150,16 @@ export const state = () => ({
     },
     {
       name:
+        "Add a distinctive element that you're looking to upgrade a particular item",
+      description: "",
+    },
+    {
+      name:
         "Do a reimport of a lot of trucks and wheels that have the wrong images",
       description: "",
     },
     {
-      name: "Refactor a lot of code",
+      name: "Refactor all the code",
       description: "",
     },
   ],

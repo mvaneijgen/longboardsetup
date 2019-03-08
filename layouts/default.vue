@@ -26,7 +26,10 @@ export default {
       cookies: false
     };
   }, // End data
-  created() {
+  mounted() {
+    //------------------------------------------------------//
+    // Create cookies notification
+    //------------------------------------------------------//
     if (!this.cookies) {
       const notification = {
         title: "This site uses cookies",
@@ -40,6 +43,9 @@ export default {
       this.$store.commit("notifications/addNotification", notification);
       this.cookies = true;
     }
+    // END Create cookies notification
+  },
+  created() {
     if (process.browser) {
       localStorage.removeItem("vuex");
     }

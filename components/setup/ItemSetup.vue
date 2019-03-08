@@ -33,11 +33,15 @@
         <h3 class="item-title" v-html="item.title"></h3>
         <div v-if="item.view === 'advanced'">
           <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a>
-          <a :href="`//api.longboardsetup.com/${item.type}/${item.slug}`" class="report">Fix item?</a>
+          <a
+            :href="`//api.longboardsetup.com/${item.type}/${item.slug}`"
+            target="_blank"
+            class="report"
+          >Fix item?</a>
         </div>
-        <div v-else>
+        <!-- <div v-else>
           <a href style="pointen-events: none;">Browse all products</a>
-        </div>
+        </div>-->
       </div>
     </div>
     <!-- <button v-if="item.view != 'simple'" @click="toggleInfo" class="btn btn--small btn--subtle">

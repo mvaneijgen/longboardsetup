@@ -6,7 +6,7 @@
         <!-- <h5 v-html="this.$store.state.default.tagline"></h5> -->
         <p>PC part picker, but for longboards.</p>
 
-        <p>Build & share you (dream) setup, too get feedback or just to show the world how awesome it is.</p>
+        <p>Build & share your (dream) setup, too get feedback or just to show the world how awesome it is.</p>
 
         <SpecialThanks/>
       </div>

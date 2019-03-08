@@ -10,7 +10,7 @@
             <p>
               <strong v-if="item.custom">{{item.custom}}</strong>
               <strong v-else>Item type</strong>
-              <span v-if="item.location">| {{item.location}}</span>
+              <span v-if="item.location && locationOn">| {{item.location}}</span>
             </p>
           </div>
           <h3 v-if="item.title">{{ item.title }}</h3>
@@ -115,7 +115,7 @@ export default {
 
       // this.item.slug = `${this.item.custom}~${slugify(this.item.title)}`; // ! Will remove capitalize words by user
       this.item.slug = `${this.item.custom}~${this.item.title}`;
-      if (this.item.location) {
+      if (this.item.location && this.locationOn) {
         this.item.slug += `~${this.item.location}`;
       }
       this.$store.commit("setup/setupAdd", this.item);
@@ -132,7 +132,7 @@ export default {
 
       const notification = {
         title: `${this.item.title} removed from your setup`,
-        content: "We'll miss him",
+        content: "We'll shall miss it.",
         image: "",
         type: "warning",
         timer: 6000

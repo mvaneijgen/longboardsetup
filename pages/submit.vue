@@ -18,6 +18,7 @@
             <a
               v-for="(type, index) in types"
               :key="index"
+              target="_blank"
               :href="`https://api.longboardsetup.com/submit-${type}`"
               class="btn btn--large"
             >{{type}} from</a>
@@ -37,6 +38,7 @@
           <br>
           <a
             href="https://api.longboardsetup.com/bulk-submit"
+            target="_blank"
             class="btn btn--alt btn--large"
           >Go to the submit form</a>
         </section>
