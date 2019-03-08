@@ -30,9 +30,12 @@
         <ul>
           <li v-for="item in getSetupCurrent" :key="item.id">
             <span>
-              {{item.type.replace('decks','deck')}}
+              <span v-if="item.custom">{{item.custom.replace(/[0-9]/g, "")}}</span>
+              <span v-else>{{item.type}}</span>
+              
               <span
-                v-if="item.location && item.location !== ''"
+                class="location"
+                v-if="item.location && item.location !== '' && item.location !== 'undefined'"
               >| {{ item.location }}</span>
             </span>
             <span v-html="item.title"></span>
@@ -268,6 +271,9 @@ export default {
             font-weight: 700;
             font-size: 0.8rem;
             line-height: 1.2em;
+            .location {
+              margin-left: 5px;
+            }
             &:first-of-type {
               text-transform: uppercase;
             }

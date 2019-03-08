@@ -39,7 +39,6 @@
       padding: $base-margin;
     }
     color: #eee;
-    text-shadow: 1px 1px rgba($brand-dark, 0.5);
     // background-color: rgba($brand-light, 0.3);
     // background-color: red !important;
     // color: $brand-light;
@@ -128,6 +127,7 @@
       transition-duration: 500ms;
       transition-delay: 300ms;
       transition-timing-function: ease;
+      text-shadow: 1px 1px rgba($brand-dark, 0.5);
     }
     .item-title {
       margin-bottom: $base-margin;
