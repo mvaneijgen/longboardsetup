@@ -43,10 +43,7 @@
           </nuxt-link>
         </template>
 
-        <div
-          v-if="'setup-type' == this.$route.name || 'setup-type-search' == this.$route.name"
-          class="alloy-input-field"
-        >
+        <div v-if="'setup-type' == this.$route.name" class="alloy-input-field">
           <form id="searchForm" @submit.prevent="searchSubmit" action="#" method="post">
             <label for="searchTerm">Search</label>
             <input
@@ -124,6 +121,10 @@ export default {
         itemType: this.$route.params.type
       });
       // 📲 Route to _type search page
+      // this.$router.push({
+      //   path: `/setup/${this.$route.params.type}/search`,
+      //   query: { q: this.searchField }
+      // });
       this.$router.push({
         path: `/setup/${this.$route.params.type}/search`,
         query: { q: this.searchField }
