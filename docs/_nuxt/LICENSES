@@ -1,21 +1,9 @@
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
- * This work is subject to the terms at http://greensock.com/standard-license or for
- * Club GreenSock members, the software agreement that was issued with your membership.
- * 
- * @author: Jack Doyle, jack@greensock.com
- **/
-
-/*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
- * UPDATES AND DOCS AT: http://greensock.com
- *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -24,10 +12,10 @@
 
 /*!
  * VERSION: 0.3.1
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -35,11 +23,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  *
@@ -47,11 +35,11 @@
  */
 
 /*!
- * VERSION: 1.16.0
- * DATE: 2018-05-30
+ * VERSION: 1.16.1
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -59,11 +47,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -71,11 +59,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -84,10 +72,10 @@
 
 /*!
  * VERSION: 0.6.1
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -96,10 +84,10 @@
 
 /*!
  * VERSION: 1.6.0
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -111,7 +99,7 @@
  * DATE: 2018-05-30
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -119,11 +107,11 @@
  **/
 
 /*!
- * VERSION: 1.20.5
- * DATE: 2018-05-30
+ * VERSION: 2.1.0
+ * DATE: 2019-02-15
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -131,23 +119,11 @@
  */
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
- * This work is subject to the terms at http://greensock.com/standard-license or for
- * Club GreenSock members, the software agreement that was issued with your membership.
- * 
- * @author: Jack Doyle, jack@greensock.com
- **/
-
-/*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
- * UPDATES AND DOCS AT: http://greensock.com
- *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -156,10 +132,10 @@
 
 /*!
  * VERSION: 0.3.1
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -167,11 +143,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  *
@@ -179,11 +155,11 @@
  */
 
 /*!
- * VERSION: 1.16.0
- * DATE: 2018-05-30
+ * VERSION: 1.16.1
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -191,11 +167,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -203,11 +179,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -216,10 +192,10 @@
 
 /*!
  * VERSION: 0.6.1
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -228,10 +204,10 @@
 
 /*!
  * VERSION: 1.6.0
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -243,7 +219,7 @@
  * DATE: 2018-05-30
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -251,11 +227,11 @@
  **/
 
 /*!
- * VERSION: 1.20.5
- * DATE: 2018-05-30
+ * VERSION: 2.1.0
+ * DATE: 2019-02-15
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -263,23 +239,11 @@
  */
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
- * This work is subject to the terms at http://greensock.com/standard-license or for
- * Club GreenSock members, the software agreement that was issued with your membership.
- * 
- * @author: Jack Doyle, jack@greensock.com
- **/
-
-/*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
- * UPDATES AND DOCS AT: http://greensock.com
- *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -288,10 +252,10 @@
 
 /*!
  * VERSION: 0.3.1
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -299,11 +263,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  *
@@ -311,11 +275,11 @@
  */
 
 /*!
- * VERSION: 1.16.0
- * DATE: 2018-05-30
+ * VERSION: 1.16.1
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -323,11 +287,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -335,11 +299,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -348,10 +312,10 @@
 
 /*!
  * VERSION: 0.6.1
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -360,10 +324,10 @@
 
 /*!
  * VERSION: 1.6.0
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -375,7 +339,7 @@
  * DATE: 2018-05-30
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -383,11 +347,11 @@
  **/
 
 /*!
- * VERSION: 1.20.5
- * DATE: 2018-05-30
+ * VERSION: 2.1.0
+ * DATE: 2019-02-15
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -395,23 +359,11 @@
  */
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
- * This work is subject to the terms at http://greensock.com/standard-license or for
- * Club GreenSock members, the software agreement that was issued with your membership.
- * 
- * @author: Jack Doyle, jack@greensock.com
- **/
-
-/*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
- * UPDATES AND DOCS AT: http://greensock.com
- *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -420,10 +372,10 @@
 
 /*!
  * VERSION: 0.3.1
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -431,11 +383,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  *
@@ -443,11 +395,11 @@
  */
 
 /*!
- * VERSION: 1.16.0
- * DATE: 2018-05-30
+ * VERSION: 1.16.1
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -455,11 +407,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -467,11 +419,11 @@
  **/
 
 /*!
- * VERSION: 2.0.1
- * DATE: 2018-05-30
+ * VERSION: 2.1.2
+ * DATE: 2019-03-01
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -480,10 +432,10 @@
 
 /*!
  * VERSION: 0.6.1
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -492,10 +444,10 @@
 
 /*!
  * VERSION: 1.6.0
- * DATE: 2018-05-30
+ * DATE: 2018-08-27
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -507,7 +459,7 @@
  * DATE: 2018-05-30
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -515,11 +467,11 @@
  **/
 
 /*!
- * VERSION: 1.20.5
- * DATE: 2018-05-30
+ * VERSION: 2.1.0
+ * DATE: 2019-02-15
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
  * 
@@ -527,37 +479,14 @@
  */
 
 /*!
- * Vue.js v2.5.16
- * (c) 2014-2018 Evan You
+ * Vue.js v2.6.8
+ * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
 
-/*!
-Copyright (C) 2013-2017 by Andrea Giammarchi - @WebReflection
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-*/
-
 /**
- * vuex v3.0.1
- * (c) 2017 Evan You
+ * vuex v3.1.0
+ * (c) 2019 Evan You
  * @license MIT
  */
 
@@ -573,17 +502,17 @@ THE SOFTWARE.
  * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
  * @license   Licensed under MIT license
  *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
- * @version   v4.2.4+314e4831
+ * @version   v4.2.6+9869a4bc
  */
 
 /**
- * vue-meta v1.5.2
- * (c) 2018 Declan de Wet & Atinux
+ * vue-meta v1.5.8
+ * (c) 2018 Declan de Wet & Sébastien Chopin (@Atinux)
  * @license MIT
  */
 
 /*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
+	object-assign
+	(c) Sindre Sorhus
+	@license MIT
+	*/
