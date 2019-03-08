@@ -21,6 +21,7 @@
           </transition>
 
           <h1
+            class="loading"
             style="color: #fff"
             v-if="loading && moreResults"
           >Loading {{this.$route.params.type}}...</h1>

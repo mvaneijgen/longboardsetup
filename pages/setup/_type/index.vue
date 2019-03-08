@@ -12,7 +12,7 @@
       <transition name="slide-in">
         <NoMoreResults v-if="!moreResults"/>
       </transition>
-      <h1 style="color: #fff" v-if="loading && moreResults">Loading {{type}}...</h1>
+      <h1 class="loading" style="color: #fff" v-if="loading && moreResults">Loading {{type}}...</h1>
       <button @click="itemsLoad" class="centered" v-if="moreResults" :disabled="loading">Load more</button>
     </div>
   </div>

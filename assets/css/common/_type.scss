@@ -92,3 +92,9 @@ p {
 a {
   color: $brand-one-lighten;
 }
+
+.loading {
+  text-shadow: 1px 1px rgba($brand-dark, 1);
+  position: relative;
+  z-index: 1;
+}
