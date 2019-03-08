@@ -43,7 +43,10 @@
           </nuxt-link>
         </template>
 
-        <div v-if="'setup-type' == this.$route.name" class="alloy-input-field">
+        <div
+          v-if="'setup-type' == this.$route.name || 'setup-type-search' == this.$route.name"
+          class="alloy-input-field"
+        >
           <form id="searchForm" @submit.prevent="searchSubmit" action="#" method="post">
             <label for="searchTerm">Search</label>
             <input

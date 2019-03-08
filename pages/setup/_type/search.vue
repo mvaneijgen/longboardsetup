@@ -94,9 +94,9 @@ export default {
               this.$route.params.type
             );
             // console.warn(`pageTotal = ${pageTotal} pageCurrent = ${pageCurrent}`);
-            if (pageCurrent >= pageTotal) {
-              this.moreResults = false;
-            }
+            // if (pageCurrent >= pageTotal) {
+            //   this.moreResults = false;
+            // }
             // Push the data to the store
             this.$store.commit({
               type: "items/addSearchItems",
@@ -144,6 +144,7 @@ export default {
   watch: {
     $route(to, from) {
       // react to route changes...
+      console.warn("banan");
       this.itemsLoad();
     }
   },
