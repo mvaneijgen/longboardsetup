@@ -1,8 +1,18 @@
 # Longboard Setup
 
-> Build and share your (dream) longboard setup!
+> Like PC part picker but for your longboard setup! Build and share your (dream) longboard setup!
 
 ![](https://longboardsetup.com/social.jpg)
+
+**TL;DR** Like PC part picker but for your longboard setup!
+
+Build and share your (dream) setup! The past half year I’ve spend building longboardsetup.com
+
+The main reason for building this app was that I find it really hard to understand the feedback I’m getting while searching for a new setup, this resulted in doing some mispurchases in the past. I know the community has the knowledge, there only needs to be an easier way to share it… and that is where longboardsetup.com comes in! It is like PC Part Picker, but for longboards!
+
+This site will be completely free, with no ads, and I promise to keep it that way. It’s just something that I want to give back to the awesome longboard community. I couldn’t have done it without the help of some awesome people along the way, from my amazing girlfriend who kept listening to all my crazy ideas. Also thanks for the amazing feedback aiyekara, aureex, FrodoTBaggins88 and JBizzy and all the random strangers I’ve forced my phone on and said “how about you test this app for me”, you guys roll (rock)!
+
+[For anyone interested here is my setup](https://longboardsetup.com/setup/?decks=rayne-dee-lite-nemesis&trucks=caliber-ii-184mm-44-blackout-trucks&wheels=seismic-speed-vent-85mm-wheels-clear-blue&custom3=bearings~Amphetamine%20Ceramix%20Gold~undefined&custom4=custom~8.5mm%20Drop-thru%20shock-pads%20~Top%20mounted&custom5=custom~Hammerite%20black%20metal%20paint.%20Yep%20you%20read%20it%20right,%20this%20deck%20is%20not%20water%20prove,%20so%20I%20had%20to%20improvise%21~Side&name=Long%20distance%20push%20setup%20%40mvaneijgen). I’m looking for a deck upgrade for long distance pushing, it must be water prove and if I can keep my trucks and wheels that would be awesome. If you have any suggestions let me know!
 
 ## API
 
