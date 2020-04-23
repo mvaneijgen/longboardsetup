@@ -56,40 +56,39 @@
 </template>
 
 <script>
-  import {TweenMax, TimelineMax} from "gsap";
-  // import drawSVG from "@/assets/js/DrawSVGPlugin.js";
+import { gsap } from "gsap";
+// import drawSVG from "@/assets/js/DrawSVGPlugin.js";
 
-  export default {
-    // props: ['item'],
-    name: 'EmptyDecksIcon',
-    data() {
-      return {
-        title: 'EmptyDecksIcon'
-      }
-    }, // End data
-    mounted() {
-if (process.browser) {
-//we set visibility:hidden in the CSS to avoid an initial flash - make them visible now, but the from() tweens are going to essentially hide them anyway because their stroke position/length will be 0.
-TweenMax.set(".baseplate, .cap, .bars, .hanger", {visibility:"visible"});
+export default {
+  // props: ['item'],
+  name: "EmptyDecksIcon",
+  data() {
+    return {
+      title: "EmptyDecksIcon",
+    };
+  }, // End data
+  mounted() {
+    if (process.browser) {
+      //we set visibility:hidden in the CSS to avoid an initial flash - make them visible now, but the from() tweens are going to essentially hide them anyway because their stroke position/length will be 0.
+      gsap.set(".baseplate, .cap, .bars, .hanger", {
+        visibility: "visible",
+      });
 
-var timeline = new TimelineMax();
+      var timeline = gsap.timeline();
 
-timeline
-// .delay(4)
-.from(".baseplate .outer", 3, {drawSVG:0})
-.from(".baseplate .inner", 2, {drawSVG:0}, "-=2")
-.from(".hanger .outer", 3, {drawSVG:0}, "-=2")
-.from(".cap *", 1, {drawSVG:0}, "-=2")
-.from(".hanger .inner", 2, {drawSVG:0}, "-=2")
-.from(".bar", 1, {drawSVG:0}, "-=1")
-.staggerFrom(".threads *", 0.5, {drawSVG:0}, 0.1, "-=1")
-.staggerFrom(".threadsTwo *", 0.5, {drawSVG:0}, 0.1, "-=1")
-;
-
-}
-
+      timeline
+        // .delay(4)
+        .from(".baseplate .outer", 3, { drawSVG: 0 })
+        .from(".baseplate .inner", 2, { drawSVG: 0 }, "-=2")
+        .from(".hanger .outer", 3, { drawSVG: 0 }, "-=2")
+        .from(".cap *", 1, { drawSVG: 0 }, "-=2")
+        .from(".hanger .inner", 2, { drawSVG: 0 }, "-=2")
+        .from(".bar", 1, { drawSVG: 0 }, "-=1")
+        .staggerFrom(".threads *", 0.5, { drawSVG: 0 }, 0.1, "-=1")
+        .staggerFrom(".threadsTwo *", 0.5, { drawSVG: 0 }, 0.1, "-=1");
     }
-  }
+  },
+};
 </script>
 
 <style scoped>

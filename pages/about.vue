@@ -24,23 +24,23 @@
         </p>
       </div>
     </div>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
 <script>
-import ToolsUsed from "@/components/default/ToolsUsed.vue";
+// import ToolsUsed from "@/components/default/ToolsUsed.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   transition: "page-alt",
   components: {
-    ToolsUsed,
-    Footer
+    // ToolsUsed,
+    Footer,
   },
   data() {
     return {
-      notificationShow: true
+      notificationShow: true,
     };
   },
   methods: {
@@ -52,10 +52,10 @@ export default {
         content: "But if you really want here is boring text",
         image: "",
         type: "",
-        timer: 6000
+        timer: 6000,
       };
       this.$store.commit("notifications/addNotification", notification);
-    }
+    },
   },
   created() {
     if (process.browser) {
@@ -63,6 +63,6 @@ export default {
         this.notificationAbout();
       }
     }
-  }
+  },
 };
 </script>

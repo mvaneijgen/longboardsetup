@@ -12,15 +12,15 @@
 </template>
 
 <script>
-import {TweenLite, TweenMax, TimelineMax} from "gsap";
+import { gsap } from "gsap";
 
 export default {
   // props: ['item'],
-  name: 'Background',
+  name: "Background",
   data() {
     return {
-      title: 'Background'
-    }
+      title: "Background",
+    };
   }, // End data
   // mounted() {
   //   if (process.browser) {
@@ -51,7 +51,7 @@ export default {
   //     });
   //   }
   // }
-}
+};
 </script>
 
 <style lang="scss" scoped>

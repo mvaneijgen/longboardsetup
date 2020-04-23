@@ -15,20 +15,20 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.1",
-    "@nuxtjs/google-tag-manager": "^2.1.4",
-    "gsap": "^2.0.1",
-    "npm": "^6.8.0",
-    "nuxt": "^1.0.0",
-    "vuex-persist": "^2.0.0"
+    "@nuxtjs/axios": "^5.10.0",
+    "@nuxtjs/google-tag-manager": "^2.3.2",
+    "gsap": "^3.2.6",
+    "npm": "^6.14.4",
+    "nuxt": "^2.12.2",
+    "vuex-persist": "^2.2.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.15.0",
-    "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0",
-    "node-sass": "^4.9.2",
-    "sass-loader": "^7.0.3"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2"
   }
 }

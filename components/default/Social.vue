@@ -57,29 +57,29 @@
 // Icon logic
 // import { isMobile } from "@/assets/utils/filters.js";
 
-import IconBase from "@/components/IconBase.vue";
-import IconFacebook from "@/components/icons/IconFacebook.vue";
-import IconReddit from "@/components/icons/IconReddit.vue";
-import IconTwitter from "@/components/icons/IconTwitter.vue";
-import IconWhatsapp from "@/components/icons/IconWhatsapp.vue";
+// import IconBase from "@/components/IconBase.vue";
+// import IconFacebook from "@/components/icons/IconFacebook.vue";
+// import IconReddit from "@/components/icons/IconReddit.vue";
+// import IconTwitter from "@/components/icons/IconTwitter.vue";
+// import IconWhatsapp from "@/components/icons/IconWhatsapp.vue";
 
 export default {
   // props: ['item'],
   name: "Social",
   components: {
-    // Icon logic
-    IconBase,
-    IconFacebook,
-    IconTwitter,
-    IconWhatsapp,
-    IconReddit
+    // // Icon logic
+    // IconBase,
+    // IconFacebook,
+    // IconTwitter,
+    // IconWhatsapp,
+    // IconReddit,
   },
   data() {
     return {
       title: "Social",
       // shareText: this.$store.getters("name/getName")
       shareText: "test",
-      fullURL: ""
+      fullURL: "",
     };
   }, // End data
   // mounted:
@@ -88,8 +88,8 @@ export default {
       if (process.browser) {
         this.fullURL = window.location.href;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

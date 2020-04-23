@@ -25,11 +25,8 @@
           <span>
             <span v-if="item.custom">{{item.custom.replace(/[0-9]/g, "")}}</span>
             <span v-else>{{item.type}}</span>
-            
-            <span
-              class="location"
-              v-if="item.location && item.location !== '' && item.location !== 'undefined'"
-            >| {{ item.location }}</span>
+
+            <span class="location" v-if="item.location && item.location !== '' && item.location !== 'undefined'">| {{ item.location }}</span>
           </span>
           <span v-html="item.title"></span>
         </li>
@@ -38,7 +35,7 @@
       <div class="centered">
         <button class="btn btn--large btn--alt" @click="copyURL">Copy link!</button>
       </div>
-      <Social/>
+      <Social />
     </div>
   </div>
 </template>
@@ -46,27 +43,27 @@
 <script>
 import { mapGetters } from "vuex";
 import Social from "@/components/default/Social.vue";
-import IconBase from "@/components/IconBase.vue";
+// import IconBase from "@/components/IconBase.vue";
 
 export default {
   name: "Share",
   components: {
     Social,
-    IconBase
+    // IconBase,
   },
   data() {
     return {
       title: "Share your setup",
       copiedURL: false,
       copiedURLfailed: false,
-      fullURL: ""
+      fullURL: "",
     };
   }, // End data
   computed: {
     ...mapGetters({
       getSetupCurrent: "setup/getSetupCurrent",
-      getName: "name/getName"
-    })
+      getName: "name/getName",
+    }),
     // fullURL: function() {
     //   if (process.browser) {
     //     return window.location.href;
@@ -117,20 +114,20 @@ export default {
         };
 
         return {
-          copy: copy
+          copy: copy,
         };
       })(window, document, navigator);
 
       Clipboard.copy(this.fullURL);
-    }
+    },
   },
   watch: {
     $route() {
       if (process.browser) {
         this.fullURL = window.location.href;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -66,10 +66,10 @@ module.exports = {
           "https://fonts.googleapis.com/css?family=Barlow+Condensed:400,700|Barlow:400,700",
       },
     ],
-    script: [
-      { src: "/DrawSVGPlugin.min.js" },
-      { src: "/MorphSVGPlugin.min.js" },
-    ],
+    // script: [
+    //   { src: "/DrawSVGPlugin.min.js" },
+    //   { src: "/MorphSVGPlugin.min.js" },
+    // ],
   },
   css: ["@/assets/css/main.scss"],
 

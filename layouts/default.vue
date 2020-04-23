@@ -1,13 +1,11 @@
 <template>
   <div>
-    <Header/>
-    <nuxt/>
+    <Header />
+    <nuxt />
     <transition name="slide-up">
-      <Navigation
-        v-if="'setup' == this.$route.name || 'setup-type' == this.$route.name || 'setup-custom' == this.$route.name || 'setup-type-search' == this.$route.name || !this.$store.state.setup.setupNotEdited"
-      />
+      <Navigation v-if="'setup' == this.$route.name || 'setup-type' == this.$route.name || 'setup-custom' == this.$route.name || 'setup-type-search' == this.$route.name || !this.$store.state.setup.setupNotEdited" />
     </transition>
-    <NotificationsContainer/>
+    <NotificationsContainer />
   </div>
 </template>
 <script>
@@ -19,11 +17,11 @@ export default {
   components: {
     Header,
     NotificationsContainer,
-    Navigation
+    Navigation,
   },
   data() {
     return {
-      cookies: false
+      cookies: false,
     };
   }, // End data
   mounted() {
@@ -38,7 +36,7 @@ export default {
         image: "",
         type: "warning",
         link: "/privacy",
-        timer: 10000
+        timer: 10000,
       };
       this.$store.commit("notifications/addNotification", notification);
       this.cookies = true;
@@ -49,7 +47,7 @@ export default {
     if (process.browser) {
       localStorage.removeItem("vuex");
     }
-  }
+  },
 };
 </script>
 

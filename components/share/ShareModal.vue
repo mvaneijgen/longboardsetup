@@ -3,7 +3,7 @@
     <div class="alloy-cards" id="share-container">
       <button class="btn close" @click="closeShareModal">
         <icon-base width="20" height="20" icon-name="close">
-          <icon-close/>
+          <icon-close />
         </icon-base>
       </button>
       <div v-if="copiedURL" class="copied centered">
@@ -32,11 +32,8 @@
             <span>
               <span v-if="item.custom">{{item.custom.replace(/[0-9]/g, "")}}</span>
               <span v-else>{{item.type}}</span>
-              
-              <span
-                class="location"
-                v-if="item.location && item.location !== '' && item.location !== 'undefined'"
-              >| {{ item.location }}</span>
+
+              <span class="location" v-if="item.location && item.location !== '' && item.location !== 'undefined'">| {{ item.location }}</span>
             </span>
             <span v-html="item.title"></span>
           </li>
@@ -45,7 +42,7 @@
         <div class="centered">
           <button class="btn btn--alt btn--large" @click="copyURL">Copy link!</button>
         </div>
-        <Social/>
+        <Social />
       </div>
     </div>
   </div>
@@ -62,25 +59,27 @@ export default {
   components: {
     Social,
     IconBase,
-    IconClose
+    IconClose,
   },
   data() {
     return {
       title: "Share your setup",
       copiedURL: false,
-      copiedURLfailed: false
+      copiedURLfailed: false,
     };
   }, // End data
   computed: {
     ...mapGetters({
       getSetupCurrent: "setup/getSetupCurrent",
-      getName: "name/getName"
+      getName: "name/getName",
     }),
     fullURL: function() {
+      let href = null;
       if (process.browser) {
-        return window.location.href;
+        href = window.location.href;
       }
-    }
+      return href;
+    },
   },
   methods: {
     closeShareModal: function() {
@@ -183,13 +182,13 @@ export default {
         };
 
         return {
-          copy: copy
+          copy: copy,
         };
       })(window, document, navigator);
 
       Clipboard.copy(this.fullURL);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="alloy-items alloy-cards"
-    :data-type="item.type"
-    :data-view="item.view"
-    :data-item-id="item.id"
-    :data-info="showInfo"
-  >
+  <div class="alloy-items alloy-cards" :data-type="item.type" :data-view="item.view" :data-item-id="item.id" :data-info="showInfo">
     <div class="inner" @click="itemEdit">
       <img v-if="item.view != 'simple'" :src="item.image" :alt="item.title">
       <img v-else src="http://alloy.work/codepen/QBOyJj/custom.jpg" :alt="item.title">
@@ -17,11 +11,7 @@
         </div>
         <h3 class="item-title" v-html="item.title"></h3>
         <a :href="'http://www.google.com/search?q=' + item.title.replace(/ /g,'+')">Search online</a>
-        <a
-          :href="`//api.longboardsetup.com/${item.type}/${item.slug}`"
-          target="_blank"
-          class="report"
-        >Fix item?</a>
+        <a :href="`//api.longboardsetup.com/${item.type}/${item.slug}`" target="_blank" class="report">Fix item?</a>
       </div>
     </div>
     <!-- <button v-if="item.view != 'simple'" @click="toggleInfo" class="btn btn--small btn--subtle">
@@ -34,20 +24,20 @@
 
 <script>
 // Icon logic
-import IconBase from "@/components//IconBase.vue";
-import IconInfo from "@/components/icons/IconInfo.vue";
+// import IconBase from "@/components/IconBase.vue";
+// import IconInfo from "@/components/icons/IconInfo.vue";
 
 export default {
   props: ["item"],
   name: "Item",
   components: {
-    // Icon logic
-    IconBase,
-    IconInfo
+    // // Icon logic
+    // IconBase,
+    // IconInfo,
   },
   data() {
     return {
-      showInfo: false
+      showInfo: false,
     };
   }, // End data
   methods: {
@@ -65,7 +55,7 @@ export default {
           "Why don't you give it a name! Just lick on the title on top of the screen",
         image: "",
         type: "warning",
-        timer: 6000
+        timer: 6000,
       };
       this.$store.commit("notifications/addNotification", notification);
     },
@@ -77,10 +67,10 @@ export default {
         this.triggerNameSetupNotification();
       }
       this.$router.push({
-        path: "/setup"
+        path: "/setup",
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
