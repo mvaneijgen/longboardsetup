@@ -17,7 +17,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.10.0",
     "@nuxtjs/google-tag-manager": "^2.3.2",
-    "gsap": "^3.2.6",
+    "gsap": "^3.6.0",
     "npm": "^6.14.4",
     "nuxt": "^2.12.2",
     "vuex-persist": "^2.2.0"
